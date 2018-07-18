@@ -1,4 +1,8 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
+import UserLogin from "../components/UserLogin";
+import UserSettings from "../components/UserSettings";
 
 class UserContainer extends React.Component {
   constructor(props) {
@@ -6,7 +10,11 @@ class UserContainer extends React.Component {
   }
 
   render() {
-    return <div>UserContainer</div>;
+    return (
+      <div>
+        <UserSettings />
+      </div>
+    );
   }
 }
 
