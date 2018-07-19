@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
+import { connect } from "react-redux";
 import UserLogin from "../components/UserLogin";
 import UserSettings from "../components/UserSettings";
 
@@ -11,11 +11,15 @@ class UserContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <UserSettings />
-      </div>
+      <div>{this.props.currentUser ? <UserSettings /> : <UserLogin />}</div>
     );
   }
 }
 
-export default UserContainer;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(UserContainer);

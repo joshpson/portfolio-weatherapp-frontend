@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadUser } from "../actions/index";
 
 class UserSettings extends React.Component {
   constructor(props) {
@@ -8,10 +7,6 @@ class UserSettings extends React.Component {
     this.state = {
       editable: false
     };
-  }
-
-  componentDidMount() {
-    this.props.mountUser();
   }
 
   handleClick = e => {
@@ -85,13 +80,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    mountUser: () => dispatch(loadUser())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserSettings);
+export default connect(mapStateToProps)(UserSettings);
