@@ -2,9 +2,7 @@ const currentUser = (oldCurrentUser = null, action) => {
   switch (action.type) {
     case "FETCHED_USER":
       return action.user;
-    case "FETCHING_USER":
-      return null;
-    case "LOGOUT_USER":
+    default:
       return null;
   }
   return oldCurrentUser;

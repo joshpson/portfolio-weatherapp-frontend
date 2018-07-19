@@ -11,14 +11,22 @@ class UserContainer extends React.Component {
 
   render() {
     return (
-      <div>{this.props.currentUser ? <UserSettings /> : <UserLogin />}</div>
+      <div>
+        {this.props.loginError ? (
+          <div className="alert alert-primary" role="alert">
+            {this.props.loginError}
+          </div>
+        ) : null}
+        {this.props.currentUser ? <UserSettings /> : <UserLogin />}
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loginError: state.errors.login
   };
 };
 
