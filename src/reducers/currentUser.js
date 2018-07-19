@@ -6,6 +6,8 @@ const currentUser = (oldCurrentUser = null, action) => {
       return null;
     case "AUTHENTICATING_USER":
       return null;
+    case "LOGOUT_USER":
+      return null;
   }
   return oldCurrentUser;
 };

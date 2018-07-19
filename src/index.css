@@ -8,3 +8,15 @@ body {
   max-width: 500px;
   margin: auto;
 }
+
+.location-card-body {
+  position: relative;
+}
+
+.skycon-div {
+  position: absolute;
+  opacity: 0.3;
+  width: 40%;
+  height: 40%;
+  right: 0px;
+}
