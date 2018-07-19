@@ -3,45 +3,33 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { authenticateUser, postUser } from "../actions/user";
 
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  passwordConfirmation: ""
+};
+
 class UserLogin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      login: true
+      login: true,
+      ...initialFormState
     };
   }
-  handleFirstName = e => {
+  handleChange = e => {
     this.setState({
-      firstName: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
-  handleLastName = e => {
+  toggleLogin = e => {
+    e.preventDefault();
     this.setState({
-      lastName: e.target.value
-    });
-  };
-
-  handleEmail = e => {
-    this.setState({
-      email: e.target.value
-    });
-  };
-
-  handlePassword = e => {
-    this.setState({
-      password: e.target.value
-    });
-  };
-
-  handlePasswordConfirmation = e => {
-    this.setState({
-      passwordConfirmation: e.target.value
+      login: !this.state.login,
+      ...initialFormState
     });
   };
 
@@ -63,33 +51,6 @@ class UserLogin extends React.Component {
     }
   };
 
-  // postUser = () => {
-  //   fetch(`http://localhost:3000/api/v1/users`, {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify({
-  //       user: {
-  //         first_name: this.state.firstName,
-  //         last_name: this.state.lastName,
-  //         email: this.state.email,
-  //         password: this.state.password,
-  //         password_confirmation: this.state.passwordConfirmation
-  //       }
-  //     })
-  //   }).then(res => {
-  //     if (res.status === 202) {
-  //       this.userLogin();
-  //     }
-  //   });
-  // };
-
-  toggleLogin = e => {
-    e.preventDefault();
-    this.setState({
-      login: !this.state.login
-    });
-  };
-
   render() {
     return (
       <div className="card login-form">
@@ -107,8 +68,9 @@ class UserLogin extends React.Component {
                       type="text"
                       className="form-control"
                       id="inputFirstName"
+                      name="firstName"
                       placeholder="First Name"
-                      onChange={this.handleFirstName}
+                      onChange={this.handleChange}
                       value={this.state.firstName}
                     />
                   </div>
@@ -121,7 +83,8 @@ class UserLogin extends React.Component {
                       className="form-control"
                       id="inputLastName"
                       placeholder="Last Name"
-                      onChange={this.handleLastName}
+                      name="lastName"
+                      onChange={this.handleChange}
                       value={this.state.lastName}
                     />
                   </div>
@@ -135,8 +98,9 @@ class UserLogin extends React.Component {
                 className="form-control"
                 id="inputEmail"
                 placeholder="Enter email"
+                name="email"
+                onChange={this.handleChange}
                 value={this.state.email}
-                onChange={this.handleEmail}
               />
               {this.state.login ? null : (
                 <small id="emailHelp" className="form-text text-muted">
@@ -151,7 +115,8 @@ class UserLogin extends React.Component {
                 className="form-control"
                 id="inputPassword"
                 placeholder="Password"
-                onChange={this.handlePassword}
+                name="password"
+                onChange={this.handleChange}
                 value={this.state.password}
               />
             </div>
@@ -165,7 +130,8 @@ class UserLogin extends React.Component {
                   className="form-control"
                   id="inputPasswordConfirmation"
                   placeholder="Password Confirmation"
-                  onChange={this.handlePasswordConfirmation}
+                  name="passwordConfirmation"
+                  onChange={this.handleChange}
                   value={this.state.passwordConfirmation}
                 />
               </div>

@@ -1,20 +1,15 @@
 import { combineReducers } from "redux";
-import currentUser from "./user";
-import errors from "./errors";
 
-// const initialState = {
-//   currentLocation: null,
-//   currentLocationTime: null,
-//   currentUser: null,
-//   currentUserLocations: [],
-//   currentUserSettings: null,
-//   locationSearchTerm: "",
-//   locationSearchResults: []
-// };
+import currentUser from "./currentUser";
+import errors from "./errors";
+import featuredLocation from "./location";
+import userLocations from "./userLocations";
 
 const rootReducer = combineReducers({
   currentUser: currentUser,
-  errors: errors
+  errors: errors,
+  featuredLocation: featuredLocation,
+  userLocations: userLocations
 });
 
 export default rootReducer;

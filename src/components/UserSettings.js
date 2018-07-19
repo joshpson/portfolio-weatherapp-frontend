@@ -30,7 +30,7 @@ class UserSettings extends React.Component {
               {this.props.currentUser.last_name}
             </h1>
             <div className="form-group row">
-              <label for="email" className="col-sm-2 col-form-label">
+              <label htmlFor="email" className="col-sm-2 col-form-label">
                 Email:
               </label>
               <div className="col-sm-10">
@@ -38,12 +38,12 @@ class UserSettings extends React.Component {
                   type="text"
                   className={this.handleClassName()}
                   id="email"
-                  value={this.props.currentUser.email}
+                  // value={this.props.currentUser.email}
                 />
               </div>
             </div>
             <div className="form-group row">
-              <label for="metric" className="col-sm-2 col-form-label">
+              <label htmlFor="metric" className="col-sm-2 col-form-label">
                 Unit Preferences:
               </label>
               <div className="col-sm-10">
@@ -51,7 +51,7 @@ class UserSettings extends React.Component {
                   type="text"
                   className={this.handleClassName()}
                   id="metric"
-                  value={this.props.currentUser.metric ? "Metric" : "Imperial"}
+                  // value={this.props.currentUser.metric ? "Metric" : "Imperial"}
                   placeholder={
                     this.props.currentUser.metric ? "Metric" : "Imperial"
                   }

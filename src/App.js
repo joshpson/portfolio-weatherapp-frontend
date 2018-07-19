@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadUser } from "./actions/user";
-import LocationContainer from "./containers/LocationContainer.js";
+import UserLocationsContainer from "./containers/UserLocationsContainer.js";
 import SidebarContainer from "./containers/SidebarContainer.js";
 import NewLocationContainer from "./containers/NewLocationContainer.js";
 import UserContainer from "./containers/UserContainer.js";
@@ -24,7 +24,7 @@ class App extends Component {
       <div className="container">
         <NavContainer />
         <Switch>
-          <Route exact path="/" component={LocationContainer} />
+          <Route exact path="/" component={UserLocationsContainer} />
           <Route path="/(user|login)/" component={UserContainer} />
         </Switch>
       </div>

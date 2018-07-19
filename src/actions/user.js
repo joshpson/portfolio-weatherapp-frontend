@@ -1,8 +1,5 @@
-const url = "http://localhost:3000/api/v1/";
-
-const token = () => {
-  return localStorage.getItem("token");
-};
+import { token, url } from "./index";
+import { getUserLocationWeather } from "./location";
 
 const logoutUser = () => dispatch => {
   localStorage.removeItem("token");
@@ -10,7 +7,6 @@ const logoutUser = () => dispatch => {
 };
 
 const loadUser = () => dispatch => {
-  console.log("loadUser");
   if (token()) {
     dispatch({ type: "FETCHING_USER" });
     fetch(`${url}/user`, {
@@ -21,12 +17,14 @@ const loadUser = () => dispatch => {
       }
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: "FETCHED_USER", user }));
+      .then(user => {
+        dispatch({ type: "FETCHED_USER", user });
+        dispatch(getUserLocationWeather(user.locations));
+      });
   }
 };
 
 const authenticateUser = userData => dispatch => {
-  console.log(userData);
   dispatch({ type: "AUTHENTICATING_USER" });
   fetch(`${url}/user_token`, {
     method: "POST",
