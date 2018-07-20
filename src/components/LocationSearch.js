@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { searchNewLocation } from "../actions/location";
+import { searchNewLocation, postLocation } from "../actions/location";
 
 class LocationSearch extends React.Component {
   constructor(props) {
@@ -24,8 +24,12 @@ class LocationSearch extends React.Component {
     );
   };
 
-  handleLocationSelection = placeId => {
-    console.log(placeId);
+  handleLocationSelection = prediction => {
+    let locationData = {
+      name: prediction.structured_formatting.main_text,
+      place_id: prediction.place_id
+    };
+    this.props.postLocation(locationData);
   };
 
   render() {
@@ -50,10 +54,9 @@ class LocationSearch extends React.Component {
         {this.state.query.length > 2 ? (
           <ul className="list-group list-group-flush">
             {this.props.predictions.map(prediction => {
-              let placeId = prediction.place_id;
               return (
                 <li
-                  onClick={() => this.handleLocationSelection(placeId)}
+                  onClick={() => this.handleLocationSelection(prediction)}
                   className="list-group-item"
                   key={prediction.id}
                 >
@@ -70,7 +73,8 @@ class LocationSearch extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    searchNewLocation: query => dispatch(searchNewLocation(query))
+    searchNewLocation: query => dispatch(searchNewLocation(query)),
+    postLocation: locationData => dispatch(postLocation(locationData))
   };
 };
 

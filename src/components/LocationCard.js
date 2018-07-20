@@ -29,7 +29,7 @@ const LocationCard = ({ weather, location }) => {
             />
             {location.name}
           </h2>
-          <p className="card-text">
+          <div className="card-text">
             {weather.hourly.summary}
             <br />
             <h2>
@@ -41,7 +41,7 @@ const LocationCard = ({ weather, location }) => {
             Feels: {Math.round(weather.currently.apparentTemperature)}
             <i className="wi wi-degrees" />
             <br />
-          </p>
+          </div>
           <div className="time-update text-right">
             <small className="text-muted ">
               <Moment format="hh:mm" time={weather.currently.time} />

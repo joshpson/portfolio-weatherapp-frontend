@@ -19,6 +19,25 @@ const getUserLocationWeather = locations => dispatch => {
   }
 };
 
+const postLocation = locationData => dispatch => {
+  fetch(`${url}/locations`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token()}`
+    },
+    body: JSON.stringify(locationData)
+  }).then(res => {
+    if (res.status === 200) {
+      res.json().then(location => {
+        dispatch({ type: "LOCATION_POSTED" });
+        console.log(location);
+      });
+    }
+  });
+};
+
 const searchNewLocation = query => dispatch => {
   dispatch({ type: "FETCHING_NEW_LOCATION_SEARCH_RESULTS" });
   fetch(`${url}/search_cities?query=${query}`, {
@@ -34,4 +53,4 @@ const searchNewLocation = query => dispatch => {
     });
 };
 
-export { getUserLocationWeather, searchNewLocation };
+export { getUserLocationWeather, searchNewLocation, postLocation };
