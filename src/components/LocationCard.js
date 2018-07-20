@@ -17,7 +17,7 @@ class LocationCard extends React.Component {
 
   render() {
     return (
-      <div className="card w-75">
+      <div className="card w-75 location-card">
         <div className="card-body location-card-body">
           <div className="skycon-div">
             <Skycons color="black" icon={this.manipulateIcon()} />
@@ -35,23 +35,26 @@ class LocationCard extends React.Component {
             <p className="card-text">
               {this.props.weather.hourly.summary}
               <br />
-              <h3>
+              <h2>
                 {Math.round(this.props.weather.currently.temperature)}
                 <i className="wi wi-degrees" />
-              </h3>
+              </h2>
               Humidity: {this.props.weather.currently.humidity * 100}%
               <br />
               Feels:{" "}
               {Math.round(this.props.weather.currently.apparentTemperature)}
               <i className="wi wi-degrees" />
+              <br />
             </p>
+            <div className="time-update text-right">
+              <small className="text-muted ">
+                <Moment
+                  format="hh:mm"
+                  time={this.props.weather.currently.time}
+                />
+              </small>
+            </div>
           </div>
-        </div>
-        <div className="card-footer">
-          <small className="text-muted">
-            Last updated at{" "}
-            <Moment format="hh:mm" time={this.props.weather.currently.time} />
-          </small>
         </div>
       </div>
     );
