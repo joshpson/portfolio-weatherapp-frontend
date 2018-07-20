@@ -1,9 +1,11 @@
 import { token, url } from "./index";
 import { getUserLocationWeather } from "./location";
+import { push } from "connected-react-router";
 
 const logoutUser = () => dispatch => {
   localStorage.removeItem("token");
   dispatch({ type: "LOGOUT_USER" });
+  dispatch(push("/login"));
 };
 
 const loadUser = () => dispatch => {
@@ -19,7 +21,10 @@ const loadUser = () => dispatch => {
       .then(resp => resp.json())
       .then(user => {
         dispatch({ type: "FETCHED_USER", user });
-        dispatch(getUserLocationWeather(user.locations));
+        user.locations.forEach(location => {
+          dispatch(getUserLocationWeather(location));
+          dispatch(push("/"));
+        });
       });
   }
 };
@@ -46,7 +51,7 @@ const authenticateUser = userData => dispatch => {
 };
 
 const postUser = userData => dispatch => {
-  fetch(`http://localhost:3000/api/v1/users`, {
+  fetch(`${url}/v1/users`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({

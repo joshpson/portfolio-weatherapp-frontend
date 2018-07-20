@@ -12,7 +12,7 @@ const manipulateIcon = icon => {
 
 const LocationCard = ({ weather, location }) => {
   return (
-    <div className="card w-75 location-card">
+    <div className="location-card card w-100">
       <div className="card-body location-card-body">
         <div className="skycon-div">
           <Skycons
@@ -36,7 +36,7 @@ const LocationCard = ({ weather, location }) => {
               {Math.round(weather.currently.temperature)}
               <i className="wi wi-degrees" />
             </h2>
-            Humidity: {weather.currently.humidity * 100}%
+            Humidity: {Math.round(weather.currently.humidity * 100)}%
             <br />
             Feels: {Math.round(weather.currently.apparentTemperature)}
             <i className="wi wi-degrees" />

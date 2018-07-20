@@ -10,7 +10,7 @@ class UserLocationsContainer extends React.Component {
 
   render() {
     return (
-      <div className="card-deck">
+      <div className="card-columns">
         {this.props.userLocations.map(location => {
           return (
             <LocationCard

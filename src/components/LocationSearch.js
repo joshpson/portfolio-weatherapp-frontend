@@ -30,6 +30,7 @@ class LocationSearch extends React.Component {
       place_id: prediction.place_id
     };
     this.props.postLocation(locationData);
+    this.props.history.push("/");
   };
 
   render() {

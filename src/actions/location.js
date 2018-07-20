@@ -1,21 +1,20 @@
 import { token, url } from "./index";
+import { push } from "connected-react-router";
 
-const getUserLocationWeather = locations => dispatch => {
+const getUserLocationWeather = location => dispatch => {
   if (token()) {
-    dispatch({ type: "FETCHING_LOCATIONS" });
-    locations.forEach(location => {
-      fetch(`${url}/locations/${location.id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token()}`
-        }
-      })
-        .then(resp => resp.json())
-        .then(location => {
-          dispatch({ type: "FETCHED_USER_LOCATION", location });
-        });
-    });
+    dispatch({ type: "FETCHING_LOCATION" });
+    fetch(`${url}/locations/${location.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token()}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(location => {
+        dispatch({ type: "FETCHED_USER_LOCATION", location });
+      });
   }
 };
 
@@ -30,9 +29,10 @@ const postLocation = locationData => dispatch => {
     body: JSON.stringify(locationData)
   }).then(res => {
     if (res.status === 200) {
-      res.json().then(location => {
+      res.json().then(json => {
         dispatch({ type: "LOCATION_POSTED" });
-        console.log(location);
+        dispatch(getUserLocationWeather(json.location));
+        dispatch(push("/"));
       });
     }
   });

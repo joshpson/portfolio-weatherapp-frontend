@@ -4,31 +4,4 @@ body {
   font-family: sans-serif;
 }
 
-.login-form {
-  max-width: 500px;
-  margin: auto;
-}
-
-.location-form {
-  max-width: 500px;
-  margin: auto;
-}
-
-.location-card-body {
-  position: relative;
-}
-
-.skycon-div {
-  position: absolute;
-  opacity: 0.1;
-  width: 60%;
-  height: 60%;
-  right: 0px;
-  top: 40px;
-}
-
-.card-icon {
-  padding: 7px;
-}
-
 
