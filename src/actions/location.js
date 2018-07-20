@@ -1,6 +1,24 @@
 import { token, url } from "./index";
 import { push } from "connected-react-router";
 
+const setFeaturedLocation = id => dispatch => {
+  dispatch({ type: "FETCHING_LOCATION" });
+
+  if (token()) {
+    fetch(`${url}/locations/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token()}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(location => {
+        dispatch({ type: "FEATURED_LOCATION", location });
+      });
+  }
+};
+
 const getUserLocationWeather = location => dispatch => {
   if (token()) {
     dispatch({ type: "FETCHING_LOCATION" });
@@ -53,4 +71,9 @@ const searchNewLocation = query => dispatch => {
     });
 };
 
-export { getUserLocationWeather, searchNewLocation, postLocation };
+export {
+  getUserLocationWeather,
+  searchNewLocation,
+  postLocation,
+  setFeaturedLocation
+};

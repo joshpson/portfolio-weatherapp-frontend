@@ -29,6 +29,11 @@
   padding: 7px;
 }
 
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
 .time-update {
   position: absolute;
   bottom: 10px;

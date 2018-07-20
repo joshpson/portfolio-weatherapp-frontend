@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadLocation } from "../actions/location";
+import { loadLocation, setFeaturedLocation } from "../actions/location";
 import LocationCard from "../components/LocationCard";
+import FeaturedLocation from "../components/FeaturedLocation";
 
 class UserLocationsContainer extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <div className="card-columns">
@@ -31,4 +31,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(UserLocationsContainer);
+export default connect(
+  mapStateToProps,
+  null
+)(UserLocationsContainer);

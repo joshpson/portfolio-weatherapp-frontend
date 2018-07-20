@@ -7,7 +7,7 @@ const Nav = props => {
   return (
     <div>
       <nav className="nav nav-pills flex-column flex-sm-row justify-content-between">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/locations">
           Home
         </Link>
         {props.currentUser ? (

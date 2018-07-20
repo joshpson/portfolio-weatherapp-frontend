@@ -51,7 +51,7 @@ const authenticateUser = userData => dispatch => {
 };
 
 const postUser = userData => dispatch => {
-  fetch(`${url}/v1/users`, {
+  fetch(`${url}/users`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
