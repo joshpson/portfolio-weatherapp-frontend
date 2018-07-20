@@ -1,6 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 import Skycons from "react-skycons";
+import "../style/weather-icons.min.css";
 
 class LocationCard extends React.Component {
   constructor(props) {
@@ -22,21 +23,34 @@ class LocationCard extends React.Component {
             <Skycons color="black" icon={this.manipulateIcon()} />
           </div>
           <div>
-            <h4 className="card-title">{this.props.location.name}</h4>
+            <h2 className="card-title">
+              <i
+                className={
+                  "card-icon wi wi-forecast-io-" +
+                  this.props.weather.currently.icon
+                }
+              />
+              {this.props.location.name}
+            </h2>
             <p className="card-text">
-              <em>{this.props.weather.hourly.summary}</em>
+              {this.props.weather.hourly.summary}
               <br />
-              Temperature: {this.props.weather.currently.temperature}
+              <h3>
+                {Math.round(this.props.weather.currently.temperature)}
+                <i className="wi wi-degrees" />
+              </h3>
+              Humidity: {this.props.weather.currently.humidity * 100}%
               <br />
-              Humidity: {this.props.weather.currently.humidity}
-              <br />
-              Feels like: {this.props.weather.currently.apparentTemperature}
+              Feels:{" "}
+              {Math.round(this.props.weather.currently.apparentTemperature)}
+              <i className="wi wi-degrees" />
             </p>
           </div>
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Last updated at <Moment time={this.props.weather.currently.time} />
+            Last updated at{" "}
+            <Moment format="hh:mm" time={this.props.weather.currently.time} />
           </small>
         </div>
       </div>

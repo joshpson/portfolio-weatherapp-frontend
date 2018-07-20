@@ -15,8 +15,13 @@ body {
 
 .skycon-div {
   position: absolute;
-  opacity: 0.3;
-  width: 40%;
-  height: 40%;
+  opacity: 0.1;
+  width: 60%;
+  height: 60%;
   right: 0px;
+  top: 40px;
+}
+
+.card-icon {
+  padding: 7px;
 }
