@@ -22,6 +22,9 @@ const Nav = props => {
               {props.currentUser.first_name}
             </a>
             <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/new-location">
+                Add Location
+              </Link>
               <Link className="dropdown-item" to="/user">
                 Settings
               </Link>

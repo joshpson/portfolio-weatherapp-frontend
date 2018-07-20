@@ -9,6 +9,11 @@ body {
   margin: auto;
 }
 
+.location-form {
+  max-width: 500px;
+  margin: auto;
+}
+
 .location-card-body {
   position: relative;
 }

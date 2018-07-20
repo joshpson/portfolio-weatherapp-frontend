@@ -1,4 +1,5 @@
 import React from "react";
+import LocationSearch from "../components/LocationSearch";
 
 class NewLocationContainer extends React.Component {
   constructor(props) {
@@ -6,7 +7,11 @@ class NewLocationContainer extends React.Component {
   }
 
   render() {
-    return <div>NewLocationContainer</div>;
+    return (
+      <div className="container">
+        <LocationSearch />
+      </div>
+    );
   }
 }
 

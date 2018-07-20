@@ -25,6 +25,7 @@ class App extends Component {
         <NavContainer />
         <Switch>
           <Route exact path="/" component={UserLocationsContainer} />
+          <Route path="/new-location" component={NewLocationContainer} />
           <Route path="/(user|login)/" component={UserContainer} />
         </Switch>
       </div>
