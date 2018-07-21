@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { searchNewLocation, postLocation } from "../actions/location";
+import { searchNewLocation, saveLocation } from "../actions/location";
 
 class LocationSearch extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class LocationSearch extends React.Component {
       name: prediction.structured_formatting.main_text,
       place_id: prediction.place_id
     };
-    this.props.postLocation(locationData);
+    this.props.saveLocation(locationData);
   };
 
   render() {
@@ -74,7 +74,7 @@ class LocationSearch extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     searchNewLocation: query => dispatch(searchNewLocation(query)),
-    postLocation: locationData => dispatch(postLocation(locationData))
+    saveLocation: locationData => dispatch(saveLocation(locationData))
   };
 };
 

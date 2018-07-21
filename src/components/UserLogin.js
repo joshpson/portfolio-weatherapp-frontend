@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { authenticateUser, postUser } from "../actions/user";
+import { authenticateUser, saveUser } from "../actions/user";
 
 const initialFormState = {
   firstName: "",
@@ -41,7 +41,7 @@ class UserLogin extends React.Component {
         password: this.state.password
       });
     } else {
-      this.props.postUser({
+      this.props.saveUser({
         first_name: this.state.firstName,
         last_name: this.state.lastName,
         email: this.state.email,
@@ -160,7 +160,7 @@ class UserLogin extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     authenticateUser: userData => dispatch(authenticateUser(userData)),
-    postUser: userData => dispatch(postUser(userData))
+    saveUser: userData => dispatch(saveUser(userData))
   };
 };
 
