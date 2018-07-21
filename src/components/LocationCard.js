@@ -48,7 +48,9 @@ const LocationCard = ({ weather, location }) => {
             </div>
             <div className="time-update text-right">
               <small className="text-muted ">
-                <Moment format="hh:mm" time={weather.currently.time} />
+                <Moment format="hh:mm" unix>
+                  {weather.currently.time}
+                </Moment>
               </small>
             </div>
           </div>

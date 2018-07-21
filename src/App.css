@@ -1,5 +1,5 @@
 * {
-  border: 0.5px solid red;
+  border: 0.1px solid red;
 }
 
 .login-form {
@@ -46,16 +46,18 @@
 
 /*Featured Location*/
 
-.featured-temp {
+.featured-location-header {
   font-size: 3.5em;
-}
-
-.featured-location-name {
-  font-size: 3em;
 }
 
 @media (max-width: 768px) {
   .card-columns {
     column-count: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .featured-location-header {
+    font-size: 10vw;
   }
 }
