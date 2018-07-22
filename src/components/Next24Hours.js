@@ -7,9 +7,9 @@ import "../style/weather-icons.min.css";
 
 const Next24Hours = ({ weather }) => {
   return (
-    <div className="card border-0">
+    <div className="card border-0 bg-dark">
       <div className="card-body p-0 ">
-        <div data-toggle="collapse" href="#hourlyWeatherList">
+        <div data-toggle="collapse" href="#hourlyWeatherList" className="p-3">
           <h5 class="card-title">Next 24 Hours</h5>
           <div className="card-text">{weather.hourly.summary}</div>
         </div>
@@ -21,7 +21,7 @@ const Next24Hours = ({ weather }) => {
             if (index < 24) {
               return (
                 <li
-                  className="list-group-item pl-0 pr-0"
+                  className="list-group-item bg-dark"
                   data-toggle="collapse"
                   href={`#hour${index}Details`}
                 >

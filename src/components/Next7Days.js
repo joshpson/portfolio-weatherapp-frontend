@@ -6,9 +6,9 @@ import "../style/weather-icons.min.css";
 
 const Next7Days = ({ weather }) => {
   return (
-    <div className="card border-0">
-      <div className="card-body p-0 ">
-        <div data-toggle="collapse" href="#dailyWeatherList">
+    <div className="card border-0 bg-dark">
+      <div className="card-body p-0">
+        <div data-toggle="collapse" href="#dailyWeatherList" className="p-3">
           <h5 class="card-title">Next 7 Days</h5>
           <div className="card-text">{weather.daily.summary}</div>
         </div>
@@ -19,7 +19,7 @@ const Next7Days = ({ weather }) => {
           {weather.daily.data.map((day, index) => {
             if (index > 0) {
               return (
-                <li className="list-group-item pl-0 pr-0">
+                <li className="list-group-item  bg-dark">
                   <div className="row">
                     <div class="d-flex col-3 justify-content-center">
                       <div className="d-flex justify-content-center align-items-center">

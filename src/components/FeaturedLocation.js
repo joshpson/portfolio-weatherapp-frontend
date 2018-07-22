@@ -26,7 +26,7 @@ class FeaturedLocation extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container bg-secondary">
         {this.props.weather.currently ? (
           <div>
             <div className="row justify-content-md-center featured-location-header">
