@@ -1,6 +1,6 @@
-* {
+/** {
   border: 0.1px solid red;
-}
+}*/
 
 .login-form {
   max-width: 500px;
@@ -48,6 +48,19 @@
 
 .featured-location-header {
   font-size: 3.5em;
+}
+
+.daily-summary-text {
+  font-size: 0.8em;
+}
+
+.daily-summary-icon {
+  font-size: 2em;
+  margin: auto;
+}
+
+.extra-info {
+  font-size: 0.8em;
 }
 
 @media (max-width: 768px) {
