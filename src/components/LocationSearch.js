@@ -34,7 +34,7 @@ class LocationSearch extends React.Component {
 
   render() {
     return (
-      <div className="card location-form">
+      <div className="card location-form bg-info">
         <h5 className="card-header">City Search</h5>
         <div className="card-body">
           <form onSubmit={e => e.preventDefault()}>
@@ -52,12 +52,12 @@ class LocationSearch extends React.Component {
           </form>
         </div>
         {this.state.query.length > 2 ? (
-          <ul className="list-group list-group-flush">
+          <ul className="list-group list-group-flush bg-info">
             {this.props.predictions.map(prediction => {
               return (
                 <li
                   onClick={() => this.handleLocationSelection(prediction)}
-                  className="list-group-item"
+                  className="list-group-item bg-info"
                   key={prediction.id}
                 >
                   {prediction.description}

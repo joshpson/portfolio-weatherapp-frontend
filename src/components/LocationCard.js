@@ -14,9 +14,9 @@ const manipulateIcon = icon => {
 
 const LocationCard = ({ weather, location }) => {
   return (
-    <div className="location-card card w-100">
-      <Link to={`/locations/${location.id}`} className="card-link">
-        <div className="card-body location-card-body">
+    <div className="location-card card w-100 bg-secondary text-white">
+      <Link to={`/locations/${location.id}`} className="card-link ">
+        <div className="card-body location-card-body text-white">
           <div>
             <h2 className="card-title">
               <i

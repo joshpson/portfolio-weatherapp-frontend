@@ -12,7 +12,7 @@ const Next7Days = ({ weather }) => {
           <h5 class="card-title">Next 7 Days</h5>
           <div className="card-text">{weather.daily.summary}</div>
         </div>
-        <div
+        <ul
           className="list-group list-group-flush p-0 m-0 collapse show"
           id="dailyWeatherList"
         >
@@ -61,7 +61,7 @@ const Next7Days = ({ weather }) => {
               );
             }
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );

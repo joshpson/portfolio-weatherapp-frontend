@@ -53,7 +53,7 @@ class UserLogin extends React.Component {
 
   render() {
     return (
-      <div className="card login-form">
+      <div className="card login-form bg-info">
         <h5 className="card-header">
           {this.state.login ? "Please sign in" : "Create an account"}
         </h5>

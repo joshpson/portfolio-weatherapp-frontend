@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container app-container bg-dark p-0 text-white">
+      <div className="container app-container bg-dark text-white">
         <NavContainer />
         <Switch>
           <Route exact path="/" component={UserLocationsContainer} />

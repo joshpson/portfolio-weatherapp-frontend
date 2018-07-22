@@ -5,10 +5,10 @@ import { logoutUser } from "../actions/user";
 
 const Nav = props => {
   return (
-    <div>
-      <nav className="nav nav-pills flex-column flex-sm-row justify-content-between">
-        <Link className="navbar-brand" to="/locations">
-          Home
+    <div className="p-2 text-light">
+      <nav className="nav  navbar-expand justify-content-between">
+        <Link className="navbar-brand text-light" to="/locations">
+          <i className="wi wi-cloudy" /> Weather
         </Link>
         {props.currentUser ? (
           <li className="nav-item dropdown">
@@ -21,7 +21,7 @@ const Nav = props => {
             >
               {props.currentUser.first_name}
             </a>
-            <div className="dropdown-menu">
+            <div className="dropdown-menu dropdown-menu-right">
               <Link className="dropdown-item" to="/new-location">
                 Add Location
               </Link>
