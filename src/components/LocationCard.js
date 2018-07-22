@@ -1,6 +1,5 @@
 import React from "react";
 import Moment from "react-moment";
-import Skycons from "react-skycons";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setFeaturedLocation } from "../actions/location";
@@ -18,12 +17,6 @@ const LocationCard = ({ weather, location }) => {
     <div className="location-card card w-100">
       <Link to={`/locations/${location.id}`} className="card-link">
         <div className="card-body location-card-body">
-          <div className="skycon-div">
-            <Skycons
-              color="black"
-              icon={manipulateIcon(weather.currently.icon)}
-            />
-          </div>
           <div>
             <h2 className="card-title">
               <i

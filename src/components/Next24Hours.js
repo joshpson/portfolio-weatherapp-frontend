@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import HourDetails from "./HourDetails";
 import Moment from "react-moment";
 
 import "../style/weather-icons.min.css";
@@ -13,15 +14,19 @@ const Next24Hours = ({ weather }) => {
           <div className="card-text">{weather.hourly.summary}</div>
         </div>
         <ul
-          className="list-group list-group-flush p-0 m-0 collapse show"
+          className="list-group list-group-flush p-0 m-0 collapse"
           id="hourlyWeatherList"
         >
           {weather.hourly.data.map((hour, index) => {
             if (index < 24) {
               return (
-                <li className="list-group-item pl-0 pr-0">
+                <li
+                  className="list-group-item pl-0 pr-0"
+                  data-toggle="collapse"
+                  href={`#hour${index}Details`}
+                >
                   <div className="row">
-                    <div class="d-flex col-3 justify-content-center">
+                    <div class="d-flex col-3 justify-content-center pl-0">
                       <div className="d-flex justify-content-center align-items-center">
                         <i
                           className={
@@ -63,6 +68,12 @@ const Next24Hours = ({ weather }) => {
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="container-fluid collapse pt-3 pr-0 pl-0"
+                    id={`hour${index}Details`}
+                  >
+                    <HourDetails hour={hour} />
                   </div>
                 </li>
               );
