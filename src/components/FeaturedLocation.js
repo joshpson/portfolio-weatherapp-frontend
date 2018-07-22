@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import Moment from "react-moment";
+import FeaturedDetailsPane from "./FeaturedDetailsPane";
+
 import Next7Days from "./Next7Days";
 import Next24Hours from "./Next24Hours";
 
 import "../style/weather-icons.min.css";
 
-import { setFeaturedLocation } from "../actions/location";
+import {
+  setFeaturedLocation,
+  clearFeaturedLocation
+} from "../actions/location";
 
 class FeaturedLocation extends React.Component {
   constructor(props) {
@@ -17,41 +22,38 @@ class FeaturedLocation extends React.Component {
     this.props.setFeaturedLocation(this.props.match.params.id);
   }
 
-  toggleDaily = e => {
-    e.preventDefault();
-    this.setState({
-      sevenDays: !this.state.sevenDays
-    });
-  };
+  componentWillUnmount() {
+    this.props.clearFeaturedLocation();
+  }
 
   render() {
     return (
-      <div className="container bg-secondary">
+      <div className="container bg-dark">
         {this.props.weather.currently ? (
           <div>
-            <div className="row justify-content-md-center featured-location-header">
-              <div className="col col-auto order-3 order-md-1 text-right">
-                <i
-                  className={
-                    "card-icon wi wi-forecast-io-" +
-                    this.props.weather.currently.icon
-                  }
-                />
+            <div className="card mt-2 mb-2 bg-dark border-0 p-2">
+              <div className="row justify-content-center featured-location-header">
+                <div className="col-auto ">{this.props.location.name} </div>
+                <div className="col-auto">
+                  <span>
+                    {Math.round(this.props.weather.currently.temperature)}
+                    <i className="wi wi-degrees" />
+                  </span>
+                </div>
               </div>
-              <div className="col-12 col-md-auto order-1 order-md-2">
-                {this.props.location.name}
+              <FeaturedDetailsPane
+                currently={this.props.weather.currently}
+                daily={this.props.weather.daily.data[0]}
+              />
+              <div className="row justify-content-center">
+                <div className="col-12 col-md-10 p-1">
+                  <Next24Hours />
+                </div>
               </div>
-              <div className="col col-auto order-2 order-md-3">
-                {Math.round(this.props.weather.currently.temperature)}
-                <i className="wi wi-degrees" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-md-6 p-1">
-                <Next24Hours />
-              </div>
-              <div className="col-12 col-md-6 p-1">
-                <Next7Days />
+              <div className="row justify-content-center">
+                <div className="col-12 col-md-10 p-1">
+                  <Next7Days />
+                </div>
               </div>
             </div>
           </div>
@@ -72,7 +74,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setFeaturedLocation: id => dispatch(setFeaturedLocation(id))
+    setFeaturedLocation: id => dispatch(setFeaturedLocation(id)),
+    clearFeaturedLocation: () => dispatch(clearFeaturedLocation())
   };
 };
 

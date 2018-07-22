@@ -71,6 +71,14 @@
   font-size: 0.7em;
 }
 
+.main-featured-details {
+  font-size: 1.5em;
+}
+
+.app-container {
+  max-width: 800px;
+}
+
 @media (max-width: 768px) {
   .card-columns {
     column-count: 1;
@@ -80,5 +88,9 @@
 @media (max-width: 576px) {
   .featured-location-header {
     font-size: 10vw;
+  }
+
+  .main-featured-details {
+    font-size: 4vw;
   }
 }

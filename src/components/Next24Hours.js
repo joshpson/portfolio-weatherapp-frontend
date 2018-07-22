@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import HourDetails from "./HourDetails";
+import DetailsPane from "./DetailsPane";
+
 import Moment from "react-moment";
 
 import "../style/weather-icons.min.css";
@@ -21,7 +22,7 @@ const Next24Hours = ({ weather }) => {
             if (index < 24) {
               return (
                 <li
-                  className="list-group-item bg-dark"
+                  className="list-group-item bg-dark pl-0"
                   data-toggle="collapse"
                   href={`#hour${index}Details`}
                 >
@@ -46,7 +47,7 @@ const Next24Hours = ({ weather }) => {
                             {hour.time}
                           </Moment>
                         </div>
-                        <div className="col-6 font-weight-bold text-right">
+                        <div className="col-6 font-weight-bold text-right ">
                           <div>
                             {Math.round(hour.temperature)}
                             <i className="wi wi-degrees" />
@@ -54,8 +55,8 @@ const Next24Hours = ({ weather }) => {
                         </div>
                       </div>
                       <div className="row pt-0 pl-0 justify-content-between daily-summary-text">
-                        <div className="col-auto p-0">{hour.summary}</div>
-                        <div className="col-auto pb-0">
+                        <div className="col-5 p-0">{hour.summary}</div>
+                        <div className="col-7 pb-0 text-right">
                           {hour.precipType ? (
                             <span className="text-capitalize">
                               {Math.round(hour.precipProbability * 100)}%{" "}
@@ -73,7 +74,7 @@ const Next24Hours = ({ weather }) => {
                     className="container-fluid collapse pt-3 pr-0 pl-0"
                     id={`hour${index}Details`}
                   >
-                    <HourDetails hour={hour} />
+                    <DetailsPane data={hour} />
                   </div>
                 </li>
               );

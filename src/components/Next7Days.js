@@ -12,14 +12,14 @@ const Next7Days = ({ weather }) => {
           <h5 class="card-title">Next 7 Days</h5>
           <div className="card-text">{weather.daily.summary}</div>
         </div>
-        <ul
+        <div
           className="list-group list-group-flush p-0 m-0 collapse show"
           id="dailyWeatherList"
         >
           {weather.daily.data.map((day, index) => {
             if (index > 0) {
               return (
-                <li className="list-group-item  bg-dark">
+                <li className="list-group-item pl-0 bg-dark">
                   <div className="row">
                     <div class="d-flex col-3 justify-content-center">
                       <div className="d-flex justify-content-center align-items-center">
@@ -61,7 +61,7 @@ const Next7Days = ({ weather }) => {
               );
             }
           })}
-        </ul>
+        </div>
       </div>
     </div>
   );

@@ -48,6 +48,10 @@ const setFeaturedLocation = id => dispatch => {
   });
 };
 
+const clearFeaturedLocation = () => dispatch => {
+  dispatch({ type: "CLEAR_FEATURED_LOCATION" });
+};
+
 const getUserLocationWeather = id => dispatch => {
   dispatch({ type: "FETCHING_LOCATION" });
   getLocation(id).then(resp => {
@@ -94,5 +98,6 @@ export {
   getUserLocationWeather,
   searchNewLocation,
   saveLocation,
-  setFeaturedLocation
+  setFeaturedLocation,
+  clearFeaturedLocation
 };
