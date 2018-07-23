@@ -35,7 +35,7 @@ function postUser(userData) {
 }
 
 function patchUser(userData) {
-  return fetch(`${url}/users`, {
+  return fetch(`${url}/users/${userData.id}`, {
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
@@ -72,7 +72,11 @@ const loadUser = () => dispatch => {
 
 const editUser = userData => dispatch => {
   dispatch({ type: "PATCHING_USER" });
-  patchUser(userData).then(res => console.log(res));
+  patchUser(userData).then(resp => {
+    resp.json().then(user => {
+      dispatch({ type: "USER_PATCHED", user });
+    });
+  });
 };
 
 const authenticateUser = userData => dispatch => {
@@ -101,4 +105,4 @@ const saveUser = userData => dispatch => {
   });
 };
 
-export { loadUser, logoutUser, authenticateUser, saveUser };
+export { loadUser, logoutUser, authenticateUser, saveUser, editUser };

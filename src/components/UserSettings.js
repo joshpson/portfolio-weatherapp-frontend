@@ -1,44 +1,57 @@
 import React from "react";
 import { connect } from "react-redux";
+import { editUser } from "../actions/user";
 
 class UserSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       editable: false,
-      email: this.props.currentUser.email,
+      first_name: this.props.currentUser.first_name,
+      last_name: this.props.currentUser.last_name,
       metric: this.props.currentUser.metric
     };
   }
 
   handleClick = e => {
     e.preventDefault();
+    if (this.state.editable) {
+      this.props.editUser({
+        id: this.props.currentUser.id,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        metric: this.state.metric
+      });
+    }
     this.setState({
       editable: !this.state.editable
     });
   };
 
   handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === "metric") {
+      this.setState({
+        metric: !this.state.metric
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    }
   };
 
   render() {
     return (
       <div className="text-white">
         {this.props.currentUser ? (
-          <form>
-            <h1>
-              {this.props.currentUser.first_name}{" "}
-              {this.props.currentUser.last_name}
-            </h1>
+          <form onSubmit={e => e.preventDefault()}>
+            <h1>{this.props.currentUser.email}</h1>
             <div className="form-group row">
               <label
-                htmlFor="email"
+                htmlFor="firstName"
                 className="col-sm-2 col-form-label font-weight-bold"
               >
-                Email:
+                First Name:
               </label>
               <div className="col-sm-10">
                 <input
@@ -49,9 +62,32 @@ class UserSettings extends React.Component {
                       : "form-control-plaintext text-white bg-dark"
                   }
                   onChange={this.handleChange}
-                  name="email"
-                  id="email"
-                  value={this.state.email}
+                  name="first_name"
+                  id="firstName"
+                  value={this.state.first_name}
+                  readOnly={!this.state.editable}
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label
+                htmlFor="lastName"
+                className="col-sm-2 col-form-label font-weight-bold"
+              >
+                Last Name:
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className={
+                    this.state.editable
+                      ? "form-control text-white bg-dark"
+                      : "form-control-plaintext text-white bg-dark"
+                  }
+                  onChange={this.handleChange}
+                  name="last_name"
+                  id="lastName"
+                  value={this.state.last_name}
                   readOnly={!this.state.editable}
                 />
               </div>
@@ -73,6 +109,7 @@ class UserSettings extends React.Component {
                     name="metric"
                     value={this.state.metric}
                     disabled={!this.state.editable}
+                    checked={this.state.metric}
                   />
                   <label className="form-check-label" htmlFor="metric">
                     Metric Units
@@ -102,4 +139,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(UserSettings);
+const mapDispatchToProps = dispatch => {
+  return {
+    editUser: userData => dispatch(editUser(userData))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserSettings);
