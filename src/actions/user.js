@@ -34,6 +34,16 @@ function postUser(userData) {
   });
 }
 
+function patchUser(userData) {
+  return fetch(`${url}/users`, {
+    method: "PATCH",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      user: userData
+    })
+  });
+}
+
 //Actions
 
 const logoutUser = () => dispatch => {
@@ -58,6 +68,11 @@ const loadUser = () => dispatch => {
       }
     });
   }
+};
+
+const editUser = userData => dispatch => {
+  dispatch({ type: "PATCHING_USER" });
+  patchUser(userData).then(res => console.log(res));
 };
 
 const authenticateUser = userData => dispatch => {
