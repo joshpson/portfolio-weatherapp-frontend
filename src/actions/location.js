@@ -1,5 +1,6 @@
 import { token, url } from "./index";
 import { push } from "connected-react-router";
+import { loadUser } from "./user";
 
 //Functions
 function getLocation(id) {
@@ -21,6 +22,17 @@ function postLocation(locationData) {
       Authorization: `Bearer ${token()}`
     },
     body: JSON.stringify(locationData)
+  });
+}
+
+function deleteLocation(id) {
+  return fetch(`${url}/locations/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token()}`
+    }
   });
 }
 
@@ -50,6 +62,13 @@ const setFeaturedLocation = id => dispatch => {
 
 const clearFeaturedLocation = () => dispatch => {
   dispatch({ type: "CLEAR_FEATURED_LOCATION" });
+};
+
+const removeLocation = id => dispatch => {
+  dispatch({ type: "DELETING_LOCATION" });
+  deleteLocation(id).then(() => {
+    dispatch({ type: "LOCATION_DELETED", id });
+  });
 };
 
 const getUserLocationWeather = id => dispatch => {
@@ -99,5 +118,6 @@ export {
   searchNewLocation,
   saveLocation,
   setFeaturedLocation,
-  clearFeaturedLocation
+  clearFeaturedLocation,
+  removeLocation
 };

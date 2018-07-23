@@ -4,6 +4,10 @@ const userLocations = (oldUserLocations = [], action) => {
       return [...oldUserLocations, action.location];
     case "LOGOUT_USER":
       return [];
+    case "LOCATION_DELETED":
+      return oldUserLocations.filter(
+        location => location.location.id != action.id
+      );
   }
   return oldUserLocations;
 };

@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadLocation, setFeaturedLocation } from "../actions/location";
+import {
+  loadLocation,
+  setFeaturedLocation,
+  removeLocation
+} from "../actions/location";
 import LocationCard from "../components/LocationCard";
 import FeaturedLocation from "../components/FeaturedLocation";
 
@@ -17,6 +21,7 @@ class UserLocationsContainer extends React.Component {
               key={location.location.id}
               location={location.location}
               weather={location.weather}
+              remove={this.props.removeLocation}
             />
           );
         })}
@@ -31,7 +36,13 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    removeLocation: id => dispatch(removeLocation(id))
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(UserLocationsContainer);

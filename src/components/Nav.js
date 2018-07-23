@@ -8,7 +8,7 @@ const Nav = props => {
     <div className="p-2 text-light">
       <nav className="nav  navbar-expand justify-content-between">
         <Link className="navbar-brand text-light" to="/locations">
-          <i className="wi wi-cloudy" /> Weather
+          <i className="wi wi-cloudy" /> FreshAir
         </Link>
         {props.currentUser ? (
           <li className="nav-item dropdown">

@@ -12,11 +12,11 @@ const manipulateIcon = icon => {
     .join("_");
 };
 
-const LocationCard = ({ weather, location }) => {
+const LocationCard = ({ weather, location, remove }) => {
   return (
     <div className="location-card card w-100 bg-secondary text-white">
-      <Link to={`/locations/${location.id}`} className="card-link ">
-        <div className="card-body location-card-body text-white">
+      <div className="card-body location-card-body text-white">
+        <Link to={`/locations/${location.id}`} className="card-link ">
           <div>
             <h2 className="card-title">
               <i
@@ -39,16 +39,20 @@ const LocationCard = ({ weather, location }) => {
               <i className="wi wi-degrees" />
               <br />
             </div>
-            <div className="time-update text-right">
-              <small className="text-muted ">
-                <Moment format="hh:mm" unix>
-                  {weather.currently.time}
-                </Moment>
-              </small>
-            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
+      <div className="time-update text-right card-footer border-0 p-0 bg-secondary">
+        <small className="text-muted ">
+          <Moment format="hh:mm" unix className="text-white">
+            {weather.currently.time}
+          </Moment>
+          <br />
+          <span onClick={() => remove(location.id)} className="text-white">
+            Remove
+          </span>
+        </small>
+      </div>
     </div>
   );
 };
