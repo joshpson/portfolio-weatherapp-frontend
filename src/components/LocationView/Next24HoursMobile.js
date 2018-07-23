@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import DetailsPane from "./DetailsPane";
+import HourDetailPane from "./HourDetailPane";
 
 import Moment from "react-moment";
 
@@ -8,7 +8,7 @@ import "../../style/weather-icons.min.css";
 
 const Next24HoursMobile = ({ weather }) => {
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center pt-3">
       <div className="col-12 col-md-10 p-1">
         <div className="card border-0 bg-dark">
           <div className="card-body p-0 ">
@@ -82,7 +82,7 @@ const Next24HoursMobile = ({ weather }) => {
                         className="container-fluid collapse pt-3 pr-0 pl-0"
                         id={`hour${index}Details`}
                       >
-                        <DetailsPane data={hour} />
+                        <HourDetailPane data={hour} />
                       </div>
                     </li>
                   );

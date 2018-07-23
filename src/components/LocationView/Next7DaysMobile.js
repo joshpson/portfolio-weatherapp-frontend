@@ -19,7 +19,7 @@ const Next7DaysMobile = ({ weather }) => {
               <div className="card-text">{weather.daily.summary}</div>
             </div>
             <ul
-              className="list-group list-group-flush p-0 m-0 collapse show"
+              className="list-group list-group-flush p-0 m-0 collapse"
               id="dailyWeatherList"
             >
               {weather.daily.data.map((day, index) => {

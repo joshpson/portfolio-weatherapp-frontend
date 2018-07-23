@@ -44,25 +44,15 @@ class App extends Component {
       <div className="container app-container bg-dark text-white">
         <Nav />
         <Switch>
-          <Route
-            path="/login"
-            render={() =>
-              this.props.isAuthenticated ? (
-                <Redirect to="/settings" />
-              ) : (
-                <UserLoginForm />
-              )
-            }
-          />
           <PrivateRoute
             exact
-            path="/locations"
+            path="/"
             component={LocationsContainer}
             isAuthenticated={this.props.isAuthenticated}
           />
           <PrivateRoute
             exact
-            path="/"
+            path="/locations"
             component={LocationsContainer}
             isAuthenticated={this.props.isAuthenticated}
           />
@@ -81,6 +71,16 @@ class App extends Component {
             path="/settings"
             component={UserSettings}
             isAuthenticated={this.props.isAuthenticated}
+          />
+          <Route
+            path="/login"
+            render={() =>
+              this.props.isAuthenticated ? (
+                <Redirect to="/locations" />
+              ) : (
+                <UserLoginForm />
+              )
+            }
           />
         </Switch>
       </div>

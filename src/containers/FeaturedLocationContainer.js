@@ -13,8 +13,6 @@ import {
 } from "../actions/location";
 import "../style/weather-icons.min.css";
 
-const winWidth = window.innerWidth;
-
 class FeaturedLocationContainer extends React.Component {
   componentDidMount() {
     this.props.setFeaturedLocation(this.props.match.params.id);

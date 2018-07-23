@@ -89,7 +89,7 @@ const saveLocation = locationData => dispatch => {
       resp.json().then(json => {
         dispatch({ type: "LOCATION_POSTED" });
         dispatch(getUserLocationWeather(json.location.id));
-        dispatch(push("/"));
+        dispatch(push(`/locations/${json.location.id}`));
       });
     } else {
       dispatch({ type: "LOACTION_FETCH_FAILED" });
