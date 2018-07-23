@@ -1,6 +1,5 @@
 import { token, url } from "./index";
 import { push } from "connected-react-router";
-import { loadUser } from "./user";
 
 //Functions
 function getLocation(id) {

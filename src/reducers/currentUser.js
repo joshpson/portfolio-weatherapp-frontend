@@ -8,8 +8,9 @@ const currentUser = (oldCurrentUser = null, action) => {
       return null;
     case "LOGOUT_USER":
       return null;
+    default:
+      return oldCurrentUser;
   }
-  return oldCurrentUser;
 };
 
 export default currentUser;

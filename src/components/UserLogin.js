@@ -144,7 +144,7 @@ class UserLogin extends React.Component {
         <div className="card-footer">
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <a className="nav-link" onClick={this.toggleLogin} href="#">
+              <a className="nav-link" onClick={this.toggleLogin}>
                 {this.state.login
                   ? " New user? Sign up here!"
                   : "Existing user? Login here"}

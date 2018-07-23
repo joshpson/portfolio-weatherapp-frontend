@@ -4,8 +4,9 @@ const locationSearchResults = (oldlocationSearchResults = [], action) => {
       return action.results.predictions;
     case "FETCHING_NEW_LOCATION_SEARCH_RESULTS":
       return [];
+    default:
+      return oldlocationSearchResults;
   }
-  return oldlocationSearchResults;
 };
 
 export default locationSearchResults;

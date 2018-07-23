@@ -7,9 +7,8 @@ const errors = (oldErrors = initialErrors, action) => {
     case "USER_AUTHENTICATION_FAILED":
       return { ...oldErrors, login: "Invalid login credentials" };
     default:
-      return { ...oldErrors, login: null };
+      return initialErrors;
   }
-  return oldErrors;
 };
 
 export default errors;

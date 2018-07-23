@@ -1,17 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  loadLocation,
-  setFeaturedLocation,
-  removeLocation
-} from "../actions/location";
+import { removeLocation } from "../actions/location";
 import LocationCard from "../components/LocationCard";
-import FeaturedLocation from "../components/FeaturedLocation";
 
 class UserLocationsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="card-columns">

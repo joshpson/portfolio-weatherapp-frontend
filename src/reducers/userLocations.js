@@ -6,10 +6,11 @@ const userLocations = (oldUserLocations = [], action) => {
       return [];
     case "LOCATION_DELETED":
       return oldUserLocations.filter(
-        location => location.location.id != action.id
+        location => location.location.id !== action.id
       );
+    default:
+      return oldUserLocations;
   }
-  return oldUserLocations;
 };
 
 export default userLocations;

@@ -11,7 +11,7 @@ const Next24Hours = ({ weather }) => {
     <div className="card border-0 bg-dark">
       <div className="card-body p-0 ">
         <div data-toggle="collapse" href="#hourlyWeatherList" className="p-3">
-          <h5 class="card-title">Next 24 Hours</h5>
+          <h5 className="card-title">Next 24 Hours</h5>
           <div className="card-text">{weather.hourly.summary}</div>
         </div>
         <ul
@@ -25,9 +25,10 @@ const Next24Hours = ({ weather }) => {
                   className="list-group-item bg-dark pl-0"
                   data-toggle="collapse"
                   href={`#hour${index}Details`}
+                  key={hour.time}
                 >
                   <div className="row">
-                    <div class="d-flex col-3 justify-content-center pl-0">
+                    <div className="d-flex col-3 justify-content-center pl-0">
                       <div className="d-flex justify-content-center align-items-center">
                         <i
                           className={
@@ -78,6 +79,8 @@ const Next24Hours = ({ weather }) => {
                   </div>
                 </li>
               );
+            } else {
+              return null;
             }
           })}
         </ul>

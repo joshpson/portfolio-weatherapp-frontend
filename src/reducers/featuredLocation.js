@@ -9,8 +9,9 @@ const featuredLocation = (oldfeaturedLocation = initialState, action) => {
       return action.location;
     case "CLEAR_FEATURED_LOCATION":
       return initialState;
+    default:
+      return oldfeaturedLocation;
   }
-  return oldfeaturedLocation;
 };
 
 export default featuredLocation;

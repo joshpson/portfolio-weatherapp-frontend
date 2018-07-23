@@ -1,16 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setFeaturedLocation } from "../actions/location";
 import "../style/weather-icons.min.css";
-
-const manipulateIcon = icon => {
-  return icon
-    .toUpperCase()
-    .split("-")
-    .join("_");
-};
 
 const LocationCard = ({ weather, location, remove }) => {
   return (

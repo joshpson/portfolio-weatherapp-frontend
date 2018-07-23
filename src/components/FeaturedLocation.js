@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Moment from "react-moment";
 import FeaturedDetailsPane from "./FeaturedDetailsPane";
 
 import Next7Days from "./Next7Days";
@@ -14,10 +13,6 @@ import {
 } from "../actions/location";
 
 class FeaturedLocation extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.setFeaturedLocation(this.props.match.params.id);
   }
