@@ -79,6 +79,10 @@
   max-width: 800px;
 }
 
+.featured-nav {
+  font-size: 1.2em;
+}
+
 @media (max-width: 630px) {
   .card-columns {
     column-count: 1;

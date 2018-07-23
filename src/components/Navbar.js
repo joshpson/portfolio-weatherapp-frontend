@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { logoutUser } from "../actions/user";
 
-const Nav = props => {
+const Navbar = props => {
   return (
     <div className="p-2 text-light">
       <nav className="nav  navbar-expand justify-content-between">
@@ -66,5 +66,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Nav)
+  )(Navbar)
 );

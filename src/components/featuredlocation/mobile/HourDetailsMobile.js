@@ -1,7 +1,7 @@
 import React from "react";
-import "../../style/weather-icons.min.css";
+import "../../../style/weather-icons.min.css";
 
-const HourDetailPane = ({ data }) => {
+const HourDetailsMobile = ({ data, metric }) => {
   return (
     <div className="row justify-content-between text-center no-gutters p-0">
       <div className="col-2">
@@ -10,7 +10,7 @@ const HourDetailPane = ({ data }) => {
         <div className="detail-text">
           <span className="font-weight-bold">Wind</span>
           <br />
-          {Math.round(data.windSpeed)} mph
+          {Math.round(data.windSpeed)} {metric ? "m/s" : "mph"}
         </div>
       </div>
       <div className="col-2">
@@ -56,4 +56,5 @@ const HourDetailPane = ({ data }) => {
     </div>
   );
 };
-export default HourDetailPane;
+
+export default HourDetailsMobile;

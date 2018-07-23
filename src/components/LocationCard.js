@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import "../style/weather-icons.min.css";
 
-const LocationCard = ({ weather, location, remove }) => {
+const LocationCard = ({ weather, location, remove, metric }) => {
   return (
     <div className="location-card card w-100 bg-secondary text-white">
       <div className="card-body location-card-body text-white">

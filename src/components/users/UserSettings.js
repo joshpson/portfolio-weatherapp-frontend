@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { editUser } from "../actions/user";
+import { editUser } from "../../actions/user";
 
 class UserSettings extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class UserSettings extends React.Component {
 
   render() {
     return (
-      <div className="text-white">
+      <div className="text-white container">
         {this.props.currentUser ? (
           <form onSubmit={e => e.preventDefault()}>
             <h1>{this.props.currentUser.email}</h1>

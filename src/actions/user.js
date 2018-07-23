@@ -59,9 +59,13 @@ const loadUser = () => dispatch => {
       if (resp.status === 200) {
         resp.json().then(user => {
           dispatch({ type: "FETCHED_USER", user });
-          user.locations.forEach(location => {
-            dispatch(getUserLocationWeather(location.id));
-          });
+          if (user.locations.length) {
+            user.locations.forEach(location => {
+              dispatch(getUserLocationWeather(location.id));
+            });
+          } else {
+            dispatch(push("/new-location"));
+          }
         });
       } else {
         dispatch({ type: "USER_LOGIN_FAILED" });
@@ -75,6 +79,10 @@ const editUser = userData => dispatch => {
   patchUser(userData).then(resp => {
     resp.json().then(user => {
       dispatch({ type: "USER_PATCHED", user });
+      dispatch({ type: "UPDATING_USER_LOCATIONS" });
+      user.locations.forEach(location => {
+        dispatch(getUserLocationWeather(location.id));
+      });
     });
   });
 };

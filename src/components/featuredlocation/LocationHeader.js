@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 const LocationHeader = ({ location, weather }) => {
   return (
-    <div className="row justify-content-center featured-location-header">
+    <div className="row justify-content-center featured-location-header pb-3">
       <div className="col-auto ">{location.name} </div>
       <div className="col-auto">
         <span>

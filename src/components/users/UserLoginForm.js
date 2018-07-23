@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { authenticateUser, saveUser } from "../actions/user";
+import { authenticateUser, saveUser } from "../../actions/user";
 
 const initialFormState = {
   firstName: "",

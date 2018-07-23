@@ -5,9 +5,9 @@ import { loadUser } from "./actions/user";
 import { updateWindowSize } from "./actions/window";
 import LocationsContainer from "./containers/LocationsContainer.js";
 import NewLocationForm from "./components/NewLocationForm.js";
-import UserLoginForm from "./components/UserLoginForm.js";
-import UserSettings from "./components/UserSettings.js";
-import Nav from "./components/Nav.js";
+import UserLoginForm from "./components/users/UserLoginForm.js";
+import UserSettings from "./components/users/UserSettings.js";
+import Navbar from "./components/Navbar.js";
 import FeaturedLocationContainer from "./containers/FeaturedLocationContainer";
 
 import "./App.css";
@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="container app-container bg-dark text-white">
-        <Nav />
+        <Navbar />
         <Switch>
           <PrivateRoute
             exact

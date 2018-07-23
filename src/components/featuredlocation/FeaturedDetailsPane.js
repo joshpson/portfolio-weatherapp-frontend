@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import { connect } from "react-redux";
 
-const FeaturedDetailsPane = ({ currently, daily }) => {
+const FeaturedDetailsPane = ({ currently, daily, metric }) => {
   return (
     <div>
       <div className="row justify-content-between justify-content-md-center text-center no-gutters pt-2">
@@ -21,7 +21,7 @@ const FeaturedDetailsPane = ({ currently, daily }) => {
           <div className="detail-text pt-1">
             <span className="font-weight-bold">Wind</span>
             <br />
-            {Math.round(currently.windSpeed)} mph
+            {Math.round(currently.windSpeed)} {metric ? "m/s" : "mph"}
           </div>
         </div>
 
@@ -91,7 +91,8 @@ const FeaturedDetailsPane = ({ currently, daily }) => {
 const mapStateToProps = state => {
   return {
     currently: state.featuredLocation.weather.currently,
-    daily: state.featuredLocation.weather.daily.data[0]
+    daily: state.featuredLocation.weather.daily.data[0],
+    metric: state.currentUser.metric
   };
 };
 
