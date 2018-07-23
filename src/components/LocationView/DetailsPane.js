@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/weather-icons.min.css";
+import "../../style/weather-icons.min.css";
 
 const DetailsPane = ({ data }) => {
   return (

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadUser } from "./actions/user";
+import { updateWindowSize } from "./actions/window";
 import LocationsContainer from "./containers/LocationsContainer.js";
 import NewLocationForm from "./components/NewLocationForm.js";
-import UserLogin from "./components/UserLogin.js";
+import UserLoginForm from "./components/UserLoginForm.js";
 import UserSettings from "./components/UserSettings.js";
 import Nav from "./components/Nav.js";
-import FeaturedLocation from "./components/FeaturedLocation";
+import FeaturedLocationContainer from "./containers/FeaturedLocationContainer";
 
 import "./App.css";
 
@@ -32,6 +33,10 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
 class App extends Component {
   componentDidMount() {
     this.props.mountUser();
+    this.props.updateWindowSize(window.innerWidth);
+    window.addEventListener("resize", () =>
+      this.props.updateWindowSize(window.innerWidth)
+    );
   }
 
   render() {
@@ -45,7 +50,7 @@ class App extends Component {
               this.props.isAuthenticated ? (
                 <Redirect to="/settings" />
               ) : (
-                <UserLogin />
+                <UserLoginForm />
               )
             }
           />
@@ -64,7 +69,7 @@ class App extends Component {
 
           <PrivateRoute
             path="/locations/:id"
-            component={FeaturedLocation}
+            component={FeaturedLocationContainer}
             isAuthenticated={this.props.isAuthenticated}
           />
           <PrivateRoute
@@ -92,7 +97,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    mountUser: () => dispatch(loadUser())
+    mountUser: () => dispatch(loadUser()),
+    updateWindowSize: size => dispatch(updateWindowSize(size))
   };
 };
 

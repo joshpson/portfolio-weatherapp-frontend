@@ -11,7 +11,7 @@ const initialFormState = {
   passwordConfirmation: ""
 };
 
-class UserLogin extends React.Component {
+class UserLoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -168,5 +168,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(UserLogin)
+  )(UserLoginForm)
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
+import { connect } from "react-redux";
 
 const FeaturedDetailsPane = ({ currently, daily }) => {
   return (
@@ -87,4 +88,14 @@ const FeaturedDetailsPane = ({ currently, daily }) => {
   );
 };
 
-export default FeaturedDetailsPane;
+const mapStateToProps = state => {
+  return {
+    currently: state.featuredLocation.weather.currently,
+    daily: state.featuredLocation.weather.daily.data[0]
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(FeaturedDetailsPane);
