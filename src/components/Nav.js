@@ -25,7 +25,7 @@ const Nav = props => {
               <Link className="dropdown-item" to="/new-location">
                 Add Location
               </Link>
-              <Link className="dropdown-item" to="/user">
+              <Link className="dropdown-item" to="/settings">
                 Settings
               </Link>
               <Link

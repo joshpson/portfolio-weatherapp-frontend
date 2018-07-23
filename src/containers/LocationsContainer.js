@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { removeLocation } from "../actions/location";
 import LocationCard from "../components/LocationCard";
 
-class UserLocationsContainer extends React.Component {
+class LocationsContainer extends React.Component {
   render() {
     return (
       <div className="card-columns">
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserLocationsContainer);
+)(LocationsContainer);

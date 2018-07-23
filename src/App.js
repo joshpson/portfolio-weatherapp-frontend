@@ -1,14 +1,33 @@
 import React, { Component } from "react";
-import { withRouter, Route, Switch } from "react-router-dom";
+import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadUser } from "./actions/user";
-import UserLocationsContainer from "./containers/UserLocationsContainer.js";
-import NewLocationContainer from "./containers/NewLocationContainer.js";
-import UserContainer from "./containers/UserContainer.js";
+import LocationsContainer from "./containers/LocationsContainer.js";
+import NewLocationForm from "./components/NewLocationForm.js";
+import UserLogin from "./components/UserLogin.js";
+import UserSettings from "./components/UserSettings.js";
 import Nav from "./components/Nav.js";
 import FeaturedLocation from "./components/FeaturedLocation";
 
 import "./App.css";
+
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+  />
+);
 
 class App extends Component {
   componentDidMount() {
@@ -20,11 +39,44 @@ class App extends Component {
       <div className="container app-container bg-dark text-white">
         <Nav />
         <Switch>
-          <Route exact path="/" component={UserLocationsContainer} />
-          <Route exact path="/locations" component={UserLocationsContainer} />
-          <Route path="/locations/:id" component={FeaturedLocation} />
-          <Route path="/new-location" component={NewLocationContainer} />
-          <Route path="/(user|login)/" component={UserContainer} />
+          <Route
+            path="/login"
+            render={() =>
+              this.props.isAuthenticated ? (
+                <Redirect to="/settings" />
+              ) : (
+                <UserLogin />
+              )
+            }
+          />
+          <PrivateRoute
+            exact
+            path="/locations"
+            component={LocationsContainer}
+            isAuthenticated={this.props.isAuthenticated}
+          />
+          <PrivateRoute
+            exact
+            path="/"
+            component={LocationsContainer}
+            isAuthenticated={this.props.isAuthenticated}
+          />
+
+          <PrivateRoute
+            path="/locations/:id"
+            component={FeaturedLocation}
+            isAuthenticated={this.props.isAuthenticated}
+          />
+          <PrivateRoute
+            path="/new-location"
+            component={NewLocationForm}
+            isAuthenticated={this.props.isAuthenticated}
+          />
+          <PrivateRoute
+            path="/settings"
+            component={UserSettings}
+            isAuthenticated={this.props.isAuthenticated}
+          />
         </Switch>
       </div>
     );
@@ -33,7 +85,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    isAuthenticated: !!state.currentUser
   };
 };
 

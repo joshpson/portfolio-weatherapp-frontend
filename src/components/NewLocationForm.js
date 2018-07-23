@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { searchNewLocation, saveLocation } from "../actions/location";
 
-class LocationSearch extends React.Component {
+class NewLocationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,5 +88,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(LocationSearch)
+  )(NewLocationForm)
 );
