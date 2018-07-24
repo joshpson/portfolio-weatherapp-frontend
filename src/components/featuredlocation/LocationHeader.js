@@ -24,7 +24,7 @@ const LocationHeader = ({ location, weather, windowSize }) => {
         </div>
       </div>
       {windowSize > 767 ? (
-        <div className="row justify-content-center">
+        <div className="row justify-content-center featured-location-summary pb-3">
           Currently: {weather.currently.summary}
         </div>
       ) : null}

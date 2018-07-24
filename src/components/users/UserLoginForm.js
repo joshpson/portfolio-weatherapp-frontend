@@ -53,104 +53,108 @@ class UserLoginForm extends React.Component {
 
   render() {
     return (
-      <div className="card login-form bg-info">
-        <h5 className="card-header">
-          {this.state.login ? "Please sign in" : "Create an account"}
-        </h5>
-        <div className="card-body">
-          <form onSubmit={this.handleSubmit}>
-            {this.state.login ? null : (
-              <div className="row">
-                <div className="col">
-                  <div className="form-group">
-                    <label htmlFor="inputFirstName">First Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputFirstName"
-                      name="firstName"
-                      placeholder="First Name"
-                      onChange={this.handleChange}
-                      value={this.state.firstName}
-                    />
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="form-group">
-                    <label htmlFor="inputLastName">Last Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputLastName"
-                      placeholder="Last Name"
-                      name="lastName"
-                      onChange={this.handleChange}
-                      value={this.state.lastName}
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-            <div className="form-group">
-              <label htmlFor="inputEmail">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                id="inputEmail"
-                placeholder="Enter email"
-                name="email"
-                onChange={this.handleChange}
-                value={this.state.email}
-              />
+      <div className="container">
+        <div className="row bg-dark justify-content-center">
+          <div className="col-auto">
+            <div className="login-header">
+              <i className="wi wi-cloudy" /> FreshAir
+            </div>
+          </div>
+        </div>
+        <div className="card login-form bg-info">
+          <h5 className="card-header">
+            {this.state.login ? "Please sign in" : "Create an account"}
+          </h5>
+          <div className="card-body">
+            <form onSubmit={this.handleSubmit}>
               {this.state.login ? null : (
-                <small id="emailHelp" className="form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small>
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group">
+                      <label htmlFor="inputFirstName">First Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="inputFirstName"
+                        name="firstName"
+                        placeholder="First Name"
+                        onChange={this.handleChange}
+                        value={this.state.firstName}
+                      />
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group">
+                      <label htmlFor="inputLastName">Last Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="inputLastName"
+                        placeholder="Last Name"
+                        name="lastName"
+                        onChange={this.handleChange}
+                        value={this.state.lastName}
+                      />
+                    </div>
+                  </div>
+                </div>
               )}
-            </div>
-            <div className="form-group">
-              <label htmlFor="inputPassword">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                id="inputPassword"
-                placeholder="Password"
-                name="password"
-                onChange={this.handleChange}
-                value={this.state.password}
-              />
-            </div>
-            {this.state.login ? null : (
               <div className="form-group">
-                <label htmlFor="inputPasswordConfirmation">
-                  Password Confirmation
-                </label>
+                <label htmlFor="inputEmail">Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="inputEmail"
+                  placeholder="Enter email"
+                  name="email"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputPassword">Password</label>
                 <input
                   type="password"
                   className="form-control"
-                  id="inputPasswordConfirmation"
-                  placeholder="Password Confirmation"
-                  name="passwordConfirmation"
+                  id="inputPassword"
+                  placeholder="Password"
+                  name="password"
                   onChange={this.handleChange}
-                  value={this.state.passwordConfirmation}
+                  value={this.state.password}
                 />
               </div>
-            )}
-            <button type="submit" className="btn btn-primary">
-              {this.state.login ? "Login" : "Join"}
-            </button>
-          </form>
-        </div>
-        <div className="card-footer">
-          <ul className="nav justify-content-center">
-            <li className="nav-item">
-              <a className="nav-link" onClick={this.toggleLogin}>
-                {this.state.login
-                  ? " New user? Sign up here!"
-                  : "Existing user? Login here"}
-              </a>
-            </li>
-          </ul>
+              {this.state.login ? null : (
+                <div className="form-group">
+                  <label htmlFor="inputPasswordConfirmation">
+                    Password Confirmation
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="inputPasswordConfirmation"
+                    placeholder="Password Confirmation"
+                    name="passwordConfirmation"
+                    onChange={this.handleChange}
+                    value={this.state.passwordConfirmation}
+                  />
+                </div>
+              )}
+              <button type="submit" className="btn btn-primary">
+                {this.state.login ? "Login" : "Join"}
+              </button>
+            </form>
+          </div>
+          <div className="card-footer">
+            <ul className="nav justify-content-center">
+              <li className="nav-item">
+                <a className="nav-link" onClick={this.toggleLogin}>
+                  {this.state.login
+                    ? " New user? Sign up here!"
+                    : "Existing user? Login here"}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     );

@@ -33,7 +33,7 @@ const LocationCard = ({ weather, location, remove, metric }) => {
           </div>
         </Link>
       </div>
-      <div className="time-update text-right card-footer border-0 p-0 bg-secondary">
+      <div className="time-update text-right border-0 p-0 bg-none">
         <small className="text-muted ">
           <Moment format="hh:mm" unix className="text-white">
             {weather.currently.time}

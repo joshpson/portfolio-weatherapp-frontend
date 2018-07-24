@@ -35,7 +35,7 @@ class NewLocationForm extends React.Component {
   render() {
     return (
       <div className="card location-form bg-info">
-        <h5 className="card-header">City Search</h5>
+        <h5 className="card-header">New Location</h5>
         <div className="card-body">
           <form onSubmit={e => e.preventDefault()}>
             <div className="form-group">
@@ -57,7 +57,7 @@ class NewLocationForm extends React.Component {
               return (
                 <li
                   onClick={() => this.handleLocationSelection(prediction)}
-                  className="list-group-item bg-info"
+                  className="list-group-item bg-info search-result"
                   key={prediction.id}
                 >
                   {prediction.description}

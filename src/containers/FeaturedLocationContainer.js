@@ -12,6 +12,7 @@ import {
   setFeaturedLocation,
   clearFeaturedLocation
 } from "../actions/location";
+import "../style/weather-icons-wind.min.css";
 import "../style/weather-icons.min.css";
 
 const desktopViews = {

@@ -2,6 +2,15 @@
   border: 0.1px solid red;
 }*/
 
+footer {
+  padding-top: 50px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
 .login-form {
   max-width: 500px;
   margin: auto;
@@ -18,6 +27,12 @@
 
 .location-card-body {
   position: relative;
+}
+
+.location-card-body:hover {
+  -webkit-box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
+  -moz-box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
+  box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
 }
 
 .skycon-div {
@@ -38,16 +53,37 @@
   color: white;
 }
 
+.card-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .time-update {
   position: absolute;
   bottom: 10px;
   right: 20px;
 }
 
+.login-header {
+  font-size: 6em;
+  padding: 20px;
+  margin: 20px;
+}
+
+.search-result:hover {
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(2, 104, 117, 1);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(2, 104, 117, 1);
+  box-shadow: inset 0px 0px 1px 1px rgba(2, 104, 117, 1);
+}
+
 /*Featured Location*/
 
 .featured-location-header {
   font-size: 3.5em;
+}
+
+.featured-location-summary {
+  font-size: 1.5em;
 }
 
 .daily-summary-text {
@@ -100,5 +136,9 @@
 
   .main-featured-details {
     font-size: 4vw;
+  }
+
+  .login-header {
+    font-size: 12vw;
   }
 }

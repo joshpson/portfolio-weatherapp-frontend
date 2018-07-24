@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="container app-container bg-dark text-white">
-        <Navbar />
+        {this.props.isAuthenticated ? <Navbar /> : null}
         <Switch>
           <PrivateRoute
             exact
