@@ -51,7 +51,7 @@
 }
 
 .daily-summary-text {
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 .daily-summary-icon {
@@ -64,11 +64,11 @@
 }
 
 .detail-icon {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .detail-text {
-  font-size: 0.7em;
+  font-size: 1em;
 }
 
 .main-featured-details {
@@ -76,11 +76,15 @@
 }
 
 .app-container {
-  max-width: 800px;
+  max-width: 960px;
 }
 
 .featured-nav {
   font-size: 1.2em;
+}
+
+.desk-hour-detail-temp {
+  font-size: 1.6em;
 }
 
 @media (max-width: 630px) {

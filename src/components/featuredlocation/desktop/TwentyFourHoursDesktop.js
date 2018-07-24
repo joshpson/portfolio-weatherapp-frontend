@@ -7,26 +7,30 @@ import "../../../style/weather-icons.min.css";
 
 const TwentyFourHoursDesktop = ({ weather, metric }) => {
   return (
-    <div className="row justify-content-between pt-1 pl-0 pr-0 text-center">
+    <div className="row justify-content-center pt-1 pl-0 pr-0">
       {weather.hourly.data.map((hour, index) => {
         if (index < 24) {
           return (
             <div
-              className="col-3 p-1 mb-3 justify-content-center"
+              className="col-2 p-1 mb-3 justify-content-left"
               key={hour.time}
             >
-              <i
-                className={"daily-summary-icon wi wi-forecast-io-" + hour.icon}
-              />
-              <br />
-              <Moment unix format="hh:mm (ddd)">
+              <div className="row">
+                <div className="col-auto">
+                  <i
+                    className={
+                      "pr-2 daily-summary-icon wi wi-forecast-io-" + hour.icon
+                    }
+                  />
+                  <span className="desk-hour-detail-temp">
+                    {Math.round(hour.temperature)}
+                    <i className="wi wi-degrees" />
+                  </span>
+                </div>
+              </div>
+              <Moment unix format="hA (ddd)">
                 {hour.time}
               </Moment>
-              <br />
-              <div>
-                {Math.round(hour.temperature)}
-                <i className="wi wi-degrees" />
-              </div>
             </div>
           );
         } else {

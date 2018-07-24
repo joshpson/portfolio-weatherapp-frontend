@@ -21,7 +21,13 @@ const SevenDaysMobile = ({ weather }) => {
               id="dailyWeatherList"
             >
               {weather.daily.data.map((day, index) => {
-                return <DayItemMobile day={day} index={index} key={day.time} />;
+                if (index > 0) {
+                  return (
+                    <DayItemMobile day={day} index={index} key={day.time} />
+                  );
+                } else {
+                  return null;
+                }
               })}
             </ul>
           </div>

@@ -49,9 +49,9 @@ class FeaturedLocationContainer extends React.Component {
           <div className="card mt-2 mb-2 bg-dark border-0 p-2">
             <LocationHeader />
             <FeaturedDetailsPane />
-            {this.props.windowSize > 770 ? (
+            {this.props.windowSize > 767 ? (
               <div>
-                <div className="row mt-4 p-0 bg-dark justify-content-center text-white featured-nav">
+                <div className="row mt-4 p-0 bg-dark  text-white featured-nav">
                   <nav aria-label="breadcrumb p-0 ">
                     <ol className="breadcrumb bg-dark text-white p-0 ">
                       <li
@@ -63,7 +63,7 @@ class FeaturedLocationContainer extends React.Component {
                         name="seven"
                         onClick={this.handlePage}
                       >
-                        Weekly
+                        Daily
                       </li>
                       <li
                         className={
