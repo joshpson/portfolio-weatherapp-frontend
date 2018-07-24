@@ -16,7 +16,7 @@ const FeaturedDetailsPane = ({
   return (
     <div className="row justify-content-between justify-content-md-center text-center pt-2">
       {mobile ? (
-        <div className="col-12 pt-0 pb-3">
+        <div className="col-4 pt-0 pb-3">
           <i className={"detail-icon wi wi-forecast-io-" + currently.icon} />
           <br />
           <div className="featured-detail-text pt-1">
@@ -108,15 +108,17 @@ const FeaturedDetailsPane = ({
         </div>
       </div>
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
-        <i className="wi wi-day-sunny detail-icon" />
-        <br />
-        <div className="featured-detail-text pt-1">
-          <span className="font-weight-bold">UV Index</span>
+      {!mobile ? (
+        <div className="col-4 col-md-2 p-2">
+          <i className="wi wi-day-sunny detail-icon" />
           <br />
-          {currently.uvIndex}
+          <div className="featured-detail-text pt-1">
+            <span className="font-weight-bold">UV Index</span>
+            <br />
+            {currently.uvIndex}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       {/*Icon*/}
 

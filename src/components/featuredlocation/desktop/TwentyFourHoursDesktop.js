@@ -8,7 +8,7 @@ import "../../../style/weather-icons.min.css";
 
 const TwentyFourHoursDesktop = ({ weather, metric }) => {
   return (
-    <div className="p-0 m-0">
+    <div>
       <div className="card-deck pt-1 pl-0 pr-0">
         {weather.hourly.data.map((hour, index) => {
           if (index <= 5) {

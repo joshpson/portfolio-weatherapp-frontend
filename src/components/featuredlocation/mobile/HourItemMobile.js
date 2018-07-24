@@ -1,11 +1,12 @@
 import React from "react";
 import HourDetailsMobile from "./HourDetailsMobile";
 import Moment from "react-moment";
+import { colorClass } from "../../../actions/colors";
 
 const HourItemMobile = ({ hour, index, metric }) => {
   return (
     <div
-      className="list-group-item bg-dark pl-0 pr-0"
+      className={"list-group-item  " + colorClass(hour.icon)}
       data-toggle="collapse"
       href={`#hour${index}Details`}
     >
