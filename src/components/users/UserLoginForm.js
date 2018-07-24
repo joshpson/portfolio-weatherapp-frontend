@@ -54,14 +54,14 @@ class UserLoginForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row bg-dark justify-content-center">
+        <div className="row justify-content-center">
           <div className="col-auto">
             <div className="login-header">
               <i className="wi wi-cloudy" /> FreshAir
             </div>
           </div>
         </div>
-        <div className="card login-form bg-info">
+        <div className="card login-form night">
           <h5 className="card-header">
             {this.state.login ? "Please sign in" : "Create an account"}
           </h5>
@@ -139,7 +139,7 @@ class UserLoginForm extends React.Component {
                   />
                 </div>
               )}
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn rain">
                 {this.state.login ? "Login" : "Join"}
               </button>
             </form>
@@ -147,7 +147,7 @@ class UserLoginForm extends React.Component {
           <div className="card-footer">
             <ul className="nav justify-content-center">
               <li className="nav-item">
-                <a className="nav-link" onClick={this.toggleLogin}>
+                <a className="nav-link " onClick={this.toggleLogin}>
                   {this.state.login
                     ? " New user? Sign up here!"
                     : "Existing user? Login here"}

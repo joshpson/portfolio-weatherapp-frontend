@@ -13,7 +13,7 @@ const LocationCard = ({ weather, location, remove, metric }) => {
         "location-card rounded card w-100 " + colorClass(weather.currently.icon)
       }
     >
-      <div className="card-body location-card-body">
+      <div className="card-body light-shadow location-card-body">
         <Link to={`/locations/${location.id}`} className="card-link ">
           <div>
             <h1 className="card-title">
