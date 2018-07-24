@@ -100,7 +100,7 @@ footer a {
 }
 
 .detail-icon {
-  font-size: 3em;
+  font-size: 32px;
 }
 
 .detail-text {
@@ -136,6 +136,10 @@ footer a {
 
   .main-featured-details {
     font-size: 4vw;
+  }
+
+  .detail-text {
+    font-size: 3vw;
   }
 
   .login-header {

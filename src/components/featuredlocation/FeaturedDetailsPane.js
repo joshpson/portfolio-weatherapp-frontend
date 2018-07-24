@@ -1,6 +1,8 @@
 import React from "react";
 import Moment from "react-moment";
 import { connect } from "react-redux";
+import Octicon, { Eye } from "@githubprimer/octicons-react";
+import { cardinalDirection } from "../../actions/direction";
 
 const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
   return (
@@ -16,7 +18,17 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
           </div>
         </div>
       ) : null}
-      <div className="col-1" />
+      {!mobile ? <div className="col-1" /> : null}
+      {/*Icon*/}
+      <div className="col-4 col-md-2 p-2">
+        <i className="wi wi-umbrella detail-icon" />
+        <br />
+        <div className="detail-text pt-1">
+          <span className="font-weight-bold">Precipitation</span>
+          <br />
+          {Math.round(currently.precipProbability)}%
+        </div>
+      </div>
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-windy detail-icon" />
@@ -28,19 +40,21 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         </div>
       </div>
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
-        <i
-          className={
-            "detail-icon wi wi-wind towards-" + currently.windBearing + "-deg"
-          }
-        />
-        <br />
-        <div className="detail-text pt-1">
-          <span className="font-weight-bold">Wind Direction</span>
+      {!mobile ? (
+        <div className="col-4 col-md-2 p-2">
+          <i
+            className={
+              "detail-icon wi wi-wind towards-" + currently.windBearing + "-deg"
+            }
+          />
           <br />
-          {currently.windBearing}
+          <div className="detail-text pt-1">
+            <span className="font-weight-bold">Direction</span>
+            <br />
+            {cardinalDirection(currently.windBearing)}
+          </div>
         </div>
-      </div>
+      ) : null}
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-barometer detail-icon" />
@@ -61,6 +75,10 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
           <i className="wi wi-degrees" />
         </div>
       </div>
+
+      {/*Spacers*/}
+      {!mobile ? <div className="col-1" /> : null}
+      {!mobile ? <div className="col-1" /> : null}
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-humidity detail-icon" />
@@ -71,13 +89,9 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
           {Math.round(currently.humidity * 100)}%
         </div>
       </div>
-
-      {/*Spacers*/}
-      <div className="col-1" />
-      <div className="col-1" />
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2">
-        <i className="wi wi-humidity detail-icon" />
+        <Octicon size="medium" icon={Eye} />
         <br />
         <div className="detail-text pt-1">
           <span className="font-weight-bold">Visibility</span>
@@ -93,16 +107,6 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
           <span className="font-weight-bold">UV Index</span>
           <br />
           {currently.uvIndex}
-        </div>
-      </div>
-      {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
-        <i className="wi wi-humidity detail-icon" />
-        <br />
-        <div className="detail-text pt-1">
-          <span className="font-weight-bold">Ozone</span>
-          <br />
-          {Math.round(currently.ozone)}
         </div>
       </div>
 
@@ -130,7 +134,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         </div>
       </div>
 
-      <div className="col-1" />
+      {!mobile ? <div className="col-1" /> : null}
     </div>
   );
 };

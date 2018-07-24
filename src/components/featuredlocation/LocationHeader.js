@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const LocationHeader = ({ location, weather, windowSize }) => {
   return (
     <div>
-      <div className="row justify-content-center featured-location-header pb-3 pb-md-0">
+      <div className="row justify-content-center featured-location-header pb-3 pb-md-0 pt-0">
         {windowSize > 767 ? (
           <div className="col-auto ">
             <i

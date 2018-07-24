@@ -5,6 +5,15 @@ const HourDetailsMobile = ({ data, metric }) => {
   return (
     <div className="row justify-content-between text-center no-gutters p-0">
       <div className="col-2">
+        <i className="wi wi-umbrella detail-icon" />
+        <br />
+        <div className="detail-text">
+          <span className="font-weight-bold">Precip</span>
+          <br />
+          {Math.round(data.precipProbability)}%
+        </div>
+      </div>
+      <div className="col-2">
         <i className="wi wi-windy detail-icon" />
         <br />
         <div className="detail-text">
@@ -13,16 +22,7 @@ const HourDetailsMobile = ({ data, metric }) => {
           {Math.round(data.windSpeed)} {metric ? "m/s" : "mph"}
         </div>
       </div>
-      <div className="col-2">
-        <i className="wi wi-day-sunny detail-icon" />
-        <br />
 
-        <div className="detail-text">
-          <span className="font-weight-bold">UV Index</span>
-          <br />
-          {data.uvIndex}
-        </div>
-      </div>
       <div className="col-2">
         <i className="wi wi-humidity detail-icon" />
         <br />
@@ -33,16 +33,7 @@ const HourDetailsMobile = ({ data, metric }) => {
           {Math.round(data.humidity * 100)}%
         </div>
       </div>
-      <div className="col-2">
-        <i className="wi wi-raindrop detail-icon" />
-        <br />
-        <div className="detail-text">
-          <span className="font-weight-bold">Dew Point</span>
-          <br />
-          {Math.round(data.dewPoint)}
-          <i className="wi wi-degrees" />
-        </div>
-      </div>
+
       <div className="col-2">
         <i className="wi wi-barometer detail-icon" />
         <br />
