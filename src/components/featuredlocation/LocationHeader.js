@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
     <div>
-      <div className="row justify-content-center pb-3 pb-md-0 pt-0">
+      <div className="row justify-content-center pt-0">
         {!mobile ? (
           <div className="col-auto featured-location-header ">
             <i
@@ -24,7 +24,13 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
           </span>
         </div>
         <div className="col-12 text-center featured-location-summary pb-3">
-          {!mobile ? "Currently" : null}
+          {!mobile ? (
+            "Currently: "
+          ) : (
+            <span>
+              <i className={"wi wi-forecast-io-" + weather.currently.icon} />{" "}
+            </span>
+          )}
           {weather.currently.summary}
         </div>
       </div>
