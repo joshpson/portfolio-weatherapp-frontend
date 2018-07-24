@@ -5,9 +5,16 @@ import Octicon, { Eye } from "@githubprimer/octicons-react";
 import { cardinalDirection } from "../../actions/direction";
 import { phaseCalculator } from "../../actions/moon";
 
-const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
+const FeaturedDetailsPane = ({
+  currently,
+  today,
+  tomorrow,
+  metric,
+  mobile,
+  timezone
+}) => {
   return (
-    <div className="row justify-content-between justify-content-md-center text-center  pt-2">
+    <div className="row justify-content-between justify-content-md-center text-center pt-2">
       {mobile ? (
         <div className="col-12 pt-0 pb-3">
           <i className={"detail-icon wi wi-forecast-io-" + currently.icon} />
@@ -97,7 +104,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Visibility</span>
           <br />
-          {Math.round(currently.visibility)} {metric ? "mi" : "km"}
+          {Math.round(currently.visibility)} {metric ? "km" : "mi"}
         </div>
       </div>
       {/*Icon*/}
@@ -112,44 +119,31 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       </div>
 
       {/*Icon*/}
-      {currently.time > daily.sunriseTime ? (
-        <div className="col-4 col-md-2 p-2 ">
-          <i className="wi wi-sunset detail-icon" />
+
+      <div className="col-4 col-md-2 p-2 ">
+        <i className="wi wi-sunrise detail-icon" />
+        <br />
+        <div className="featured-detail-text pt-1">
+          <span className="font-weight-bold">Sunrise</span>
           <br />
-          <div className="featured-detail-text pt-1">
-            <span className="font-weight-bold">Sunset</span>
-            <br />
-            <Moment format="hh:mm A" unix>
-              {daily.sunsetTime}
-            </Moment>
-          </div>
+          <Moment format="h:mm A" unix tz={timezone}>
+            {tomorrow.sunriseTime}
+          </Moment>
         </div>
-      ) : (
-        <div className="col-4 col-md-2 p-2 ">
-          <i className="wi wi-sunrise detail-icon" />
-          <br />
-          <div className="featured-detail-text pt-1">
-            <span className="font-weight-bold">Sunrise</span>
-            <br />
-            <Moment format="hh:mm A" unix>
-              {daily.sunriseTime}
-            </Moment>
-          </div>
-        </div>
-      )}
+      </div>
 
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2 ">
         <i
-          className={"wi " + phaseCalculator(daily.moonPhase) + " detail-icon"}
+          className={"wi " + phaseCalculator(today.moonPhase) + " detail-icon"}
         />
         <br />
         <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Moon</span>
           <br />
-          {phaseCalculator(daily.moonPhase).split("-")[2] +
+          {phaseCalculator(today.moonPhase).split("-")[2] +
             " " +
-            phaseCalculator(daily.moonPhase).split("-")[3]}
+            phaseCalculator(today.moonPhase).split("-")[3]}
         </div>
       </div>
 
@@ -160,8 +154,10 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
 
 const mapStateToProps = state => {
   return {
+    timezone: state.featuredLocation.weather.timezone,
     currently: state.featuredLocation.weather.currently,
-    daily: state.featuredLocation.weather.daily.data[0],
+    today: state.featuredLocation.weather.daily.data[0],
+    tomorrow: state.featuredLocation.weather.daily.data[1],
     metric: state.currentUser.metric,
     mobile: state.windowSize < 767
   };

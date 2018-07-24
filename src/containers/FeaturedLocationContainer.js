@@ -7,6 +7,7 @@ import SevenDaysDesktop from "../components/featuredlocation/desktop/SevenDaysDe
 import TwentyFourHoursDesktop from "../components/featuredlocation/desktop/TwentyFourHoursDesktop";
 import AdvancedViewsDesktop from "../components/featuredlocation/desktop/AdvancedViewsDesktop";
 import LocationHeader from "../components/featuredlocation/LocationHeader";
+import { colorClass } from "../actions/colors";
 
 import {
   setFeaturedLocation,
@@ -45,61 +46,69 @@ class FeaturedLocationContainer extends React.Component {
 
   render() {
     return (
-      <div className="container bg-dark">
+      <div className="container p-0">
         {this.props.weather.currently ? (
-          <div className="card mt-2 mb-2 bg-dark border-0 p-2">
-            <LocationHeader />
-            <FeaturedDetailsPane />
-            {this.props.windowSize > 767 ? (
-              <div>
-                <div className="row mt-4 p-0 bg-dark  text-white featured-nav">
-                  <nav aria-label="breadcrumb p-0 ">
-                    <ol className="breadcrumb bg-dark text-white p-0 ">
-                      <li
-                        className={
-                          this.state.view === "seven"
-                            ? "breadcrumb-item font-weight-bold"
-                            : "breadcrumb-item"
-                        }
-                        name="seven"
-                        onClick={this.handlePage}
-                      >
-                        Daily
-                      </li>
-                      <li
-                        className={
-                          this.state.view === "twenty-four"
-                            ? "breadcrumb-item font-weight-bold"
-                            : "breadcrumb-item"
-                        }
-                        name="twenty-four"
-                        onClick={this.handlePage}
-                      >
-                        Hourly
-                      </li>
-                      <li
-                        className={
-                          this.state.view === "advanced"
-                            ? "breadcrumb-item font-weight-bold"
-                            : "breadcrumb-item"
-                        }
-                        name="advanced"
-                        onClick={this.handlePage}
-                      >
-                        Advanced
-                      </li>
-                    </ol>
-                  </nav>
+          <div>
+            <div
+              className={
+                "card rounded mt-4 mr-0 ml-0 pt-2 pb-2 pr-0 pl-0 light-shadow " +
+                colorClass(this.props.weather.currently.icon)
+              }
+            >
+              <LocationHeader />
+              <FeaturedDetailsPane />
+            </div>
+            <div className="card border-0 main-background">
+              {this.props.windowSize > 767 ? (
+                <div className="p-0 mr-2 ml-2">
+                  <div className="row mt-4 featured-nav">
+                    <nav aria-label="breadcrumb bg-none ">
+                      <ol className="breadcrumb bg-none p-1">
+                        <li
+                          className={
+                            this.state.view === "seven"
+                              ? "breadcrumb-item font-weight-bold"
+                              : "breadcrumb-item"
+                          }
+                          name="seven"
+                          onClick={this.handlePage}
+                        >
+                          Daily
+                        </li>
+                        <li
+                          className={
+                            this.state.view === "twenty-four"
+                              ? "breadcrumb-item font-weight-bold"
+                              : "breadcrumb-item"
+                          }
+                          name="twenty-four"
+                          onClick={this.handlePage}
+                        >
+                          Hourly
+                        </li>
+                        <li
+                          className={
+                            this.state.view === "advanced"
+                              ? "breadcrumb-item font-weight-bold"
+                              : "breadcrumb-item"
+                          }
+                          name="advanced"
+                          onClick={this.handlePage}
+                        >
+                          Advanced
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div>{desktopViews[this.state.view]}</div>
                 </div>
-
-                <div>{desktopViews[this.state.view]}</div>
-              </div>
-            ) : (
-              <div>
-                <TwentyFourHoursMobile />
-                <SevenDaysMobile />
-              </div>
-            )}
+              ) : (
+                <div className="p-0 m-0">
+                  <TwentyFourHoursMobile />
+                  <SevenDaysMobile />
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           "Loading"

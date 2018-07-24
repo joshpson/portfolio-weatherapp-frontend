@@ -41,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container app-container bg-dark text-white">
+      <div className="container app-container text-white">
         {this.props.isAuthenticated ? <Navbar /> : null}
         {this.props.errors.login ? (
           <div className="alert alert-primary" role="alert">
