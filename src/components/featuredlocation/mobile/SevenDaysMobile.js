@@ -23,7 +23,12 @@ const SevenDaysMobile = ({ weather }) => {
               {weather.daily.data.map((day, index) => {
                 if (index > 0) {
                   return (
-                    <DayItemMobile day={day} index={index} key={day.time} />
+                    <DayItemMobile
+                      day={day}
+                      index={index}
+                      key={day.time}
+                      timezone={weather.timezone}
+                    />
                   );
                 } else {
                   return null;

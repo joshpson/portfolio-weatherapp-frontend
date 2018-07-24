@@ -30,6 +30,7 @@ const TwentyFourHoursMobile = ({ weather, metric }) => {
                       index={index}
                       metric={metric}
                       key={hour.time}
+                      timezone={weather.timezone}
                     />
                   );
                 } else {

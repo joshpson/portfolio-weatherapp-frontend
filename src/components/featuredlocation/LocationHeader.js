@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const LocationHeader = ({ location, weather, windowSize }) => {
+const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
     <div>
-      <div className="row justify-content-center featured-location-header pb-3 pb-md-0 pt-0">
-        {windowSize > 767 ? (
-          <div className="col-auto ">
+      <div className="row justify-content-center pb-3 pb-md-0 pt-0">
+        {!mobile ? (
+          <div className="col-auto featured-location-header ">
             <i
               className={
                 "header-icon wi wi-forecast-io-" + weather.currently.icon
@@ -14,20 +14,20 @@ const LocationHeader = ({ location, weather, windowSize }) => {
             />
           </div>
         ) : null}
-
-        <div className="col-auto ">{location.name} </div>
-        <div className="col-auto">
+        <div className="col-auto text-center featured-location-header ">
+          {location.name}
+        </div>
+        <div className="col-auto featured-location-header ">
           <span>
             {Math.round(weather.currently.temperature)}
             <i className="wi wi-degrees" />
           </span>
         </div>
-      </div>
-      {windowSize > 767 ? (
-        <div className="row justify-content-center featured-location-summary pb-3">
-          Currently: {weather.currently.summary}
+        <div className="col-12 text-center featured-location-summary pb-3">
+          {!mobile ? "Currently" : null}
+          {weather.currently.summary}
         </div>
-      ) : null}
+      </div>
     </div>
   );
 };
@@ -36,7 +36,7 @@ const mapStateToProps = state => {
   return {
     weather: state.featuredLocation.weather,
     location: state.featuredLocation.location,
-    windowSize: state.windowSize
+    mobile: state.windowSize < 767
   };
 };
 

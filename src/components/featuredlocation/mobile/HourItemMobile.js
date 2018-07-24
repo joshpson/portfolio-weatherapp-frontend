@@ -3,7 +3,7 @@ import HourDetailsMobile from "./HourDetailsMobile";
 import Moment from "react-moment";
 import { colorClass } from "../../../actions/colors";
 
-const HourItemMobile = ({ hour, index, metric }) => {
+const HourItemMobile = ({ hour, index, metric, timezone }) => {
   return (
     <div
       className={"list-group-item  " + colorClass(hour.icon)}
@@ -21,7 +21,12 @@ const HourItemMobile = ({ hour, index, metric }) => {
         <div className="col-9">
           <div className="row justify-content-between">
             <div className="col-6 p-0">
-              <Moment unix format="hh:mm (ddd)" className="font-weight-bold">
+              <Moment
+                unix
+                format="h:mm A (ddd)"
+                className="font-weight-bold"
+                tz={timezone}
+              >
                 {hour.time}
               </Moment>
             </div>

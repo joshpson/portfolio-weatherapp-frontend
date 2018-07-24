@@ -51,7 +51,7 @@ class FeaturedLocationContainer extends React.Component {
           <div>
             <div
               className={
-                "card rounded mt-4 mr-0 ml-0 pt-2 pb-2 pr-0 pl-0 light-shadow " +
+                "card border-0 rounded mt-4 mr-0 ml-0 p-0 pb-md-2 light-shadow " +
                 colorClass(this.props.weather.currently.icon)
               }
             >
@@ -103,7 +103,7 @@ class FeaturedLocationContainer extends React.Component {
                   <div>{desktopViews[this.state.view]}</div>
                 </div>
               ) : (
-                <div className="p-0 m-0">
+                <div className="p-2 m-0">
                   <TwentyFourHoursMobile />
                   <SevenDaysMobile />
                 </div>

@@ -4,7 +4,7 @@ import { colorClass } from "../../../actions/colors";
 
 import "../../../style/weather-icons.min.css";
 
-const DayItemMobile = ({ day, index }) => {
+const DayItemMobile = ({ day, index, timezone }) => {
   return (
     <li className={"list-group-item " + colorClass(day.icon)}>
       <div className="row">
@@ -16,7 +16,12 @@ const DayItemMobile = ({ day, index }) => {
         <div className="col-9">
           <div className="row justify-content-between">
             <div className="col-6 p-0">
-              <Moment unix format="dddd" className="font-weight-bold">
+              <Moment
+                unix
+                format="dddd"
+                className="font-weight-bold"
+                tz={timezone}
+              >
                 {day.sunriseTime}
               </Moment>
             </div>

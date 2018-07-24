@@ -14,21 +14,10 @@ const FeaturedDetailsPane = ({
   timezone
 }) => {
   return (
-    <div className="row justify-content-between justify-content-md-center text-center pt-2">
-      {mobile ? (
-        <div className="col-4 pt-0 pb-3">
-          <i className={"detail-icon wi wi-forecast-io-" + currently.icon} />
-          <br />
-          <div className="featured-detail-text pt-1">
-            <span className="font-weight-bold">Currently</span>
-            <br />
-            {currently.summary}
-          </div>
-        </div>
-      ) : null}
+    <div className="row justify-content-between justify-content-md-center text-center pt-md-2">
       {!mobile ? <div className="col-1" /> : null}
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
+      <div className="col-3 col-md-2 p-2">
         <i className="wi wi-umbrella detail-icon" />
         <br />
         <div className="featured-detail-text pt-1">
@@ -38,7 +27,7 @@ const FeaturedDetailsPane = ({
         </div>
       </div>
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
+      <div className="col-3 col-md-2 p-2">
         <i className="wi wi-windy detail-icon" />
         <br />
         <div className="featured-detail-text pt-1">
@@ -48,33 +37,23 @@ const FeaturedDetailsPane = ({
         </div>
       </div>
       {/*Icon*/}
-      {!mobile ? (
-        <div className="col-4 col-md-2 p-2">
-          <i
-            className={
-              "detail-icon wi wi-wind towards-" + currently.windBearing + "-deg"
-            }
-          />
-          <br />
-          <div className="featured-detail-text pt-1">
-            <span className="font-weight-bold">Direction</span>
-            <br />
-            {cardinalDirection(currently.windBearing)}
-          </div>
-        </div>
-      ) : null}
-      {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
-        <i className="wi wi-barometer detail-icon" />
+
+      <div className="col-3 col-md-2 p-2">
+        <i
+          className={
+            "detail-icon wi wi-wind towards-" + currently.windBearing + "-deg"
+          }
+        />
         <br />
         <div className="featured-detail-text pt-1">
-          <span className="font-weight-bold">Pressure</span>
+          <span className="font-weight-bold">Direction</span>
           <br />
-          {Math.round(currently.pressure)} MB
+          {cardinalDirection(currently.windBearing)}
         </div>
       </div>
+
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2 ">
+      <div className="col-3 col-md-2 p-2 ">
         <i className="wi wi-thermometer detail-icon" /> <br />
         <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Feels</span>
@@ -83,12 +62,23 @@ const FeaturedDetailsPane = ({
           <i className="wi wi-degrees" />
         </div>
       </div>
+      {/*Icon*/}
+      <div className="col-3 col-md-2 p-2">
+        <i className="wi wi-barometer detail-icon" />
+        <br />
+        <div className="featured-detail-text pt-1">
+          <span className="font-weight-bold">Pressure</span>
+          <br />
+          {Math.round(currently.pressure)} MB
+        </div>
+      </div>
 
       {/*Spacers*/}
       {!mobile ? <div className="col-1" /> : null}
       {!mobile ? <div className="col-1" /> : null}
+
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
+      <div className="col-3 col-md-2 p-2">
         <i className="wi wi-humidity detail-icon" />
         <br />
         <div className="featured-detail-text pt-1">
@@ -98,7 +88,7 @@ const FeaturedDetailsPane = ({
         </div>
       </div>
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2">
+      <div className="col-3 col-md-2 p-2">
         <Octicon size="medium" icon={Eye} />
         <br />
         <div className="featured-detail-text pt-1">
@@ -109,7 +99,7 @@ const FeaturedDetailsPane = ({
       </div>
       {/*Icon*/}
       {!mobile ? (
-        <div className="col-4 col-md-2 p-2">
+        <div className="col-3 col-md-2 p-2">
           <i className="wi wi-day-sunny detail-icon" />
           <br />
           <div className="featured-detail-text pt-1">
@@ -122,7 +112,7 @@ const FeaturedDetailsPane = ({
 
       {/*Icon*/}
 
-      <div className="col-4 col-md-2 p-2 ">
+      <div className="col-3 col-md-2 p-2 ">
         <i className="wi wi-sunrise detail-icon" />
         <br />
         <div className="featured-detail-text pt-1">
@@ -135,19 +125,23 @@ const FeaturedDetailsPane = ({
       </div>
 
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2 ">
-        <i
-          className={"wi " + phaseCalculator(today.moonPhase) + " detail-icon"}
-        />
-        <br />
-        <div className="featured-detail-text pt-1">
-          <span className="font-weight-bold">Moon</span>
+      {!mobile ? (
+        <div className="col-3 col-md-2 p-2 ">
+          <i
+            className={
+              "wi " + phaseCalculator(today.moonPhase) + " detail-icon"
+            }
+          />
           <br />
-          {phaseCalculator(today.moonPhase).split("-")[2] +
-            " " +
-            phaseCalculator(today.moonPhase).split("-")[3]}
+          <div className="featured-detail-text pt-1">
+            <span className="font-weight-bold">Moon</span>
+            <br />
+            {phaseCalculator(today.moonPhase).split("-")[2] +
+              " " +
+              phaseCalculator(today.moonPhase).split("-")[3]}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       {!mobile ? <div className="col-1" /> : null}
     </div>
