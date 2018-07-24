@@ -1,8 +1,3 @@
-// const moonPhase = (lunation) => {
-//   switch(true) {
-//     case
-//   }
-
 const phases = {
   0.0: "wi-moon-new",
   0.04: "wi-moon-waxing-crescent-1",
@@ -33,4 +28,17 @@ const phases = {
   0.93: "wi-moon-waning-crescent-5",
   0.96: "wi-moon-waning-crescent-6",
   1.0: "wi-moon-new"
+};
+
+export const phaseCalculator = lunation => {
+  let absValue = 1000;
+  let phase = null;
+  Object.keys(phases).forEach(key => {
+    let difference = Math.abs(lunation - key);
+    if (difference < absValue) {
+      absValue = difference;
+      phase = phases[key];
+    }
+  });
+  return phase;
 };

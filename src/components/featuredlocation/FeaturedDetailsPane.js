@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import { connect } from "react-redux";
 import Octicon, { Eye } from "@githubprimer/octicons-react";
 import { cardinalDirection } from "../../actions/direction";
+import { phaseCalculator } from "../../actions/moon";
 
 const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
   return (
@@ -96,7 +97,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         <div className="detail-text pt-1">
           <span className="font-weight-bold">Visibility</span>
           <br />
-          {currently.visibility}
+          {Math.round(currently.visibility)} {metric ? "mi" : "km"}
         </div>
       </div>
       {/*Icon*/}
@@ -111,26 +112,44 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       </div>
 
       {/*Icon*/}
-      <div className="col-4 col-md-2 p-2 ">
-        <i className="wi wi-sunset detail-icon" />
-        <br />
-        <div className="detail-text pt-1">
-          <span className="font-weight-bold">Sunset</span>
+      {currently.time > daily.sunriseTime ? (
+        <div className="col-4 col-md-2 p-2 ">
+          <i className="wi wi-sunset detail-icon" />
           <br />
-          <Moment format="hh:mm" unix>
-            {daily.sunsetTime}
-          </Moment>
+          <div className="detail-text pt-1">
+            <span className="font-weight-bold">Sunset</span>
+            <br />
+            <Moment format="hh:mm A" unix>
+              {daily.sunsetTime}
+            </Moment>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="col-4 col-md-2 p-2 ">
+          <i className="wi wi-sunrise detail-icon" />
+          <br />
+          <div className="detail-text pt-1">
+            <span className="font-weight-bold">Sunrise</span>
+            <br />
+            <Moment format="hh:mm A" unix>
+              {daily.sunriseTime}
+            </Moment>
+          </div>
+        </div>
+      )}
 
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2 ">
-        <i className="wi wi-moon-alt-waning-crescent-6 detail-icon" />
+        <i
+          className={"wi " + phaseCalculator(daily.moonPhase) + " detail-icon"}
+        />
         <br />
         <div className="detail-text pt-1">
           <span className="font-weight-bold">Moon Phase</span>
           <br />
-          {daily.moonPhase}
+          {phaseCalculator(daily.moonPhase).split("-")[2] +
+            " " +
+            phaseCalculator(daily.moonPhase).split("-")[3]}
         </div>
       </div>
 
