@@ -12,7 +12,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         <div className="col-12 pt-0 pb-3">
           <i className={"detail-icon wi wi-forecast-io-" + currently.icon} />
           <br />
-          <div className="detail-text pt-1">
+          <div className="featured-detail-text pt-1">
             <span className="font-weight-bold">Currently</span>
             <br />
             {currently.summary}
@@ -24,8 +24,8 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-umbrella detail-icon" />
         <br />
-        <div className="detail-text pt-1">
-          <span className="font-weight-bold">Precipitation</span>
+        <div className="featured-detail-text pt-1">
+          <span className="font-weight-bold">Precip</span>
           <br />
           {Math.round(currently.precipProbability)}%
         </div>
@@ -34,7 +34,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-windy detail-icon" />
         <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Wind</span>
           <br />
           {Math.round(currently.windSpeed)} {metric ? "m/s" : "mph"}
@@ -49,7 +49,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
             }
           />
           <br />
-          <div className="detail-text pt-1">
+          <div className="featured-detail-text pt-1">
             <span className="font-weight-bold">Direction</span>
             <br />
             {cardinalDirection(currently.windBearing)}
@@ -60,7 +60,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-barometer detail-icon" />
         <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Pressure</span>
           <br />
           {Math.round(currently.pressure)} MB
@@ -69,7 +69,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       {/*Icon*/}
       <div className="col-4 col-md-2 p-2 ">
         <i className="wi wi-thermometer detail-icon" /> <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Feels</span>
           <br />
           {Math.round(currently.apparentTemperature)}
@@ -84,7 +84,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-humidity detail-icon" />
         <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Humidity</span>
           <br />
           {Math.round(currently.humidity * 100)}%
@@ -94,7 +94,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <Octicon size="medium" icon={Eye} />
         <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">Visibility</span>
           <br />
           {Math.round(currently.visibility)} {metric ? "mi" : "km"}
@@ -104,7 +104,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
       <div className="col-4 col-md-2 p-2">
         <i className="wi wi-day-sunny detail-icon" />
         <br />
-        <div className="detail-text pt-1">
+        <div className="featured-detail-text pt-1">
           <span className="font-weight-bold">UV Index</span>
           <br />
           {currently.uvIndex}
@@ -116,7 +116,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         <div className="col-4 col-md-2 p-2 ">
           <i className="wi wi-sunset detail-icon" />
           <br />
-          <div className="detail-text pt-1">
+          <div className="featured-detail-text pt-1">
             <span className="font-weight-bold">Sunset</span>
             <br />
             <Moment format="hh:mm A" unix>
@@ -128,7 +128,7 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
         <div className="col-4 col-md-2 p-2 ">
           <i className="wi wi-sunrise detail-icon" />
           <br />
-          <div className="detail-text pt-1">
+          <div className="featured-detail-text pt-1">
             <span className="font-weight-bold">Sunrise</span>
             <br />
             <Moment format="hh:mm A" unix>
@@ -144,8 +144,8 @@ const FeaturedDetailsPane = ({ currently, daily, metric, mobile }) => {
           className={"wi " + phaseCalculator(daily.moonPhase) + " detail-icon"}
         />
         <br />
-        <div className="detail-text pt-1">
-          <span className="font-weight-bold">Moon Phase</span>
+        <div className="featured-detail-text pt-1">
+          <span className="font-weight-bold">Moon</span>
           <br />
           {phaseCalculator(daily.moonPhase).split("-")[2] +
             " " +

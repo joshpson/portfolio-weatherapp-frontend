@@ -30,9 +30,9 @@ footer a {
 }
 
 .location-card-body:hover {
-  -webkit-box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
-  -moz-box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
-  box-shadow: 5px 5px 10px 8px rgba(35, 40, 43, 1);
+  -webkit-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
+  -moz-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
+  box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
 }
 
 .skycon-div {
@@ -107,6 +107,10 @@ footer a {
   font-size: 1em;
 }
 
+.featured-detail-text {
+  font-size: 1.1em;
+}
+
 .main-featured-details {
   font-size: 1.5em;
 }
@@ -138,8 +142,12 @@ footer a {
     font-size: 4vw;
   }
 
+  .featured-detail-text {
+    font-size: 3.5vw;
+  }
+
   .detail-text {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 
   .login-header {

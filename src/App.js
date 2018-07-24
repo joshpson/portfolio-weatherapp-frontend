@@ -43,6 +43,11 @@ class App extends Component {
     return (
       <div className="container app-container bg-dark text-white">
         {this.props.isAuthenticated ? <Navbar /> : null}
+        {this.props.errors.login ? (
+          <div className="alert alert-primary" role="alert">
+            {this.props.errors.login}
+          </div>
+        ) : null}
         <Switch>
           <PrivateRoute
             exact
@@ -91,7 +96,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    isAuthenticated: !!state.currentUser
+    isAuthenticated: !!state.currentUser,
+    errors: state.errors
   };
 };
 

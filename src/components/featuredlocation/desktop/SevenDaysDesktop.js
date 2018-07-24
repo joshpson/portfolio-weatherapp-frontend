@@ -5,11 +5,11 @@ import "../../../style/weather-icons.min.css";
 
 const SevenDaysDesktop = ({ weather, metric }) => {
   return (
-    <div className="row justify-content-between pt-1 pl-0 pr-0">
+    <div className="row justify-content-center pt-1 pl-0 pr-0">
       {weather.daily.data.map((day, index) => {
         if (index > 0 && index < 7) {
           return (
-            <div className="col-4 p-1 mb-3 justify-content-left" key={day.time}>
+            <div className="col-4 p-3 mb-3 justify-content-left" key={day.time}>
               <div className="row ">
                 <div className="col-auto">
                   <i
