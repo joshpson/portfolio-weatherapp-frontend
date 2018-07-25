@@ -6,7 +6,7 @@ import "../../../style/weather-icons.min.css";
 
 const DayItemMobile = ({ day, index, timezone }) => {
   return (
-    <li className={"list-group-item " + colorClass(day.icon)}>
+    <li className={"pl-2 list-group-item " + colorClass(day.icon)}>
       <div className="row">
         <div className="d-flex col-3 justify-content-center">
           <div className="d-flex justify-content-center align-items-center">

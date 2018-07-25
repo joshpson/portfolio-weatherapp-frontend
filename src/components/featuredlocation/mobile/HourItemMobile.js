@@ -6,7 +6,7 @@ import { colorClass } from "../../../actions/colors";
 const HourItemMobile = ({ hour, index, metric, timezone }) => {
   return (
     <div
-      className={"list-group-item  " + colorClass(hour.icon)}
+      className={"pl-2 list-group-item  " + colorClass(hour.icon)}
       data-toggle="collapse"
       href={`#hour${index}Details`}
     >
