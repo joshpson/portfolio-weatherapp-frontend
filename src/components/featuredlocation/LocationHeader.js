@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
     <div>
-      <div className="row justify-content-center pt-0">
+      <div className="row justify-content-center pt-2">
         {!mobile ? (
           <div className="col-auto featured-location-header ">
             <i

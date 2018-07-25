@@ -26,6 +26,11 @@ body {
   box-shadow: 2px 2px 8px 0px rgba(44, 62, 80, 1);
 }
 
+.chart-container {
+  min-width: 200px;
+  min-height: 200px;
+}
+
 .breadcrumb {
   background-color: #34495e;
 }
