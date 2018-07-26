@@ -3,6 +3,8 @@ import Moment from "react-moment";
 import { connect } from "react-redux";
 import Octicon, { Eye } from "@githubprimer/octicons-react";
 import { cardinalDirection } from "../../actions/direction";
+import { sunTime } from "../../actions/suntime";
+
 import { phaseCalculator } from "../../actions/moon";
 
 const FeaturedDetailsPane = ({
@@ -116,10 +118,12 @@ const FeaturedDetailsPane = ({
         <i className="wi wi-sunrise detail-icon" />
         <br />
         <div className="featured-detail-text pt-1">
-          <span className="font-weight-bold">Sunrise</span>
+          <span className="font-weight-bold">
+            {sunTime(currently, today, tomorrow).type}
+          </span>
           <br />
           <Moment format="h:mm A" unix tz={timezone}>
-            {tomorrow.sunriseTime}
+            {sunTime(currently, today, tomorrow).time}
           </Moment>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Moment from "react-moment";
 
 const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
@@ -24,14 +25,19 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
           </span>
         </div>
         <div className="col-12 text-center featured-location-summary pb-3">
-          {!mobile ? (
-            "Currently: "
-          ) : (
-            <span>
-              <i className={"wi wi-forecast-io-" + weather.currently.icon} />{" "}
-            </span>
-          )}
-          {weather.currently.summary}
+          <Moment format="h:mm A z" unix tz={weather.timezone}>
+            {weather.currently.time}
+          </Moment>
+          <span>
+            {" "}
+            -{" "}
+            {mobile ? (
+              <span>
+                <i className={"wi wi-forecast-io-" + weather.currently.icon} />{" "}
+              </span>
+            ) : null}
+            {weather.currently.summary}
+          </span>
         </div>
       </div>
     </div>

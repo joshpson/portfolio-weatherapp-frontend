@@ -120,7 +120,7 @@ class FeaturedLocationContainer extends React.Component {
           </div>
         ) : (
           <div className="loading">
-            <Spinner name="three-bounce" color="#f1c40f" fadeIn="none" />
+            <Spinner name="three-bounce" color="#bdc3c7" fadeIn="none" />
           </div>
         )}
       </div>
