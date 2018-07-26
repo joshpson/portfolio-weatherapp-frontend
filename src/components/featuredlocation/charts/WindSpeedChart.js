@@ -46,7 +46,8 @@ const WindSpeedChart = ({ windSpeed, width, metric }) => {
 
 const mapStateToProps = state => {
   return {
-    metric: state.currentUser.metric
+    metric: state.currentUser.metric,
+    width: state.chartSize
   };
 };
 

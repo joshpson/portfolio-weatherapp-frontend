@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import HumidityTooltip from "./HumidityTooltip";
 import {
   ResponsiveContainer,
@@ -47,4 +49,14 @@ const HumidityChart = ({ humidity, width }) => {
   );
 };
 
-export default HumidityChart;
+const mapStateToProps = state => {
+  return {
+    metric: state.currentUser.metric,
+    width: state.chartSize
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(HumidityChart);

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import DailyPressureToolTip from "./DailyPressureToolTip";
 import {
   ResponsiveContainer,
@@ -45,4 +47,14 @@ const DailyPressureChart = ({ pressure, width }) => {
   );
 };
 
-export default DailyPressureChart;
+const mapStateToProps = state => {
+  return {
+    metric: state.currentUser.metric,
+    width: state.chartSize
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(DailyPressureChart);

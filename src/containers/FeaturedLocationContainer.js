@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import FeaturedDetailsPane from "../components/featuredlocation/FeaturedDetailsPane";
 import SevenDaysMobile from "../components/featuredlocation/mobile/SevenDaysMobile";
+import AdvancedViewsContainerMobile from "../components/featuredlocation/mobile/AdvancedViewsContainerMobile";
 import TwentyFourHoursMobile from "../components/featuredlocation/mobile/TwentyFourHoursMobile";
 import SevenDaysDesktop from "../components/featuredlocation/desktop/SevenDaysDesktop";
 import TwentyFourHoursDesktop from "../components/featuredlocation/desktop/TwentyFourHoursDesktop";
-import AdvancedViewsDesktop from "../components/featuredlocation/desktop/AdvancedViewsDesktop";
+import AdvancedViews from "../components/featuredlocation/AdvancedViews";
 import LocationHeader from "../components/featuredlocation/LocationHeader";
 import { colorClass } from "../actions/colors";
 
@@ -19,7 +20,7 @@ import "../style/weather-icons.min.css";
 const desktopViews = {
   seven: <SevenDaysDesktop />,
   "twenty-four": <TwentyFourHoursDesktop />,
-  advanced: <AdvancedViewsDesktop />
+  advanced: <AdvancedViews />
 };
 
 class FeaturedLocationContainer extends React.Component {
@@ -106,6 +107,7 @@ class FeaturedLocationContainer extends React.Component {
                 <div className="p-2 m-0">
                   <TwentyFourHoursMobile />
                   <SevenDaysMobile />
+                  <AdvancedViewsContainerMobile />
                 </div>
               )}
             </div>

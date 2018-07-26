@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import {
   ResponsiveContainer,
   AreaChart,
@@ -61,4 +63,14 @@ const TemperatureChart = ({ temperature, width }) => {
   );
 };
 
-export default TemperatureChart;
+const mapStateToProps = state => {
+  return {
+    metric: state.currentUser.metric,
+    width: state.chartSize
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(TemperatureChart);

@@ -6,6 +6,7 @@ import featuredLocation from "./featuredLocation";
 import errors from "./errors";
 import userLocations from "./userLocations";
 import windowSize from "./windowSize";
+import chartSize from "./chartSize";
 
 const rootReducer = combineReducers({
   currentUser: currentUser,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   featuredLocation: featuredLocation,
   errors: errors,
   userLocations: userLocations,
-  windowSize: windowSize
+  windowSize: windowSize,
+  chartSize: chartSize
 });
 
 export default rootReducer;
