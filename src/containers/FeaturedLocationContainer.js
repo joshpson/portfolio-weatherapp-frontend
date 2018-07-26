@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Spinner from "react-spinkit";
 import FeaturedDetailsPane from "../components/featuredlocation/FeaturedDetailsPane";
 import SevenDaysMobile from "../components/featuredlocation/mobile/SevenDaysMobile";
 import AdvancedViewsContainerMobile from "../components/featuredlocation/mobile/AdvancedViewsContainerMobile";
@@ -111,9 +112,16 @@ class FeaturedLocationContainer extends React.Component {
                 </div>
               )}
             </div>
+            <div className="footer text-center">
+              <a href="https://darksky.net/poweredby/" target="_blank">
+                Powered by Dark Sky
+              </a>
+            </div>
           </div>
         ) : (
-          "Loading"
+          <div className="loading">
+            <Spinner name="three-bounce" color="#f1c40f" fadeIn="none" />
+          </div>
         )}
       </div>
     );

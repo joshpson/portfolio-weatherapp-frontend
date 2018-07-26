@@ -1,10 +1,6 @@
 import React from "react";
 
 class HumidityToolTip extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { active } = this.props;
     if (active) {

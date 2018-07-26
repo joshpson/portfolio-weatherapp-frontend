@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import AdvancedViews from "../AdvancedViews";
 
 class AdvancedViewContainerMobile extends React.Component {

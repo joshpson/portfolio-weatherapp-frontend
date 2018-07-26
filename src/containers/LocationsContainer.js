@@ -6,17 +6,24 @@ import LocationCard from "../components/LocationCard";
 class LocationsContainer extends React.Component {
   render() {
     return (
-      <div className="card-columns">
-        {this.props.userLocations.map(location => {
-          return (
-            <LocationCard
-              key={location.location.id}
-              location={location.location}
-              weather={location.weather}
-              remove={this.props.removeLocation}
-            />
-          );
-        })}
+      <div>
+        <div className="card-columns">
+          {this.props.userLocations.map(location => {
+            return (
+              <LocationCard
+                key={location.location.id}
+                location={location.location}
+                weather={location.weather}
+                remove={this.props.removeLocation}
+              />
+            );
+          })}
+        </div>
+        <div className="footer text-center">
+          <a href="https://darksky.net/poweredby/" target="_blank">
+            Powered by Dark Sky
+          </a>
+        </div>
       </div>
     );
   }

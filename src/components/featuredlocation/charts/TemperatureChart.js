@@ -8,11 +8,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  ReferenceDot,
-  CartesianGrid,
-  Line,
-  Legend,
-  LineChart
+  CartesianGrid
 } from "recharts";
 import TemperatureToolTip from "./TemperatureToolTip";
 

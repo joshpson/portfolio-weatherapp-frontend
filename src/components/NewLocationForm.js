@@ -34,38 +34,46 @@ class NewLocationForm extends React.Component {
 
   render() {
     return (
-      <div className="card location-form night">
-        <h5 className="card-header">New Location</h5>
-        <div className="card-body">
-          <form onSubmit={e => e.preventDefault()}>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                id="LocationSearch"
-                placeholder="Search for a city..."
-                name="query"
-                onChange={this.handleChange}
-                value={this.state.query}
-              />
-            </div>
-          </form>
+      <div>
+        {" "}
+        <div className="card location-form night">
+          <h5 className="card-header">New Location</h5>
+          <div className="card-body">
+            <form onSubmit={e => e.preventDefault()}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="LocationSearch"
+                  placeholder="Search for a city..."
+                  name="query"
+                  onChange={this.handleChange}
+                  value={this.state.query}
+                />
+              </div>
+            </form>
+          </div>
+          {this.state.query.length > 2 ? (
+            <ul className="list-group list-group-flush night">
+              {this.props.predictions.map(prediction => {
+                return (
+                  <li
+                    onClick={() => this.handleLocationSelection(prediction)}
+                    className="list-group-item night search-result"
+                    key={prediction.id}
+                  >
+                    {prediction.description}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : null}
+        </div>{" "}
+        <div className="footer text-center">
+          <a href="https://darksky.net/poweredby/" target="_blank">
+            Powered by Dark Sky
+          </a>
         </div>
-        {this.state.query.length > 2 ? (
-          <ul className="list-group list-group-flush night">
-            {this.props.predictions.map(prediction => {
-              return (
-                <li
-                  onClick={() => this.handleLocationSelection(prediction)}
-                  className="list-group-item night search-result"
-                  key={prediction.id}
-                >
-                  {prediction.description}
-                </li>
-              );
-            })}
-          </ul>
-        ) : null}
       </div>
     );
   }

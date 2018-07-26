@@ -1,7 +1,5 @@
 import React from "react";
-import Moment from "react-moment";
 import { connect } from "react-redux";
-import { colorClass } from "../../../actions/colors";
 import DayItemDesktop from "./DayItemDesktop";
 import "../../../style/weather-icons.min.css";
 

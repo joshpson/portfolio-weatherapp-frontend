@@ -156,6 +156,11 @@ class UserLoginForm extends React.Component {
             </ul>
           </div>
         </div>
+        <div className="footer text-center">
+          <a href="https://darksky.net/poweredby/" target="_blank">
+            Powered by Dark Sky
+          </a>
+        </div>
       </div>
     );
   }

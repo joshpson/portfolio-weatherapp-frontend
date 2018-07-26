@@ -2,10 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 class WindSpeedToolTip extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { active } = this.props;
     if (active) {
