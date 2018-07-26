@@ -1,6 +1,6 @@
 import React from "react";
 
-class TemperatureToolTip extends React.Component {
+class DailyPressureToolTip extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,9 +10,9 @@ class TemperatureToolTip extends React.Component {
     if (active) {
       const { payload, label } = this.props;
       return (
-        <div className="custom-tooltip">
-          {`${label}: ${payload[0].payload.description}`}
-        </div>
+        <div className="custom-tooltip">{`${label}: ${
+          payload[0].value
+        } mb`}</div>
       );
     }
 
@@ -20,4 +20,4 @@ class TemperatureToolTip extends React.Component {
   }
 }
 
-export default TemperatureToolTip;
+export default DailyPressureToolTip;

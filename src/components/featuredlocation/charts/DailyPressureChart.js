@@ -1,5 +1,5 @@
 import React from "react";
-import HumidityTooltip from "./HumidityTooltip";
+import DailyPressureToolTip from "./DailyPressureToolTip";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -11,40 +11,38 @@ import {
   CartesianGrid
 } from "recharts";
 
-const HumidityChart = ({ humidity, width }) => {
+const DailyPressureChart = ({ pressure, width }) => {
   return (
     <ResponsiveContainer width={width} height="50%" className="chart-container">
-      <AreaChart data={humidity.data} margin={{ left: -5, right: 10 }}>
+      <AreaChart data={pressure.data} margin={{ left: 0, right: 10 }}>
         <Area
           type="monotone"
-          dataKey="humidity"
-          stroke="#e67e22"
-          fill="#e67e22"
+          dataKey="pressure"
+          stroke="#16a085"
+          fill="#16a085"
           dot={{ stroke: "white", strokeWidth: 2 }}
         />
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <XAxis dataKey="day" stroke="#ffff" />
         <YAxis
-          dataKey="humidity"
+          dataKey="pressure"
           stroke="#ffff"
           type="number"
-          ticks={humidity.ticks}
-          tickFormatter={props => props + "%"}
+          ticks={pressure.ticks}
+          tickFormatter={props => props}
           domain={[
             dataMin => {
-              return dataMin - 10 > 0
-                ? Math.round((dataMin - 10) / 10) * 10
-                : 0;
+              return dataMin - 2;
             },
             dataMax => {
-              return dataMax + 5;
+              return dataMax + 2;
             }
           ]}
         />
-        <Tooltip content={<HumidityTooltip />} />
+        <Tooltip content={<DailyPressureToolTip />} />
       </AreaChart>
     </ResponsiveContainer>
   );
 };
 
-export default HumidityChart;
+export default DailyPressureChart;

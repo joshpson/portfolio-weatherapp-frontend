@@ -3,66 +3,115 @@ import { connect } from "react-redux";
 import {
   dailyHumidityData,
   windSpeedData,
-  dailyTemperature
+  dailyTemperature,
+  dailyPressureData
 } from "../../../actions/advanced";
 import HumidityChart from "../charts/HumidityChart";
 import WindSpeedChart from "../charts/WindSpeedChart";
 import TemperatureChart from "../charts/TemperatureChart";
+import DailyPressureChart from "../charts/DailyPressureChart";
 
 class AdvancedViewsDesktop extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dailyTempData: null,
+      dailyWindData: null,
+      dailyHumidityData: null,
+      dailyPressureData: null
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      dailyTempData: dailyTemperature(this.props.weather),
+      dailyWindData: windSpeedData(this.props.weather),
+      dailyHumidityData: dailyHumidityData(this.props.weather),
+      dailyPressureData: dailyPressureData(this.props.weather)
+    });
+  }
+
   render() {
     return (
-      <div>
-        {" "}
-        <div className="row justifiy-content-center">
-          <div className="col-6 justifiy-content-center align-items-center p-3">
-            <div className="text-center">
-              <h3 className="pb-0 mb-0">Temperature</h3>
-              <span className="pt-0 pb-1 text-weight-light text-center">
-                High: {Math.round(dailyTemperature(this.props.weather).high)}
-                <i className="wi wi-degrees" /> Low:{" "}
-                {Math.round(dailyTemperature(this.props.weather).low)}
-                <i className="wi wi-degrees" />
-              </span>
-            </div>
-            <div className="pl-1 pt-2">
-              <TemperatureChart
-                temperature={dailyTemperature(this.props.weather)}
-                width={this.props.chartWidth}
-              />
-            </div>
+      <div className="p-0">
+        <div className="row justifiy-content-center pr-0 pl-0">
+          <div className="col-6 justifiy-content-center align-items-center p-0">
+            {this.state.dailyPressureData ? (
+              <div>
+                <div className="text-center">
+                  <h3 className="pb-0 mb-0">Pressure</h3>
+                  <span className="pt-0 pb-2 text-weight-light text-center">
+                    Reaching {this.state.dailyPressureData.high} mb
+                  </span>
+                </div>
+                <div className="pl-1 mt-2">
+                  <DailyPressureChart
+                    pressure={this.state.dailyPressureData}
+                    width={this.props.chartWidth}
+                  />
+                </div>
+              </div>
+            ) : null}
           </div>
-
-          <div className="col-6 justifiy-content-center align-items-center p-3">
-            <div className="text-center">
-              <h3 className="pb-0 mb-0">Wind Speeds</h3>
-              <span className="pt-0 text-weight-light text-center">
-                Speeds up to {windSpeedData(this.props.weather).high}{" "}
-                {this.props.metric ? "m/s" : "mph"}
-              </span>
-            </div>
-            <div className="pl-1">
-              <WindSpeedChart
-                windSpeed={windSpeedData(this.props.weather)}
-                width={this.props.chartWidth}
-              />
-            </div>
+          <div className="col-6 justifiy-content-center align-items-center p-0">
+            {this.state.dailyTempData ? (
+              <div>
+                <div className="text-center">
+                  <h3 className="pb-0 mb-0">Temperature</h3>
+                  <span className="pt-0 pb-2 text-weight-light text-center">
+                    High: {Math.round(this.state.dailyTempData.high)}
+                    <i className="wi wi-degrees" /> Low:{" "}
+                    {Math.round(this.state.dailyTempData.low)}
+                    <i className="wi wi-degrees" />
+                  </span>
+                </div>
+                <div className="pl-1 mt-2">
+                  <TemperatureChart
+                    temperature={this.state.dailyTempData}
+                    width={this.props.chartWidth}
+                  />
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
-        <div className="row justifiy-content-center">
-          <div className="col-6 justifiy-content-center align-items-center p-3">
-            <div className="text-center">
-              <h3 className="pb-0 mb-0">Humidity</h3>
-              <span className="pt-0 text-weight-light text-center">
-                High of {dailyHumidityData(this.props.weather).high}%
-              </span>
-            </div>
-            <div className="pl-1">
-              <HumidityChart
-                humidity={dailyHumidityData(this.props.weather)}
-                width={this.props.chartWidth}
-              />
-            </div>
+        <div className="row justifiy-content-center mt-md-5 pr-0 pl-0">
+          <div className="col-6 justifiy-content-center align-items-cente p-0">
+            {this.state.dailyHumidityData ? (
+              <div>
+                <div className="text-center">
+                  <h3 className="pb-0 mb-0">Humidity</h3>
+                  <span className="pt-0 pb-2 text-weight-light text-center">
+                    High of {this.state.dailyHumidityData.high}%
+                  </span>
+                </div>
+                <div className="pl-1 mt-2">
+                  <HumidityChart
+                    humidity={this.state.dailyHumidityData}
+                    width={this.props.chartWidth}
+                  />
+                </div>
+              </div>
+            ) : null}
+          </div>
+          <div className="col-6 justifiy-content-center align-items-center p-0">
+            {this.state.dailyWindData ? (
+              <div>
+                <div className="text-center">
+                  <h3 className="pb-0 mb-0">Wind Speeds</h3>
+                  <span className="pt-0 pb-2 text-weight-light text-center">
+                    Speeds up to {this.state.dailyWindData.high}{" "}
+                    {this.props.metric ? "m/s" : "mph"}
+                  </span>
+                </div>
+                <div className="pl-1 mt-2">
+                  <WindSpeedChart
+                    windSpeed={this.state.dailyWindData}
+                    width={this.props.chartWidth}
+                  />
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
@@ -74,7 +123,7 @@ const mapStateToProps = state => {
   return {
     weather: state.featuredLocation.weather,
     metric: state.currentUser.metric,
-    chartWidth: state.windowSize / 3
+    chartWidth: state.windowSize / 2.5 > 440 ? 440 : state.windowSize / 2.5
   };
 };
 

@@ -17,15 +17,15 @@ import TemperatureToolTip from "./TemperatureToolTip";
 const TemperatureChart = ({ temperature, width }) => {
   return (
     <ResponsiveContainer width={width} height="50%" className="chart-container">
-      <AreaChart data={temperature.data}>
+      <AreaChart data={temperature.data} margin={{ left: -5, right: 10 }}>
         <XAxis dataKey="day" stroke="#ffff" />
         <YAxis
           stroke="#ffff"
           type="number"
           ticks={temperature.ticks}
-          domain={[dataMin => dataMin - 10, "dataMax"]}
+          domain={[dataMin => dataMin - 5, "dataMax"]}
         />
-
+        <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <Tooltip content={<TemperatureToolTip />} />
         <Area
           type="monotone"

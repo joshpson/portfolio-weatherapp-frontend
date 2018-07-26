@@ -8,13 +8,14 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  ReferenceDot
+  ReferenceDot,
+  CartesianGrid
 } from "recharts";
 
 const WindSpeedChart = ({ windSpeed, width, metric }) => {
   return (
     <ResponsiveContainer width={width} height="50%" className="chart-container">
-      <AreaChart data={windSpeed.data}>
+      <AreaChart data={windSpeed.data} margin={{ left: 0, right: 10 }}>
         <Area
           type="monotone"
           dataKey="windSpeed"
@@ -22,9 +23,9 @@ const WindSpeedChart = ({ windSpeed, width, metric }) => {
           fill="#9b59b6"
           dot={{ stroke: "white", strokeWidth: 2 }}
         />
+        <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <XAxis dataKey="day" stroke="#ffff" />
         <YAxis
-          width={50}
           dataKey="windSpeed"
           stroke="#ffff"
           type="number"

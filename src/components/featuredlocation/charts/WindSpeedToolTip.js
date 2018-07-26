@@ -11,7 +11,7 @@ class WindSpeedToolTip extends React.Component {
     if (active) {
       const { payload, label } = this.props;
       return (
-        <div className="temp-tooltip">
+        <div className="custom-tooltip">
           {`${label}: Speeds reaching ${payload[0].value} ${
             this.props.metric ? "m/s" : "mph"
           }`}

@@ -1,12 +1,23 @@
 import moment from "moment";
 
+function formatDay(day, timezone) {
+  return moment
+    .unix(day)
+    .utc(timezone)
+    .format("ddd");
+}
+
+function formatTime(day, timezone) {
+  return moment
+    .unix(day)
+    .utc(timezone)
+    .format("h:mm A");
+}
+
 const dailyHumidityData = weather => {
   let humidityArray = [];
   let humidityData = weather.daily.data.slice(0, 7).map(day => {
-    let date = moment
-      .unix(day.time)
-      .utc()
-      .format("ddd");
+    let date = formatDay(day.time, weather.timezone);
     let humidity = Math.round(day.humidity * 100);
     humidityArray.push(humidity);
     return { day: date, humidity: humidity };
@@ -27,13 +38,33 @@ const dailyHumidityData = weather => {
   };
 };
 
+const dailyPressureData = weather => {
+  let pressureArray = [];
+  let pressureData = weather.daily.data.slice(0, 7).map(day => {
+    let date = formatDay(day.time, weather.timezone);
+    let pressure = Math.round(day.pressure);
+    pressureArray.push(pressure);
+    return { day: date, pressure: pressure };
+  });
+  let high = Math.max(...pressureArray);
+  let low = Math.min(...pressureArray);
+  let tickArray = [];
+  for (let i = low - 2; i <= high; i += 1) {
+    tickArray.push(i);
+  }
+  return {
+    high: high,
+    low: low,
+    ticks: tickArray,
+    data: pressureData
+  };
+};
+
 const windSpeedData = weather => {
   let windSpeedArray = [];
   let windSpeedData = weather.daily.data.slice(0, 7).map(day => {
-    let date = moment
-      .unix(day.time)
-      .utc()
-      .format("ddd");
+    let date = formatDay(day.time, weather.timezone);
+
     windSpeedArray.push(day.windSpeed);
     return { day: date, windSpeed: day.windSpeed };
   });
@@ -59,30 +90,27 @@ const dailyTemperature = weather => {
     tempsArray.push(day.temperatureHigh);
     tempsArray.push(day.temperatureLow);
     let tempObject = {};
-    tempObject["day"] = moment
-      .unix(day.time)
-      .utc(weather.timezone)
-      .format("ddd");
+    tempObject["day"] = formatDay(day.time, weather.timezone);
     tempObject["TempHigh"] = Math.round(day.temperatureHigh);
-    tempObject["HighTime"] = moment
-      .unix(day.temperatureHighTime)
-      .utc(weather.timezone)
-      .format("h:mm A");
+    tempObject["HighTime"] = formatTime(
+      day.temperatureHighTime,
+      weather.timezone
+    );
     tempObject["TempLow"] = Math.round(day.temperatureLow);
-    tempObject["LowTime"] = moment
-      .unix(day.temperatureLowTime)
-      .utc(weather.timezone)
-      .format("h:mm A");
+    tempObject["LowTime"] = formatTime(
+      day.temperatureLowTime,
+      weather.timezone
+    );
     tempObject["FeelsHigh"] = Math.round(day.apparentTemperatureHigh);
-    tempObject["FeelsHighTime"] = moment
-      .unix(day.apparentTemperatureHighTime)
-      .utc(weather.timezone)
-      .format("h:mm A");
+    tempObject["FeelsHighTime"] = formatTime(
+      day.apparentTemperatureHighTime,
+      weather.timezone
+    );
     tempObject["FeelsLow"] = Math.round(day.apparentTemperatureLow);
-    tempObject["FeelsLowTime"] = moment
-      .unix(day.apparentTemperatureLowTime)
-      .utc(weather.timezone)
-      .format("h:mm A");
+    tempObject["FeelsLowTime"] = formatTime(
+      day.apparentTemperatureLowTime,
+      weather.timezone
+    );
     tempObject["description"] = `High of ${tempObject["TempHigh"]} at ${
       tempObject["HighTime"]
     } and a low of ${tempObject["TempLow"]} at ${
@@ -101,4 +129,9 @@ const dailyTemperature = weather => {
   return { high: high, low: low, ticks: tickArray, data: tempData };
 };
 
-export { dailyHumidityData, windSpeedData, dailyTemperature };
+export {
+  dailyHumidityData,
+  windSpeedData,
+  dailyTemperature,
+  dailyPressureData
+};
