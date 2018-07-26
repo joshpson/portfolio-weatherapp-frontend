@@ -1,6 +1,6 @@
 import React from "react";
 
-class HumidityToolTip extends React.Component {
+class TemperatureToolTip extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -11,7 +11,7 @@ class HumidityToolTip extends React.Component {
       const { payload, label } = this.props;
       return (
         <div className="temp-tooltip">
-          {`${label}: ${payload[0].value}% Humidity`}
+          {`${label}: ${payload[0].payload.description}`}
         </div>
       );
     }
@@ -20,4 +20,4 @@ class HumidityToolTip extends React.Component {
   }
 }
 
-export default HumidityToolTip;
+export default TemperatureToolTip;

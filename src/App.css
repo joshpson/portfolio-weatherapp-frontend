@@ -15,6 +15,11 @@ body {
   background-color: #34495e;
 }
 
+.temp-tooltip {
+  background-color: #34495e;
+  padding: 1px;
+}
+
 .nivo-container {
   height: 600px;
   width: 600px;

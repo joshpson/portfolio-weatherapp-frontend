@@ -34,7 +34,7 @@ const WindSpeedChart = ({ windSpeed, width, metric }) => {
             dataMin => {
               return dataMin - 1 > 0 ? Math.round((dataMin - 1) / 10) * 10 : 0;
             },
-            "dataMax"
+            dataMax => dataMax + 1
           ]}
         />
         <Tooltip content={<WindSpeedToolTip />} />
