@@ -25,19 +25,14 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
           </span>
         </div>
         <div className="col-12 text-center featured-location-summary pb-3">
-          <Moment format="h:mm A z" unix tz={weather.timezone}>
-            {weather.currently.time}
-          </Moment>
-          <span>
-            {" "}
-            -{" "}
-            {mobile ? (
-              <span>
-                <i className={"wi wi-forecast-io-" + weather.currently.icon} />{" "}
-              </span>
-            ) : null}
-            {weather.currently.summary}
-          </span>
+          {mobile ? (
+            <span>
+              <i className={"wi wi-forecast-io-" + weather.currently.icon} />{" "}
+            </span>
+          ) : (
+            <span>Currently: </span>
+          )}
+          {weather.currently.summary}
         </div>
       </div>
     </div>

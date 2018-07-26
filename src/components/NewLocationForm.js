@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { searchNewLocation, saveLocation } from "../actions/location";
+import Footer from "./Footer";
 
 class NewLocationForm extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class NewLocationForm extends React.Component {
                 return (
                   <li
                     onClick={() => this.handleLocationSelection(prediction)}
-                    className="list-group-item night search-result"
+                    className="list-group-item night"
                     key={prediction.id}
                   >
                     {prediction.description}
@@ -69,11 +70,7 @@ class NewLocationForm extends React.Component {
             </ul>
           ) : null}
         </div>{" "}
-        <div className="footer text-center">
-          <a href="https://darksky.net/poweredby/" target="_blank">
-            Powered by Dark Sky
-          </a>
-        </div>
+        <Footer />
       </div>
     );
   }

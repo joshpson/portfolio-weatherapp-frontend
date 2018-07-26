@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import HumidityTooltip from "./HumidityTooltip";
+import HumidityTooltip from "./tooltips/HumidityTooltip";
 import {
   ResponsiveContainer,
   AreaChart,

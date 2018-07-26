@@ -45,7 +45,7 @@ class UserSettings extends React.Component {
       <div className="text-white container">
         {this.props.currentUser ? (
           <form onSubmit={e => e.preventDefault()}>
-            <h1>{this.props.currentUser.email}</h1>
+            <h3>{this.props.currentUser.email}</h3>
             <div className="form-group row">
               <label
                 htmlFor="firstName"
@@ -58,8 +58,8 @@ class UserSettings extends React.Component {
                   type="text"
                   className={
                     this.state.editable
-                      ? "form-control text-white bg-dark"
-                      : "form-control-plaintext text-white bg-dark"
+                      ? "form-control text-white main-background"
+                      : "form-control-plaintext text-white main-background"
                   }
                   onChange={this.handleChange}
                   name="first_name"
@@ -81,8 +81,8 @@ class UserSettings extends React.Component {
                   type="text"
                   className={
                     this.state.editable
-                      ? "form-control text-white bg-dark"
-                      : "form-control-plaintext text-white bg-dark"
+                      ? "form-control text-white main-background"
+                      : "form-control-plaintext text-white main-background"
                   }
                   onChange={this.handleChange}
                   name="last_name"

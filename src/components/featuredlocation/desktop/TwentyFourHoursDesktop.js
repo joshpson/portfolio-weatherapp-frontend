@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import HourItemDesktop from "./HourItemDesktop";
-
-// import Moment from "react-moment";
 import "../../../style/weather-icons.min.css";
 
 const TwentyFourHoursDesktop = ({ weather, metric }) => {

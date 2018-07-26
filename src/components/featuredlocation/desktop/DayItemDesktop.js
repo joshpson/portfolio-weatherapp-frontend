@@ -13,10 +13,8 @@ const DayItemDesktop = ({ day, timezone }) => {
     >
       <div className="row ">
         <div className="col-auto">
-          <i
-            className={"pr-2 daily-summary-icon wi wi-forecast-io-" + day.icon}
-          />
-          <span className="desk-hour-detail-temp">
+          <i className={"pr-2 detail-icon wi wi-forecast-io-" + day.icon} />
+          <span className="day-card-temp">
             {Math.round(day.temperatureHigh)}
             <i className="wi wi-degrees" /> {Math.round(day.temperatureLow)}
             <i className="wi wi-degrees" />

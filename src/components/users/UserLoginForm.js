@@ -1,7 +1,7 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { authenticateUser, saveUser } from "../../actions/user";
+import Footer from "../Footer";
 
 const initialFormState = {
   firstName: "",
@@ -156,11 +156,7 @@ class UserLoginForm extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="footer text-center">
-          <a href="https://darksky.net/poweredby/" target="_blank">
-            Powered by Dark Sky
-          </a>
-        </div>
+        <Footer />
       </div>
     );
   }
@@ -173,9 +169,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(UserLoginForm)
-);
+export default connect(
+  null,
+  mapDispatchToProps
+)(UserLoginForm);

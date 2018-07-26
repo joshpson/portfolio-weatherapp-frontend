@@ -14,7 +14,7 @@ const HourItemMobile = ({ hour, index, metric, timezone }) => {
         <div className="d-flex col-3 justify-content-center pl-0">
           <div className="d-flex justify-content-center align-items-center">
             <i
-              className={"daily-summary-icon wi wi-forecast-io-" + hour.icon}
+              className={"summary-icon-mobile wi wi-forecast-io-" + hour.icon}
             />
           </div>
         </div>
@@ -37,7 +37,7 @@ const HourItemMobile = ({ hour, index, metric, timezone }) => {
               </div>
             </div>
           </div>
-          <div className="row pt-0 pl-0 justify-content-between daily-summary-text">
+          <div className="row pt-0 pl-0 justify-content-between detail-text-mobile">
             <div className="col-5 p-0">{hour.summary}</div>
             <div className="col-7 pb-0 text-right">
               {hour.precipType ? (

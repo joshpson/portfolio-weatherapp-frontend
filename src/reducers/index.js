@@ -1,12 +1,13 @@
 import { combineReducers } from "redux";
-
-import currentUser from "./currentUser";
-import locationSearchResults from "./locationSearchResults";
-import featuredLocation from "./featuredLocation";
+import currentUser from "./currentuser";
+import locationSearchResults from "./locationsearch";
+import featuredLocation from "./featuredlocation";
 import errors from "./errors";
-import userLocations from "./userLocations";
-import windowSize from "./windowSize";
-import chartSize from "./chartSize";
+import userLocations from "./userlocations";
+import windowSize from "./windowsize";
+import chartSize from "./chartsize";
+import fetchingLocations from "./fetchinglocations";
+import fetchingUser from "./fetchinguser";
 
 const rootReducer = combineReducers({
   currentUser: currentUser,
@@ -15,7 +16,9 @@ const rootReducer = combineReducers({
   errors: errors,
   userLocations: userLocations,
   windowSize: windowSize,
-  chartSize: chartSize
+  chartSize: chartSize,
+  fetchingLocations: fetchingLocations,
+  fetchingUser: fetchingUser
 });
 
 export default rootReducer;

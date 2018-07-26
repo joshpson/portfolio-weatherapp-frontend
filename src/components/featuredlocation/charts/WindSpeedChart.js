@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import WindSpeedToolTip from "./WindSpeedToolTip";
+import WindSpeedToolTip from "./tooltips/WindSpeedToolTip";
 import {
   ResponsiveContainer,
   AreaChart,

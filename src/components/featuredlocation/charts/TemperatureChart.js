@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import {
   ResponsiveContainer,
   AreaChart,
@@ -10,7 +9,7 @@ import {
   YAxis,
   CartesianGrid
 } from "recharts";
-import TemperatureToolTip from "./TemperatureToolTip";
+import TemperatureToolTip from "./tooltips/TemperatureToolTip";
 
 const TemperatureChart = ({ temperature, width }) => {
   return (
@@ -21,7 +20,7 @@ const TemperatureChart = ({ temperature, width }) => {
           stroke="#ffff"
           type="number"
           ticks={temperature.ticks}
-          domain={[dataMin => dataMin - 5, "dataMax"]}
+          domain={[dataMin => dataMin - 5, dataMax => dataMax + 5]}
         />
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <Tooltip content={<TemperatureToolTip />} />

@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import DailyPressureToolTip from "./DailyPressureToolTip";
+import DailyPressureToolTip from "./tooltips/DailyPressureToolTip";
 import {
   ResponsiveContainer,
   AreaChart,

@@ -1,27 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
+import Footer from "../components/Footer";
 import FeaturedDetailsPane from "../components/featuredlocation/FeaturedDetailsPane";
 import SevenDaysMobile from "../components/featuredlocation/mobile/SevenDaysMobile";
-import AdvancedViewsContainerMobile from "../components/featuredlocation/mobile/AdvancedViewsContainerMobile";
+import ChartsWrapperMobile from "../components/featuredlocation/mobile/ChartsWrapperMobile";
 import TwentyFourHoursMobile from "../components/featuredlocation/mobile/TwentyFourHoursMobile";
 import SevenDaysDesktop from "../components/featuredlocation/desktop/SevenDaysDesktop";
 import TwentyFourHoursDesktop from "../components/featuredlocation/desktop/TwentyFourHoursDesktop";
-import AdvancedViews from "../components/featuredlocation/AdvancedViews";
+import ChartsView from "../components/featuredlocation/charts/ChartsView";
 import LocationHeader from "../components/featuredlocation/LocationHeader";
 import { colorClass } from "../actions/colors";
-
 import {
   setFeaturedLocation,
   clearFeaturedLocation
 } from "../actions/location";
-import "../style/weather-icons-wind.min.css";
-import "../style/weather-icons.min.css";
 
 const desktopViews = {
   seven: <SevenDaysDesktop />,
   "twenty-four": <TwentyFourHoursDesktop />,
-  advanced: <AdvancedViews />
+  advanced: <ChartsView />
 };
 
 class FeaturedLocationContainer extends React.Component {
@@ -108,20 +106,19 @@ class FeaturedLocationContainer extends React.Component {
                 <div className="p-2 m-0">
                   <TwentyFourHoursMobile />
                   <SevenDaysMobile />
-                  <AdvancedViewsContainerMobile />
+                  <ChartsWrapperMobile />
                 </div>
               )}
             </div>
-            <div className="footer text-center">
-              <a href="https://darksky.net/poweredby/" target="_blank">
-                Powered by Dark Sky
-              </a>
-            </div>
+            <Footer />
           </div>
         ) : (
-          <div className="loading">
-            <Spinner name="three-bounce" color="#bdc3c7" fadeIn="none" />
-          </div>
+          <Spinner
+            className="loading text-center"
+            name="three-bounce"
+            color="#bdc3c7"
+            fadeIn="none"
+          />
         )}
       </div>
     );

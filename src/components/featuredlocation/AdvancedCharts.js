@@ -11,7 +11,7 @@ import WindSpeedChart from "./charts/WindSpeedChart";
 import TemperatureChart from "./charts/TemperatureChart";
 import DailyPressureChart from "./charts/DailyPressureChart";
 
-class AdvancedViews extends React.Component {
+class AdvancedCharts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -117,4 +117,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null
-)(AdvancedViews);
+)(AdvancedCharts);

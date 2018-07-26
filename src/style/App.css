@@ -3,13 +3,17 @@
   max-width: 960px;
 }
 
+.card-columns {
+  column-count: 2;
+}
+
 /*Loading Spinner*/
 
 .loading {
   position: fixed;
   z-index: 999;
-  height: 2em;
-  width: 2em;
+  height: 10em;
+  width: 10em;
   overflow: show;
   margin: auto;
   top: 0;
@@ -123,38 +127,24 @@
   font-size: 32px;
 }
 
-/*Featured Location Desktop & Mobile*/
+/*Featured Location Mobile*/
 
-.daily-summary-mobile {
-  font-size: 0.8em;
-}
-
-.daily-summary-icon {
+.summary-icon-mobile {
   font-size: 2em;
   margin: auto;
 }
 
-.detail-text {
-  font-size: 1em;
+.detail-text-mobile {
+  font-size: 0.8em;
 }
 
-.detail-icon-mobile {
-  font-size: 32px;
-}
+/*Featured Location Desktop*/
 
-.day-card-temp-details {
+.day-card-temp {
   font-size: 1.6em;
 }
 
 /*Advanced Views*/
-
-.extra-info {
-  font-size: 0.8em;
-}
-
-.main-featured-details {
-  font-size: 1.5em;
-}
 
 .custom-tooltip {
   background-color: #34495e;
@@ -164,10 +154,6 @@
 .chart-container {
   min-width: 200px;
   min-height: 200px;
-}
-
-.card-columns {
-  column-count: 2;
 }
 
 /*
@@ -185,16 +171,8 @@ Media Queries
     font-size: 10vw;
   }
 
-  .main-featured-details {
-    font-size: 4vw;
-  }
-
   .featured-detail-text {
     font-size: 3.5vw;
-  }
-
-  .detail-text {
-    font-size: 2.5vw;
   }
 
   .login-header {

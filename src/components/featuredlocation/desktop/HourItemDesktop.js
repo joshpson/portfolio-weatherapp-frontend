@@ -13,9 +13,7 @@ const HourItemDesktop = ({ hour, timezone }) => {
     >
       <div className="row ">
         <div className="col-auto">
-          <i
-            className={"pr-2 daily-summary-icon wi wi-forecast-io-" + hour.icon}
-          />
+          <i className={"pr-2 detail-icon wi wi-forecast-io-" + hour.icon} />
           <span className="desk-hour-detail-temp">
             {Math.round(hour.temperature)}
             <i className="wi wi-degrees" />

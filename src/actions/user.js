@@ -60,6 +60,7 @@ const loadUser = () => dispatch => {
         resp.json().then(user => {
           dispatch({ type: "FETCHED_USER", user });
           if (user.locations.length) {
+            dispatch({ type: "FETCHING_USER_LOCATIONS" });
             user.locations.forEach(location => {
               dispatch(getUserLocationWeather(location.id));
             });

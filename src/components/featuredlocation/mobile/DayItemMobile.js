@@ -10,7 +10,9 @@ const DayItemMobile = ({ day, index, timezone }) => {
       <div className="row">
         <div className="d-flex col-3 justify-content-center">
           <div className="d-flex justify-content-center align-items-center">
-            <i className={"daily-summary-icon wi wi-forecast-io-" + day.icon} />
+            <i
+              className={"summary-icon-mobile wi wi-forecast-io-" + day.icon}
+            />
           </div>
         </div>
         <div className="col-9">
@@ -35,7 +37,7 @@ const DayItemMobile = ({ day, index, timezone }) => {
             </div>
           </div>
           <div className="row p-0">
-            <span className="daily-summary-text">{day.summary}</span>
+            <span className="detail-text-mobile">{day.summary}</span>
           </div>
         </div>
       </div>
