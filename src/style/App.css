@@ -192,7 +192,7 @@
   opacity: 1;
   height: 100%;
   transform: translateX(0);
-  transition: all 800ms ease-in-out 300ms;
+  transition: all 1000ms ease-in-out 300ms;
 }
 
 .carousel-leave {

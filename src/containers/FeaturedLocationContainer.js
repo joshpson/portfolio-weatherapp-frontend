@@ -2,8 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
 import { CSSTransitionGroup } from "react-transition-group";
-
-import Footer from "../components/Footer";
 import FeaturedDetailsPane from "../components/featuredlocation/FeaturedDetailsPane";
 import SevenDaysMobile from "../components/featuredlocation/mobile/SevenDaysMobile";
 import ChartsWrapperMobile from "../components/featuredlocation/mobile/ChartsWrapperMobile";
@@ -52,10 +50,12 @@ class FeaturedLocationContainer extends React.Component {
         {this.props.weather.currently ? (
           <CSSTransitionGroup
             transitionName="featured-head"
+            transitionEnter={false}
+            transitionLeave={false}
             transitionAppear={true}
             transitionAppearTimeout={400}
           >
-            <div>
+            <div key="featured-location-container">
               <div
                 className={
                   "card border-0 rounded mt-4 mr-0 ml-0 p-0 pb-md-2 light-shadow " +
@@ -110,7 +110,7 @@ class FeaturedLocationContainer extends React.Component {
                     </div>
                     <CSSTransitionGroup
                       transitionName="carousel"
-                      transitionEnterTimeout={1100}
+                      transitionEnterTimeout={1300}
                       transitionLeaveTimeout={300}
                     >
                       <div key={this.state.view}>

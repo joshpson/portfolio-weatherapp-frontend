@@ -91,13 +91,21 @@ class App extends Component {
               />
               <Route
                 path="/login"
-                render={() =>
-                  this.props.isAuthenticated ? (
-                    <Redirect to="/locations" />
+                render={props => {
+                  console.log(props);
+                  return this.props.isAuthenticated ? (
+                    props.location.state ? (
+                      <Redirect to={props.location.state.from.pathname} />
+                    ) : (
+                      <Redirect to="/locations" />
+                    )
                   ) : (
                     <UserLoginForm />
-                  )
-                }
+                  );
+                }}
+              />
+              <Route
+                render={() => <div> Sorry, this page does not exist. </div>}
               />
             </Switch>
           </div>

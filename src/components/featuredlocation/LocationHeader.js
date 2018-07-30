@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Moment from "react-moment";
 
 const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
