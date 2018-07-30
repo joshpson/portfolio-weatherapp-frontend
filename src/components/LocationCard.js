@@ -10,16 +10,17 @@ const LocationCard = ({ weather, location, remove, metric }) => {
   return (
     <div
       className={
-        "location-card rounded card w-100 " + colorClass(weather.currently.icon)
+        "location-card light-shadow rounded card w-100 " +
+        colorClass(weather.currently.icon)
       }
     >
-      <div className="card-body light-shadow location-card-body">
+      <div className="card-body location-card-body">
         <Link to={`/locations/${location.id}`} className="card-link ">
           <div>
             <h1 className="card-title">
               <i
                 className={
-                  "card-icon wi wi-forecast-io-" + weather.currently.icon
+                  " card-icon wi wi-forecast-io-" + weather.currently.icon
                 }
               />
               {location.name}
@@ -40,7 +41,7 @@ const LocationCard = ({ weather, location, remove, metric }) => {
           </div>
         </Link>
       </div>
-      <div className="time-update text-right border-0 p-0 bg-none">
+      <div className="time-update text-white text-right border-0 p-0 bg-none">
         <small className="text-muted ">
           <Moment
             format="hh:mm z"

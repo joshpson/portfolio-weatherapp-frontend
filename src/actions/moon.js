@@ -32,13 +32,18 @@ const phases = {
 
 export const phaseCalculator = lunation => {
   let absValue = 1000;
-  let phase = null;
+  let className = null;
   Object.keys(phases).forEach(key => {
     let difference = Math.abs(lunation - key);
     if (difference < absValue) {
       absValue = difference;
-      phase = phases[key];
+      className = phases[key];
     }
   });
-  return phase;
+  let classArray = className.split("-");
+  let description =
+    classArray[2].charAt(0).toUpperCase() +
+    classArray[2].substr(1) +
+    (classArray[3] ? " " + classArray[3] : "");
+  return { className: className, description: description };
 };

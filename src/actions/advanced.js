@@ -73,7 +73,7 @@ const windSpeedData = weather => {
   let roundedMin = Math.floor(low);
   let roundedMax = Math.ceil(high);
   let tickArray = [];
-  for (let i = roundedMin; i <= roundedMax; i += 1) {
+  for (let i = roundedMin - 2; i <= roundedMax; i += 1) {
     tickArray.push(i);
   }
   return {
@@ -86,9 +86,12 @@ const windSpeedData = weather => {
 
 const dailyTemperature = weather => {
   let tempsArray = [];
+  let feelsArray = [];
   let tempData = weather.daily.data.slice(0, 7).map(day => {
     tempsArray.push(day.temperatureHigh);
     tempsArray.push(day.temperatureLow);
+    feelsArray.push(day.apparentTemperatureHigh);
+    feelsArray.push(day.apparentTemperatureLow);
     let tempObject = {};
     tempObject["day"] = formatDay(day.time, weather.timezone);
     tempObject["TempHigh"] = Math.round(day.temperatureHigh);
@@ -118,15 +121,24 @@ const dailyTemperature = weather => {
     }. (Feels: ${tempObject["FeelsHigh"]}, ${tempObject["FeelsLow"]})`;
     return tempObject;
   });
+  let feelsHigh = Math.max(...feelsArray);
+  let feelsLow = Math.min(...feelsArray);
   let high = Math.max(...tempsArray);
   let low = Math.min(...tempsArray);
   let roundedMin = Math.floor(low / 10) * 10;
   let roundedMax = Math.ceil(high / 10) * 10;
   let tickArray = [];
-  for (let i = roundedMin; i <= roundedMax; i += 10) {
+  for (let i = roundedMin - 5; i <= roundedMax; i += 5) {
     tickArray.push(i);
   }
-  return { high: high, low: low, ticks: tickArray, data: tempData };
+  return {
+    high: high,
+    low: low,
+    feelsHigh: feelsHigh,
+    feelsLow: feelsLow,
+    ticks: tickArray,
+    data: tempData
+  };
 };
 
 export {

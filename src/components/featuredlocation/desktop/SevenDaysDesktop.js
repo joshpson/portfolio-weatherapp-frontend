@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import DayItemDesktop from "./DayItemDesktop";
+
 import "../../../style/weather-icons.min.css";
 
 const SevenDaysDesktop = ({ weather, metric }) => {

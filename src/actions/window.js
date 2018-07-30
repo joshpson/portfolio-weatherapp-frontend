@@ -4,7 +4,7 @@ const updateWindowSize = width => dispatch => {
     chartSize = 440;
   } else if (width < 600) {
     chartSize = width * 0.85;
-  } else if (width < 960) {
+  } else if (width <= 960) {
     chartSize = width * 0.7;
   } else {
     chartSize = width / 2.5;
@@ -14,12 +14,3 @@ const updateWindowSize = width => dispatch => {
 };
 
 export { updateWindowSize };
-
-// if (width / 2.5 > 440) {
-//     chartSize = 440
-//   } else if (width < 768) {
-//     chartSize = width * .8
-//   } else {
-//     chartSize =  width / 2.5
-//   }
-// }

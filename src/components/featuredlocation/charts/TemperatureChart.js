@@ -20,7 +20,7 @@ const TemperatureChart = ({ temperature, width }) => {
           stroke="#ffff"
           type="number"
           ticks={temperature.ticks}
-          domain={[dataMin => dataMin - 5, dataMax => dataMax + 5]}
+          domain={[dataMin => dataMin, dataMax => dataMax + 5]}
         />
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <Tooltip content={<TemperatureToolTip />} />
@@ -29,21 +29,21 @@ const TemperatureChart = ({ temperature, width }) => {
           dataKey="FeelsHigh"
           stroke="#c0392b"
           fill="#c0392b"
-          dot={{ stroke: "white", strokeWidth: 1 }}
+          dot={{ stroke: "white", strokeWidth: 2 }}
         />
         <Area
           type="monotone"
           dataKey="TempHigh"
           stroke="#e74c3c"
           fill="#e74c3c"
-          dot={{ stroke: "white", strokeWidth: 1 }}
+          dot={{ stroke: "white", strokeWidth: 2 }}
         />
         <Area
           type="monotone"
           dataKey="TempLow"
           stroke="#2980b9"
           fill="#2980b9"
-          dot={{ stroke: "white", strokeWidth: 1 }}
+          dot={{ stroke: "white", strokeWidth: 2 }}
         />
 
         <Area
@@ -51,7 +51,7 @@ const TemperatureChart = ({ temperature, width }) => {
           dataKey="FeelsLow"
           stroke="#3498db"
           fill="#3498db"
-          dot={{ stroke: "white", strokeWidth: 1 }}
+          dot={{ stroke: "white", strokeWidth: 2 }}
         />
       </AreaChart>
     </ResponsiveContainer>

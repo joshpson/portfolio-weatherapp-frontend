@@ -37,6 +37,33 @@
 
 /*Location Card*/
 
+.location-cards-appear {
+  opacity: 0;
+}
+
+.location-cards-appear.location-cards-appear-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+
+.location-cards-enter {
+  opacity: 0;
+}
+
+.location-cards-enter.location-cards-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+
+.location-cards-leave {
+  opacity: 1;
+}
+
+.location-cards-leave.location-cards-leave-active {
+  opacity: 0;
+  transition: 400ms ease-in;
+}
+
 .card-icon {
   padding: 7px;
 }
@@ -51,14 +78,19 @@
   color: white;
 }
 
-.location-card-body {
+.location-card {
   position: relative;
+  transition-duration: 250ms;
 }
 
-.location-card-body:hover {
+.location-card:hover {
   -webkit-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
   -moz-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
   box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
+  /*  transform: scale(1.005);
+*/
+  /*  transform: translate(1px, -1px);
+*/
 }
 
 .time-update {
@@ -101,6 +133,15 @@
 
 /*Featured Location Container & Header & Details*/
 
+.featured-head-appear {
+  opacity: 0;
+}
+
+.featured-head-appear.featured-head-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
 .light-shadow {
   -webkit-box-shadow: 2px 2px 8px 0px rgba(44, 62, 80, 1);
   -moz-box-shadow: 2px 2px 8px 0px rgba(44, 62, 80, 1);
@@ -125,6 +166,43 @@
 
 .detail-icon {
   font-size: 32px;
+  transition: 1s;
+}
+
+.detail-icon:hover {
+  transform: rotate(360deg);
+}
+
+/*.carousel-appear {
+  opacity: 0;
+}
+
+.carousel-appear.carousel-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}*/
+
+.carousel-enter {
+  height: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.carousel-enter.carousel-enter-active {
+  opacity: 1;
+  height: 100%;
+  transform: translateX(0);
+  transition: all 800ms ease-in-out 300ms;
+}
+
+.carousel-leave {
+  height: 100%;
+  opacity: 1;
+}
+
+.carousel-leave.carousel-leave-active {
+  opacity: 0;
+  transition: all 300ms ease;
 }
 
 /*Featured Location Mobile*/
@@ -141,6 +219,10 @@
 /*Featured Location Desktop*/
 
 .day-card-temp {
+  font-size: 1.6em;
+}
+
+.hour-card-temp-details {
   font-size: 1.6em;
 }
 

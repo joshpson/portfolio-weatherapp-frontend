@@ -3,12 +3,22 @@ import { connect } from "react-redux";
 import { removeLocation } from "../actions/location";
 import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
-
+import { CSSTransitionGroup } from "react-transition-group";
 import Footer from "../components/Footer";
 import LocationCard from "../components/LocationCard";
 
 class LocationsContainer extends React.Component {
   render() {
+    const locationCards = this.props.userLocations.map(location => {
+      return (
+        <LocationCard
+          key={location.location.id}
+          location={location.location}
+          weather={location.weather}
+          remove={this.props.removeLocation}
+        />
+      );
+    });
     return (
       <div>
         {this.props.fetchingLocations ? (
@@ -23,17 +33,17 @@ class LocationsContainer extends React.Component {
             {this.props.userLocations.length ? (
               <div>
                 <div className="card-columns">
-                  {this.props.userLocations.map(location => {
-                    return (
-                      <LocationCard
-                        key={location.location.id}
-                        location={location.location}
-                        weather={location.weather}
-                        remove={this.props.removeLocation}
-                      />
-                    );
-                  })}
+                  <CSSTransitionGroup
+                    transitionName="location-cards"
+                    transitionAppear={true}
+                    transitionAppearTimeout={400}
+                    transitionEnterTimeout={400}
+                    transitionLeaveTimeout={400}
+                  >
+                    {locationCards}
+                  </CSSTransitionGroup>
                 </div>
+
                 <Footer />
               </div>
             ) : (
