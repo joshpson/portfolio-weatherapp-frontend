@@ -54,7 +54,8 @@ const setFeaturedLocation = id => dispatch => {
         dispatch({ type: "FEATURED_LOCATION", location });
       });
     } else {
-      dispatch({ type: "LOACTION_FETCH_FAILED" });
+      dispatch({ type: "FEATURED_LOCATION_FETCH_FAILED" });
+      dispatch(push("/locations"));
     }
   });
 };

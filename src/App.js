@@ -60,6 +60,7 @@ class App extends Component {
                 {this.props.errors.login}
               </div>
             ) : null}
+
             <Switch>
               <PrivateRoute
                 exact
