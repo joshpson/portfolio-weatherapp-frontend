@@ -2,13 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { logoutUser } from "../actions/user";
+import cloudyDayDark from "../images/animated/cloudy-day-dark.svg";
 
 const Navbar = props => {
   return (
     <div className="p-2 text-light">
       <nav className="nav  navbar-expand justify-content-between">
         <Link className="navbar-brand text-light" to="/locations">
-          <i className="wi wi-cloudy" /> FreshAir
+          <img className="navbar-logo" src={cloudyDayDark} /> FreshAir
         </Link>
         {props.currentUser ? (
           <li className="nav-item dropdown">

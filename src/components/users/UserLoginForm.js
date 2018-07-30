@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticateUser, saveUser } from "../../actions/user";
+import cloudyDayDark from "../../images/animated/cloudy-day-dark.svg";
 import Footer from "../Footer";
 
 const initialFormState = {
@@ -54,10 +55,10 @@ class UserLoginForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-auto">
+        <div className="row justify-content-center p-0">
+          <div className="col-auto pl-0">
             <div className="login-header">
-              <i className="wi wi-cloudy" /> FreshAir
+              <img className="login-logo" src={cloudyDayDark} /> FreshAir
             </div>
           </div>
         </div>

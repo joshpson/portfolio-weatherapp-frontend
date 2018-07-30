@@ -32,7 +32,7 @@ const WindSpeedChart = ({ windSpeed, width, metric }) => {
           ticks={windSpeed.ticks}
           domain={[
             dataMin => {
-              return dataMin - 1 > 0 ? Math.round((dataMin - 1) / 10) * 10 : 0;
+              return dataMin - 1;
             },
             dataMax => dataMax + 1
           ]}

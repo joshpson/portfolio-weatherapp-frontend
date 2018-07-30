@@ -1,6 +1,8 @@
 import React from "react";
 import Moment from "react-moment";
 import { colorClass } from "../../../actions/colors";
+import { iconHourSrc } from "../../../actions/icons";
+
 import "moment-timezone";
 
 const HourItemDesktop = ({ hour, timezone }) => {
@@ -13,7 +15,7 @@ const HourItemDesktop = ({ hour, timezone }) => {
     >
       <div className="row ">
         <div className="col-auto">
-          <i className={"pr-2 detail-icon wi wi-forecast-io-" + hour.icon} />
+          <img className="pr-2 detail-icon" src={iconHourSrc(hour.icon)} />
           <span className="hour-card-temp-details">
             {Math.round(hour.temperature)}
             <i className="wi wi-degrees" />

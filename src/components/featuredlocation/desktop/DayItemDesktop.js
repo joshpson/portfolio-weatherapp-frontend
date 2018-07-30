@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
-
+import { iconDaySrc } from "../../../actions/icons";
 import { colorClass } from "../../../actions/colors";
 
 const DayItemDesktop = ({ day, timezone }) => {
@@ -13,7 +13,7 @@ const DayItemDesktop = ({ day, timezone }) => {
     >
       <div className="row ">
         <div className="col-auto">
-          <i className={"pr-2 detail-icon wi wi-forecast-io-" + day.icon} />
+          <img className="pr-2 detail-icon" src={iconDaySrc(day.icon)} />
           <span className="day-card-temp">
             {Math.round(day.temperatureHigh)}
             <i className="wi wi-degrees" /> {Math.round(day.temperatureLow)}

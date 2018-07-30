@@ -2,6 +2,8 @@ import React from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { colorClass } from "../actions/colors";
+import { iconHourSrc } from "../actions/icons";
+
 import "moment-timezone";
 
 import "../style/weather-icons.min.css";
@@ -18,10 +20,9 @@ const LocationCard = ({ weather, location, remove, metric }) => {
         <Link to={`/locations/${location.id}`} className="card-link ">
           <div>
             <h1 className="card-title">
-              <i
-                className={
-                  " card-icon wi wi-forecast-io-" + weather.currently.icon
-                }
+              <img
+                className="pr-2 card-icon"
+                src={iconHourSrc(weather.currently.icon)}
               />
               {location.name}
             </h1>

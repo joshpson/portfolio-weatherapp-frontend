@@ -32,6 +32,9 @@
 }
 
 /*Nabar*/
+.navbar-logo {
+  height: 40px;
+}
 
 /*Locations Container*/
 
@@ -87,10 +90,6 @@
   -webkit-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
   -moz-box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
   box-shadow: 10px 10px 10px 0px rgba(35, 40, 43, 1);
-  /*  transform: scale(1.005);
-*/
-  /*  transform: translate(1px, -1px);
-*/
 }
 
 .time-update {
@@ -120,9 +119,12 @@
 
 /*UserLoginForm*/
 
+.login-logo {
+  height: 200px;
+}
+
 .login-header {
-  font-size: 6em;
-  padding: 20px;
+  font-size: 5em;
   margin: 20px;
 }
 
@@ -148,6 +150,10 @@
   box-shadow: 2px 2px 8px 0px rgba(44, 62, 80, 1);
 }
 
+.featured-icon {
+  width: 10vw;
+}
+
 .featured-nav {
   font-size: 1.5em;
 }
@@ -168,19 +174,6 @@
   font-size: 32px;
   transition: 1s;
 }
-
-.detail-icon:hover {
-  transform: rotate(360deg);
-}
-
-/*.carousel-appear {
-  opacity: 0;
-}
-
-.carousel-appear.carousel-appear-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}*/
 
 .carousel-enter {
   height: 0;
@@ -249,6 +242,10 @@ Media Queries
 }
 
 @media (max-width: 576px) {
+  .login-logo {
+    height: 30vw;
+  }
+
   .featured-location-header {
     font-size: 10vw;
   }
