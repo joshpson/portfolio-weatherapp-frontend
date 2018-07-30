@@ -44,7 +44,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container app-container text-white">
+      <div className="container app-container text-white p-0">
         {this.props.fetchingUser ? (
           <Spinner
             className="loading text-center"

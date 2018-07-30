@@ -68,7 +68,7 @@
 }
 
 .card-icon {
-  padding: 7px;
+  height: 100px;
 }
 
 .card-link {
@@ -158,10 +158,14 @@
   font-size: 1.5em;
 }
 
-.featured-location-header {
+.featured-location-name {
   font-size: 3.5em;
+  min-width: 200px;
 }
 
+.featured-location-degrees {
+  font-size: 3.5em;
+}
 .featured-location-summary {
   font-size: 1.5em;
 }
@@ -206,7 +210,7 @@
 }
 
 .detail-text-mobile {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
 /*Featured Location Desktop*/
@@ -235,7 +239,17 @@
 Media Queries
 */
 
-@media (max-width: 630px) {
+@media (min-width: 1000px) {
+  .featured-location-summary {
+    margin-top: -2vw;
+  }
+
+  .location-header-row {
+    margin-top: -1vw;
+  }
+}
+
+@media (max-width: 768px) {
   .card-columns {
     column-count: 1;
   }
@@ -246,12 +260,20 @@ Media Queries
     height: 30vw;
   }
 
-  .featured-location-header {
+  .featured-icon {
+    width: 15vw;
+  }
+
+  .featured-location-name {
+    font-size: 10vw;
+  }
+
+  .featured-location-degrees {
     font-size: 10vw;
   }
 
   .featured-detail-text {
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
 
   .login-header {

@@ -1,18 +1,17 @@
 import React from "react";
 import Moment from "react-moment";
 import { colorClass } from "../../../actions/colors";
+import { iconDaySrc } from "../../../actions/icons";
 
 import "../../../style/weather-icons.min.css";
 
 const DayItemMobile = ({ day, index, timezone }) => {
   return (
     <li className={"pl-2 list-group-item " + colorClass(day.icon)}>
-      <div className="row">
-        <div className="d-flex col-3 justify-content-center">
-          <div className="d-flex justify-content-center align-items-center">
-            <i
-              className={"summary-icon-mobile wi wi-forecast-io-" + day.icon}
-            />
+      <div className="row justify-content-left align-items-center">
+        <div className="col-3 align-self-center">
+          <div>
+            <img className="summary-icon-mobile" src={iconDaySrc(day.icon)} />
           </div>
         </div>
         <div className="col-9">

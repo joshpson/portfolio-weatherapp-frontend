@@ -9,13 +9,15 @@ const HourItemDesktop = ({ hour, timezone }) => {
   return (
     <div
       className={
-        "card rounded p-3 m-1 justify-content-left light-shadow " +
+        "card rounded pr-3 pl-3 pb-3 pt-1 m-1 justify-content-left light-shadow " +
         colorClass(hour.icon)
       }
     >
-      <div className="row ">
-        <div className="col-auto">
-          <img className="pr-2 detail-icon" src={iconHourSrc(hour.icon)} />
+      <div className="row  justify-content-left align-items-center">
+        <div className="col-auto p-0">
+          <img className="detail-icon" src={iconHourSrc(hour.icon)} />
+        </div>
+        <div className="col-auto p-0">
           <span className="hour-card-temp-details">
             {Math.round(hour.temperature)}
             <i className="wi wi-degrees" />

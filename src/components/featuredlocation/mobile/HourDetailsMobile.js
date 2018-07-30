@@ -3,7 +3,7 @@ import "../../../style/weather-icons.min.css";
 
 const HourDetailsMobile = ({ data, metric }) => {
   return (
-    <div className="row justify-content-between text-center no-gutters p-0">
+    <div className="row justify-content-between text-center no-gutters">
       <div className="col-2">
         <i className="wi wi-umbrella summary-icon-mobile" />
         <br />

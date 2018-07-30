@@ -1,6 +1,8 @@
 import React from "react";
 import HourDetailsMobile from "./HourDetailsMobile";
 import Moment from "react-moment";
+import { iconHourSrc } from "../../../actions/icons";
+
 import { colorClass } from "../../../actions/colors";
 
 const HourItemMobile = ({ hour, index, metric, timezone }) => {
@@ -10,12 +12,10 @@ const HourItemMobile = ({ hour, index, metric, timezone }) => {
       data-toggle="collapse"
       href={`#hour${index}Details`}
     >
-      <div className="row">
-        <div className="d-flex col-3 justify-content-center pl-0">
-          <div className="d-flex justify-content-center align-items-center">
-            <i
-              className={"summary-icon-mobile wi wi-forecast-io-" + hour.icon}
-            />
+      <div className="row justify-content-left align-items-center">
+        <div className="col-3 align-self-center">
+          <div>
+            <img className="summary-icon-mobile" src={iconHourSrc(hour.icon)} />
           </div>
         </div>
         <div className="col-9">
