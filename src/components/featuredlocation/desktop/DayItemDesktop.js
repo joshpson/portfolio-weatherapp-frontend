@@ -1,14 +1,14 @@
 import React from "react";
 import Moment from "react-moment";
 import { iconDaySrc } from "../../../actions/icons";
-import { colorClass } from "../../../actions/colors";
+import { colorDayClass } from "../../../actions/colors";
 
 const DayItemDesktop = ({ day, timezone }) => {
   return (
     <div
       className={
         "card rounded pr-3 pl-3 pb-3 pt-1 m-1 justify-content-left light-shadow " +
-        colorClass(day.icon)
+        colorDayClass(day.icon)
       }
     >
       <div className="row justify-content-left align-items-center">

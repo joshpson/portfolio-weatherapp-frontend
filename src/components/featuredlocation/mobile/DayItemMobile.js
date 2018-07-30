@@ -1,13 +1,13 @@
 import React from "react";
 import Moment from "react-moment";
-import { colorClass } from "../../../actions/colors";
+import { colorDayClass } from "../../../actions/colors";
 import { iconDaySrc } from "../../../actions/icons";
 
 import "../../../style/weather-icons.min.css";
 
 const DayItemMobile = ({ day, index, timezone }) => {
   return (
-    <li className={"pl-2 list-group-item " + colorClass(day.icon)}>
+    <li className={"pl-2 list-group-item " + colorDayClass(day.icon)}>
       <div className="row justify-content-left align-items-center">
         <div className="col-3 align-self-center">
           <div>

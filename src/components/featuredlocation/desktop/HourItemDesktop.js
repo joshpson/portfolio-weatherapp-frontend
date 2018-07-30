@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
-import { colorClass } from "../../../actions/colors";
+import { colorHourClass } from "../../../actions/colors";
 import { iconHourSrc } from "../../../actions/icons";
 
 import "moment-timezone";
@@ -10,7 +10,7 @@ const HourItemDesktop = ({ hour, timezone }) => {
     <div
       className={
         "card rounded pr-3 pl-3 pb-3 pt-1 m-1 justify-content-left light-shadow " +
-        colorClass(hour.icon)
+        colorHourClass(hour.icon)
       }
     >
       <div className="row  justify-content-left align-items-center">

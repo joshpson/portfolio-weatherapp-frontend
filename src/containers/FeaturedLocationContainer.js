@@ -10,7 +10,7 @@ import SevenDaysDesktop from "../components/featuredlocation/desktop/SevenDaysDe
 import TwentyFourHoursDesktop from "../components/featuredlocation/desktop/TwentyFourHoursDesktop";
 import ChartsView from "../components/featuredlocation/charts/ChartsView";
 import LocationHeader from "../components/featuredlocation/LocationHeader";
-import { colorClass } from "../actions/colors";
+import { colorHourClass } from "../actions/colors";
 import {
   setFeaturedLocation,
   clearFeaturedLocation
@@ -56,10 +56,29 @@ class FeaturedLocationContainer extends React.Component {
             transitionAppearTimeout={400}
           >
             <div key="featured-location-container">
+              {this.props.alerts ? (
+                <div>
+                  {this.props.alerts.map((alert, index) => {
+                    return (
+                      <div className="alert alert-info" role="alert">
+                        <div data-toggle="collapse" href={"#alert" + index}>
+                          <h3>
+                            {alert.title} - {alert.severity}
+                          </h3>
+                        </div>
+                        <div className="collapse" id={"alert" + index}>
+                          <p>{alert.description}</p>
+                          <a href={alert.uri}>More details.</a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
               <div
                 className={
                   "card border-0 rounded mt-4 mr-0 ml-0 p-0 pb-md-2 light-shadow " +
-                  colorClass(this.props.weather.currently.icon)
+                  colorHourClass(this.props.weather.currently.icon)
                 }
               >
                 <LocationHeader />
@@ -144,7 +163,8 @@ class FeaturedLocationContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     weather: state.featuredLocation.weather,
-    windowSize: state.windowSize
+    windowSize: state.windowSize,
+    alerts: state.featuredLocation.weather.alerts
   };
 };
 

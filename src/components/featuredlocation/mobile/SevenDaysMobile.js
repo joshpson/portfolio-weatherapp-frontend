@@ -17,6 +17,7 @@ class SevenDaysMobile extends React.Component {
       active: !this.state.active
     });
   };
+
   render() {
     return (
       <div className="row justify-content-center">

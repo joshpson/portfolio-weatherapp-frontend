@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
-import { colorClass } from "../actions/colors";
+import { colorHourClass } from "../actions/colors";
 import { iconHourSrc } from "../actions/icons";
 
 import "moment-timezone";
@@ -13,7 +13,7 @@ const LocationCard = ({ weather, location, remove, metric }) => {
     <div
       className={
         "location-card light-shadow rounded card  " +
-        colorClass(weather.currently.icon)
+        colorHourClass(weather.currently.icon)
       }
     >
       <div className="card-body location-card-body pt-1">
