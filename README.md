@@ -22,4 +22,4 @@ The backend repo can be found here: https://github.com/joshpson/portfolio-weathe
 
 **Demo Account**
 
-You can see this project at https://pearson-josh-weather-portfolio-project.netlify.com/locations. Please either create an account or login with demo@demo.com, password: demo. Please note that API calls are limited to 1000 through the Dark Sky free account. 
+You can see this project at https://pearson-josh-weather-portfolio-project.netlify.com. Please either create an account or login with demo@demo.com, password: demo. Please note that API calls are limited to 1000 through the Dark Sky free account. 
