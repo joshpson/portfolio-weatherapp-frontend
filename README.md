@@ -4,7 +4,7 @@ FreshAir is a weather application built as my final portfolio project at Flatiro
 
 This is a fully responsive application built from a mobile-first perspective. Users can securely create an account and save locations for future reference. Locations dynamically display weather data from Dark Sky's API, changing color and animations to reflect current/future conditions.
 
-Please take a look at the frontend and backend repos on github.
+The backend repo can be found here: https://github.com/joshpson/portfolio-weatherapp-backend
 
 - Josh Pearson, jpearson846@gmail.com
 
