@@ -1,8 +1,8 @@
 **Summary**
 
-FreshAir is a weather application built as my final portfolio project at Flatiron's web development immersive program in Washington. Weather data is provided by the Dark Sky API. The design is mostly copied from the excellent Weather Timeline for Android - if you like this app please go download Weather Timeline!
+FreshAir is a weather application built as my final portfolio project at Flatiron's web development immersive program in Washington. Weather data is provided by the Dark Sky API. The design is mostly copied from the excellent Weather Timeline for Android - if you like this app please go download Weather Timeline! https://play.google.com/store/apps/details?id=com.samruston.weather
 
-This is a fully responsive application built from a mobile-first perspective. Users can securely create an account and save locations for future reference. Locations dynamically display weather data from Dark Sky's API, changing color and animations to reflect current/future conditions.
+This is a fully responsive application built from a mobile-first perspective. Users can securely create an account and save locations for future reference. Locations dynamically display weather data from Dark Sky's API (https://darksky.net/dev), changing color and animations to reflect current/future conditions.
 
 The backend repo can be found here: https://github.com/joshpson/portfolio-weatherapp-backend
 
