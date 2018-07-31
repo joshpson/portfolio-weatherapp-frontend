@@ -49,16 +49,17 @@ const Navbar = ({ currentUser, featuredLocation, logout, mobile }) => {
                   {currentUser.first_name}
                 </a>
                 <div className="dropdown-menu dropdown-menu-right">
+                  <Link className="dropdown-item" to="/about">
+                    About
+                  </Link>
                   <Link className="dropdown-item" to="/new-location">
-                    Add Location
+                    New Location
                   </Link>
 
                   <Link className="dropdown-item" to="/settings">
                     Settings
                   </Link>
-                  <Link className="dropdown-item" to="/about">
-                    About
-                  </Link>
+
                   <Link
                     className="dropdown-item"
                     to="/login"
