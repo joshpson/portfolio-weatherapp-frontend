@@ -6,13 +6,13 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
     <div>
       <div className="row justify-content-md-center justify-content-left location-header-row">
-        <div className="col-auto align-self-left">
+        <div className="col-3 col-md-auto align-self-left">
           <img
             className="featured-icon"
             src={iconHourSrc(weather.currently.icon)}
           />
         </div>
-        <div className="col-auto text-left align-self-center pl-0 featured-details">
+        <div className="col-9 col-md-auto text-left align-self-center featured-details">
           {!mobile ? (
             <div>
               <span className="featured-location-name">
@@ -28,7 +28,7 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
             <div>
               <span className="featured-location-summary">
                 <strong>
-                  Currently - {Math.round(weather.currently.temperature)}
+                  Currently {Math.round(weather.currently.temperature)}
                   <i className="wi wi-degrees" />
                 </strong>
                 <br />
