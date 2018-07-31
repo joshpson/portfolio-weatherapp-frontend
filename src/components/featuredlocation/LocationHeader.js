@@ -5,27 +5,39 @@ import { iconHourSrc } from "../../actions/icons";
 const LocationHeader = ({ location, weather, windowSize, mobile }) => {
   return (
     <div>
-      <div className="row justify-content-center mb-lg-0 location-header-row">
-        <div className="col-auto pr-1 order-2 pl-0 order-md-1 align-self-center">
+      <div className="row justify-content-md-center justify-content-left location-header-row">
+        <div className="col-auto align-self-left">
           <img
             className="featured-icon"
             src={iconHourSrc(weather.currently.icon)}
           />
         </div>
-        <div className="col-md-auto col-12 pl-md-1 order-1 order-md2 text-center align-self-center featured-location-name">
-          <div>{location.name}</div>
+        <div className="col-auto text-left align-self-center pl-0 featured-details">
+          {!mobile ? (
+            <div>
+              <span className="featured-location-name">
+                {Math.round(weather.currently.temperature)}
+                <i className="wi wi-degrees" /> - {location.name}
+              </span>
+              <br />
+              <span className="featured-location-summary">
+                Currently: {weather.currently.summary}
+              </span>
+            </div>
+          ) : (
+            <div>
+              <span className="featured-location-summary">
+                <strong>
+                  Currently - {Math.round(weather.currently.temperature)}
+                  <i className="wi wi-degrees" />
+                </strong>
+                <br />
+                {weather.currently.summary}
+              </span>
+            </div>
+          )}
         </div>
-        <div className="col-auto pl-md-1 order-3 featured-location-degrees align-self-center">
-          <span>
-            {Math.round(weather.currently.temperature)}
-            <i className="wi wi-degrees" />
-          </span>
-        </div>
-        {!mobile ? (
-          <div className="col-12 text-center featured-location-summary order-4 pb-3">
-            Currently: {weather.currently.summary}
-          </div>
-        ) : null}
+        <div className="col-1" />
       </div>
     </div>
   );

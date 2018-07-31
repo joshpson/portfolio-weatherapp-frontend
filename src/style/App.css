@@ -151,7 +151,7 @@
 }
 
 .featured-icon {
-  width: 10vw;
+  width: 150px;
 }
 
 .featured-nav {
@@ -159,13 +159,9 @@
 }
 
 .featured-location-name {
-  font-size: 3.5em;
-  min-width: 200px;
+  font-size: 2.5em;
 }
 
-.featured-location-degrees {
-  font-size: 3.5em;
-}
 .featured-location-summary {
   font-size: 1.5em;
 }
@@ -256,20 +252,24 @@ Media Queries
 }
 
 @media (max-width: 576px) {
+  .featured-location-name {
+    font-size: 8vw;
+  }
+
+  .featured-location-summary {
+    font-size: 5vw;
+  }
+
+  .featured-details {
+    line-height: 6vw;
+  }
+
   .login-logo {
     height: 30vw;
   }
 
   .featured-icon {
-    width: 15vw;
-  }
-
-  .featured-location-name {
-    font-size: 10vw;
-  }
-
-  .featured-location-degrees {
-    font-size: 10vw;
+    width: 23vw;
   }
 
   .featured-detail-text {

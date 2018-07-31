@@ -17,7 +17,7 @@ const FeaturedDetailsPane = ({
   timezone
 }) => {
   return (
-    <div className="row justify-content-between justify-content-md-center no-gutters text-center pt-md-2">
+    <div className="row justify-content-between justify-content-md-center no-gutters text-center">
       {!mobile ? <div className="col-1" /> : null}
       <DetailsIcon
         iconClass="wi-umbrella"

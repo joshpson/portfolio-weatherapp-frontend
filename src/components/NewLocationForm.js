@@ -35,7 +35,7 @@ class NewLocationForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="p-2">
         {" "}
         <div className="card location-form night">
           <h5 className="card-header">New Location</h5>
