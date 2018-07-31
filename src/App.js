@@ -6,6 +6,8 @@ import { loadUser } from "./actions/user";
 import { updateWindowSize } from "./actions/window";
 import LocationsContainer from "./containers/LocationsContainer.js";
 import NewLocationForm from "./components/NewLocationForm.js";
+import About from "./components/About.js";
+
 import UserLoginForm from "./components/users/UserLoginForm.js";
 import UserSettings from "./components/users/UserSettings.js";
 import Navbar from "./components/Navbar.js";
@@ -68,6 +70,7 @@ class App extends Component {
                 component={LocationsContainer}
                 isAuthenticated={this.props.isAuthenticated}
               />
+              <Route path="/about" component={About} />
               <PrivateRoute
                 exact
                 path="/locations"

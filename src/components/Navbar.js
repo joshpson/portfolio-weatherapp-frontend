@@ -52,8 +52,12 @@ const Navbar = ({ currentUser, featuredLocation, logout, mobile }) => {
                   <Link className="dropdown-item" to="/new-location">
                     Add Location
                   </Link>
+
                   <Link className="dropdown-item" to="/settings">
                     Settings
+                  </Link>
+                  <Link className="dropdown-item" to="/about">
+                    About
                   </Link>
                   <Link
                     className="dropdown-item"
