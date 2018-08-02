@@ -151,7 +151,7 @@ class UserLoginForm extends React.Component {
                   />
                 </div>
               )}
-              <button type="submit" className="btn rain">
+              <button type="submit" className="btn rain btn-block text-white">
                 {this.state.login ? "Login" : "Join"}
               </button>
             </form>
