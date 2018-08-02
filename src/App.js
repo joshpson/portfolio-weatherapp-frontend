@@ -42,7 +42,6 @@ class App extends Component {
     window.addEventListener(
       "resize",
       debounce(() => {
-        console.log(window.innerWidth);
         this.props.updateWindowSize(window.innerWidth);
       }, 200)
     );
