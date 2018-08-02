@@ -15,7 +15,11 @@ const HourItemDesktop = ({ hour, timezone }) => {
     >
       <div className="row  justify-content-left align-items-center">
         <div className="col-auto p-0">
-          <img className="detail-icon" src={iconHourSrc(hour.icon)} />
+          <img
+            className="detail-icon"
+            src={iconHourSrc(hour.icon)}
+            alt={hour.icon}
+          />
         </div>
         <div className="col-auto p-0">
           <span className="hour-card-temp-details">

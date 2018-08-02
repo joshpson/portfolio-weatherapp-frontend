@@ -24,6 +24,7 @@ const LocationCard = ({ weather, location, remove, metric }) => {
                 <img
                   className="card-icon"
                   src={iconHourSrc(weather.currently.icon)}
+                  alt={weather.currently.icon}
                 />
               </div>
               <div className="col-9 p-2 p-md-0">

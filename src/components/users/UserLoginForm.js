@@ -28,6 +28,7 @@ class UserLoginForm extends React.Component {
 
   toggleLogin = e => {
     e.preventDefault();
+    this.props.clearErrors();
     this.setState({
       login: !this.state.login,
       ...initialFormState
@@ -58,7 +59,12 @@ class UserLoginForm extends React.Component {
         <div className="row justify-content-center p-0">
           <div className="col-auto pl-0">
             <div className="login-header">
-              <img className="login-logo" src={cloudyDayDark} /> FreshAir
+              <img
+                className="login-logo"
+                src={cloudyDayDark}
+                alt="cloudy-day-icon"
+              />{" "}
+              FreshAir
             </div>
           </div>
         </div>
@@ -67,6 +73,11 @@ class UserLoginForm extends React.Component {
             {this.state.login ? "Please sign in" : "Create an account"}
           </h5>
           <div className="card-body">
+            {this.props.errors ? (
+              <div className="alert alert-primary" role="alert">
+                {this.props.errors}
+              </div>
+            ) : null}
             <form onSubmit={this.handleSubmit}>
               {this.state.login ? null : (
                 <div className="row">
@@ -166,11 +177,18 @@ class UserLoginForm extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     authenticateUser: userData => dispatch(authenticateUser(userData)),
-    saveUser: userData => dispatch(saveUser(userData))
+    saveUser: userData => dispatch(saveUser(userData)),
+    clearErrors: () => dispatch({ type: "CLEAR_ERRORS" })
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    errors: state.errors.login
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(UserLoginForm);

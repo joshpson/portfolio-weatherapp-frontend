@@ -32,7 +32,7 @@ class LocationsContainer extends React.Component {
           <div>
             {this.props.userLocations.length ? (
               <div>
-                <div className="p-2 card-columns">
+                <div className="p-3 card-columns">
                   <CSSTransitionGroup
                     transitionName="location-cards"
                     transitionAppear={true}

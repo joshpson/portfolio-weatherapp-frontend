@@ -63,7 +63,11 @@ const About = () => {
       <div>
         <div className="row justify-content-left align-items-center">
           <div className="col-1 align-self-center">
-            <img src={day} className="about-bullet" />
+            <img
+              src={day}
+              className="about-bullet"
+              alt="sun-icon-bullet-point"
+            />
           </div>
           <div className="col-11 align-self-center">
             FreshAir is a single page responsive application built using Ruby on
@@ -73,7 +77,11 @@ const About = () => {
         <br />
         <div className="row justify-content-left align-items-center">
           <div className="col-1 align-self-center">
-            <img src={day} className="about-bullet" />
+            <img
+              src={day}
+              className="about-bullet"
+              alt="sun-icon-bullet-point"
+            />
           </div>
           <div className="col-11 align-self-center">
             Rails handles all API calls, stores user and location data, and
@@ -83,7 +91,11 @@ const About = () => {
         <br />
         <div className="row justify-content-left align-items-center">
           <div className="col-1 align-self-center">
-            <img src={day} className="about-bullet" />
+            <img
+              src={day}
+              className="about-bullet"
+              alt="sun-icon-bullet-point"
+            />
           </div>
           <div className="col-11 align-self-center">
             Location data is created through Google's Place Search and
@@ -93,7 +105,11 @@ const About = () => {
         <br />
         <div className="row justify-content-left align-items-center">
           <div className="col-1 align-self-center">
-            <img src={day} className="about-bullet" />
+            <img
+              src={day}
+              className="about-bullet"
+              alt="sun-icon-bullet-point"
+            />
           </div>
           <div className="col-11 align-self-center">
             Redux is used to handle state and React Router is used for routes
@@ -104,7 +120,11 @@ const About = () => {
         <br />
         <div className="row justify-content-left align-items-center">
           <div className="col-1 align-self-center">
-            <img src={day} className="about-bullet" />
+            <img
+              src={day}
+              className="about-bullet"
+              alt="sun-icon-bullet-point"
+            />
           </div>
           <div className="col-11 align-self-center">
             Bootstrap and custom CSS are used on the front-end and Recharts are

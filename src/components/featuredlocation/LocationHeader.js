@@ -10,6 +10,7 @@ const LocationHeader = ({ location, weather, windowSize, mobile }) => {
           <img
             className="featured-icon"
             src={iconHourSrc(weather.currently.icon)}
+            alt={weather.currently.icon}
           />
         </div>
         <div className="col-auto text-left align-self-center pl-0 featured-details">

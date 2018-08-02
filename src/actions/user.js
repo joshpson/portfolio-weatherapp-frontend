@@ -109,7 +109,12 @@ const saveUser = userData => dispatch => {
       dispatch({ type: "USER_POSTED" });
       dispatch(authenticateUser(userData));
     } else {
-      dispatch({ type: "USER_POST_FAILED" });
+      res.json().then(response => {
+        console.log(response);
+        let errors = response.errors.join(" ");
+        console.log(errors);
+        dispatch({ type: "USER_POST_FAILED", errors });
+      });
     }
   });
 };

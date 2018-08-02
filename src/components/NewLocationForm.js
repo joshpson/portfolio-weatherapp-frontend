@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import debounce from "lodash/debounce";
 import { searchNewLocation, saveLocation } from "../actions/location";
 import Footer from "./Footer";
 
@@ -17,13 +18,13 @@ class NewLocationForm extends React.Component {
       {
         [e.target.name]: e.target.value
       },
-      () => {
-        if (this.state.query.length > 1) {
-          this.props.searchNewLocation(this.state.query);
-        }
-      }
+      this.searchLocation()
     );
   };
+
+  searchLocation = debounce(() => {
+    this.props.searchNewLocation(this.state.query);
+  }, 250);
 
   handleLocationSelection = prediction => {
     let locationData = {
@@ -37,7 +38,7 @@ class NewLocationForm extends React.Component {
     return (
       <div className="p-2">
         {" "}
-        <div className="card location-form night">
+        <div className="card location-form rain">
           <h5 className="card-header">New Location</h5>
           <div className="card-body">
             <form onSubmit={e => e.preventDefault()}>
@@ -55,12 +56,12 @@ class NewLocationForm extends React.Component {
             </form>
           </div>
           {this.state.query.length > 2 ? (
-            <ul className="list-group list-group-flush night">
+            <ul className="list-group list-group-flush rain">
               {this.props.predictions.map(prediction => {
                 return (
                   <li
                     onClick={() => this.handleLocationSelection(prediction)}
-                    className="list-group-item night"
+                    className="list-group-item rain"
                     key={prediction.id}
                   >
                     {prediction.description}

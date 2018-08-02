@@ -13,7 +13,11 @@ const DayItemDesktop = ({ day, timezone }) => {
     >
       <div className="row justify-content-left align-items-center">
         <div className="col-auto p-0">
-          <img className="detail-icon" src={iconDaySrc(day.icon)} />
+          <img
+            className="detail-icon"
+            src={iconDaySrc(day.icon)}
+            alt={day.icon}
+          />
         </div>
         <div className="col-auto p-0">
           <span className="day-card-temp">
