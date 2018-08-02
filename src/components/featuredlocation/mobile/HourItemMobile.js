@@ -15,7 +15,11 @@ const HourItemMobile = ({ hour, index, metric, timezone }) => {
       <div className="row justify-content-left align-items-center">
         <div className="col-3 align-self-center">
           <div>
-            <img className="summary-icon-mobile" src={iconHourSrc(hour.icon)} />
+            <img
+              className="summary-icon-mobile"
+              src={iconHourSrc(hour.icon)}
+              alt={hour.icon}
+            />
           </div>
         </div>
         <div className="col-9">

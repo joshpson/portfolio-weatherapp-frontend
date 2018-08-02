@@ -25,6 +25,7 @@ const Navbar = ({ currentUser, featuredLocation, logout, mobile }) => {
                     ? iconNavbarSrc(featuredLocation.weather.currently.icon)
                     : cloudyDark
                 }
+                alt="header-icon"
               />
               <span className="pt-2 pb-0">
                 {" "}

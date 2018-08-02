@@ -5,7 +5,6 @@ import Octicon, { Eye } from "@githubprimer/octicons-react";
 import { cardinalDirection } from "../../actions/direction";
 import { sunTime } from "../../actions/suntime";
 import DetailsIcon from "./DetailsIcon";
-
 import { phaseCalculator } from "../../actions/moon";
 
 const FeaturedDetailsPane = ({
@@ -42,7 +41,7 @@ const FeaturedDetailsPane = ({
         description="Feels"
         information={[
           Math.round(currently.apparentTemperature),
-          <i className="wi wi-degrees" />
+          <i className="wi wi-degrees" key="degrees" />
         ]}
       />
       <DetailsIcon
@@ -68,7 +67,7 @@ const FeaturedDetailsPane = ({
       </div>
       {!mobile ? (
         <DetailsIcon
-          iconClass="wi-day-sunny rotate-test"
+          iconClass="wi-day-sunny"
           description="UV Index"
           information={currently.uvIndex}
         />
@@ -77,7 +76,7 @@ const FeaturedDetailsPane = ({
         iconClass={sunTime(currently, today, tomorrow).class}
         description={sunTime(currently, today, tomorrow).type}
         information={[
-          <Moment format="h:mm A" unix tz={timezone}>
+          <Moment format="h:mm A" key="momentTime" unix tz={timezone}>
             {sunTime(currently, today, tomorrow).time}
           </Moment>
         ]}

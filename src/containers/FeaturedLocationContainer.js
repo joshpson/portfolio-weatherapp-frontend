@@ -60,7 +60,11 @@ class FeaturedLocationContainer extends React.Component {
                 <div>
                   {this.props.alerts.map((alert, index) => {
                     return (
-                      <div className="alert alert-info" role="alert">
+                      <div
+                        className="alert alert-info"
+                        role="alert"
+                        key={"alert" + index}
+                      >
                         <div data-toggle="collapse" href={"#alert" + index}>
                           <h3>
                             {alert.title} - {alert.severity}

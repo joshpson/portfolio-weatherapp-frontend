@@ -57,6 +57,7 @@ class SevenDaysMobile extends React.Component {
                         index={index}
                         key={day.time}
                         timezone={this.props.weather.timezone}
+                        metric={this.props.metric}
                       />
                     );
                   } else {
@@ -74,7 +75,8 @@ class SevenDaysMobile extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    weather: state.featuredLocation.weather
+    weather: state.featuredLocation.weather,
+    metric: state.metric
   };
 };
 

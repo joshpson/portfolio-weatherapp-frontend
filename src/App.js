@@ -7,11 +7,11 @@ import { updateWindowSize } from "./actions/window";
 import LocationsContainer from "./containers/LocationsContainer.js";
 import NewLocationForm from "./components/NewLocationForm.js";
 import About from "./components/About.js";
-
 import UserLoginForm from "./components/users/UserLoginForm.js";
 import UserSettings from "./components/users/UserSettings.js";
 import Navbar from "./components/Navbar.js";
 import FeaturedLocationContainer from "./containers/FeaturedLocationContainer";
+import debounce from "lodash/debounce";
 import "./style/weather-icons-wind.min.css";
 import "./style/weather-icons.min.css";
 import "./style/colors.css";
@@ -39,8 +39,12 @@ class App extends Component {
   componentDidMount() {
     this.props.mountUser();
     this.props.updateWindowSize(window.innerWidth);
-    window.addEventListener("resize", () =>
-      this.props.updateWindowSize(window.innerWidth)
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        console.log(window.innerWidth);
+        this.props.updateWindowSize(window.innerWidth);
+      }, 200)
     );
   }
 
@@ -57,12 +61,6 @@ class App extends Component {
         ) : (
           <div>
             {this.props.isAuthenticated ? <Navbar /> : null}
-            {this.props.errors.login ? (
-              <div className="alert alert-primary" role="alert">
-                {this.props.errors.login}
-              </div>
-            ) : null}
-
             <Switch>
               <PrivateRoute
                 exact
@@ -96,7 +94,6 @@ class App extends Component {
               <Route
                 path="/login"
                 render={props => {
-                  console.log(props);
                   return this.props.isAuthenticated ? (
                     props.location.state ? (
                       <Redirect to={props.location.state.from.pathname} />
@@ -123,7 +120,6 @@ const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
     isAuthenticated: !!state.currentUser,
-    errors: state.errors,
     fetchingUser: state.fetchingUser
   };
 };
