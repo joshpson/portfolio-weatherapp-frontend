@@ -166,6 +166,12 @@ class UserLoginForm extends React.Component {
                 </a>
               </li>
             </ul>
+            <hr />
+            {this.state.login ? (
+              <p className="text-center">
+                Demo Account: <br />Email: demo@demo.com<br />Password: demo
+              </p>
+            ) : null}
           </div>
         </div>
         <Footer />
